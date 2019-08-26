@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Autenticacao } from 'src/app/services/auth.service';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-aluno',
+  templateUrl: './login-aluno.component.html',
+  styleUrls: ['./login-aluno.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginAlunoComponent implements OnInit {
 
+  
   public formulario: FormGroup = new FormGroup({
     'matricula': new FormControl(null, [Validators.required]),
     'senha': new FormControl(null, [Validators.required, Validators.minLength(6)]) 

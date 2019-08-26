@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  @Output() public trocarModulo: EventEmitter<string> = new  EventEmitter()
+
+  constructor(
+  ) { }
 
   ngOnInit() {
+  }
+
+  public trocarModuloLogin(modulo: string): void{
+    this.trocarModulo.emit(modulo)
   }
 
 }
