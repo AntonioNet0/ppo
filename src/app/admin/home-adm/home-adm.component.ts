@@ -12,7 +12,7 @@ export class HomeAdmComponent implements OnInit {
   ngOnInit() {
   }
 
-  public openCity(evt, cityName):void {
+  public openCity(evt: Event, cityName):void {
     // Declare all variables
     var i, tabcontent, tablinks;
   
@@ -30,7 +30,7 @@ export class HomeAdmComponent implements OnInit {
   
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(cityName).style.display = "block";
-    document.querySelectorAll('.tablinks')[cityName==='London'? 0 :cityName==='Paris' ? 1: 2 ].className += ' active'
+    document.querySelectorAll('.tablinks')[cityName==='Turmas'? 0 : cityName==='Disciplinas' ? 1: cityName==='Alunos' ? 2 : cityName==="Professores" ? 3 : 4].className += ' active'
   
   }
 

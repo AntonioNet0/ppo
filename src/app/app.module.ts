@@ -12,12 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './acesso/banner/banner.component';
 import { AcessoComponent } from './acesso/acesso.component';
-import { TopoComponent } from './topo/topo.component';
+import { TopoComponent } from './acesso/topo/topo.component';
 import { LoginProfessorComponent } from './acesso/login-professor/login-professor.component';
 import { LoginAlunoComponent } from './acesso/login-aluno/login-aluno.component';
 import { HomeAlunoComponent } from './homes/home-aluno/home-aluno.component';
 import { HomeProfessorComponent } from './homes/home-professor/home-professor.component';
-import { HomeAdmComponent } from './homes/home-adm/home-adm.component';
+import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
+import { TopoAdmComponent } from './admin/home-adm/topo-adm/topo-adm.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HomeAdmComponent } from './homes/home-adm/home-adm.component';
     HomeAlunoComponent,
     HomeProfessorComponent,
     HomeAdmComponent,
+    TopoAdmComponent,
   ],
   imports: [
     BrowserModule,

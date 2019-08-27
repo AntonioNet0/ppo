@@ -1,11 +1,12 @@
-* {box-sizing: border-box}
+* {box-sizing: border-box;
+  justify-content: center}
 
 /* Style the tab */
 .tab {
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 30%;
+  width:  25%;
   height: 70vh;
 }
 
@@ -45,4 +46,8 @@
 
 .active {
     background-color: #cccccc
+}
+
+p{
+  color: #354d71;
 }

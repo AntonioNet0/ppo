@@ -1,0 +1,40 @@
+<div class="container">
+
+  <app-topo-adm></app-topo-adm>
+
+  <div class="row">
+    <div class="tab">
+      <button class="tablinks" (click)="openCity(event, 'Turmas')">Turmas</button>
+      <button class="tablinks" (click)="openCity(event, 'Disciplinas')">Disciplinas</button>
+      <button class="tablinks" (click)="openCity(event, 'Alunos')">Alunos</button>
+      <button class="tablinks" (click)="openCity(event, 'Professores')">Professores</button>
+      <button class="tablinks" (click)="openCity(event, 'Admin')">Admin</button>
+    </div>
+
+    <div id="Turmas" class="tabcontent">
+      <h3>Turmas</h3>
+      <p>Faça o cadastro de novas Turmas, edite ou remova alguma existente ou liste-as.</p>
+    </div>
+
+    <div id="Disciplinas" class="tabcontent" style="display: none">
+      <h3>Disciplinas</h3>
+      <p>Faça o cadastro das disciplinas, edite ou remova alguma existente ou liste-as.</p>
+    </div>
+
+    <div id="Alunos" class="tabcontent" style="display: none">
+      <h3>Alunos</h3>
+      <p>Faça o cadastro de novos alunos, edite ou remova algum existente ou liste-os.</p>
+    </div>
+
+    <div id="Professores" class="tabcontent" style="display: none">
+      <h3>Professores</h3>
+      <p>Faça o cadastro de novos professores, edite ou remova algum existente ou liste-os.</p>
+    </div>
+
+    <div id="Admin" class="tabcontent" style="display: none">
+      <h3>Administradores</h3>
+      <p>Faça o cadastro de novos administradores, edite ou remova algum existente ou liste-os.</p>
+    </div>
+
+  </div>
+</div>
