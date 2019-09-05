@@ -1,5 +1,6 @@
 * {box-sizing: border-box;
-  justify-content: center}
+  justify-content: center;
+}
 
 /* Style the tab */
 .tab {
@@ -39,7 +40,7 @@
   float: left;
   padding: 0px 12px;
   border: 1px solid #ccc;
-  width: 70%;
+  width: 75%;
   border-left: none;
   height: 70vh;
 }
@@ -51,3 +52,9 @@
 p{
   color: #354d71;
 }
+
+.btn{
+  background-color: #f8b435;
+  border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+

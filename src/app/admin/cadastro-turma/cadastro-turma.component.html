@@ -1,0 +1,31 @@
+<div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+    <h4 style="text-align: center">Gestão de Turmas</h4>
+    <div class="row" style="padding-left: 15px">
+        <div class="col col-sm-3 col-md-2 mb-2 col-3">
+            <div class="row mb-2"><button class="btn btn-primary btn-sm btn-block" type="button"><img
+                        src="./../../assets/btn-novo.png" />
+                    Novo</button>
+            </div>
+            <div class="row  mb-2" ><button class="btn btn-primary btn-sm btn-block" type="button" disabled>
+                <img src="./../../assets/btn-novo.png" />
+                    Editar</button>
+            </div>
+            <div class="row  mb-2"><button class="btn btn-primary btn-sm btn-block" type="button" disabled>
+                <img src="./../../assets/btn-excluir.png" />
+                    Exluir</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <form [formGroup]="formulario" (ngSubmit)="autenticar()">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Matricula" formControlName="matricula">
+                </div>
+
+
+               
+            </form>
+        </div>
+
+    </div>
+</div>

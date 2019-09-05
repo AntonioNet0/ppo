@@ -15,10 +15,15 @@ import { AcessoComponent } from './acesso/acesso.component';
 import { TopoComponent } from './acesso/topo/topo.component';
 import { LoginProfessorComponent } from './acesso/login-professor/login-professor.component';
 import { LoginAlunoComponent } from './acesso/login-aluno/login-aluno.component';
-import { HomeAlunoComponent } from './homes/home-aluno/home-aluno.component';
+import { HomeAlunoComponent } from './aluno/home-aluno/home-aluno.component';
 import { HomeProfessorComponent } from './homes/home-professor/home-professor.component';
 import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
-import { TopoAdmComponent } from './admin/home-adm/topo-adm/topo-adm.component';
+import { TopoAdmComponent } from './admin/topo-adm/topo-adm.component';
+import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
+import { CadastroAlunoComponent } from './admin/cadastro-aluno/cadastro-aluno.component';
+import { AdminComponent } from './admin/admin.component';
+import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +37,10 @@ import { TopoAdmComponent } from './admin/home-adm/topo-adm/topo-adm.component';
     HomeProfessorComponent,
     HomeAdmComponent,
     TopoAdmComponent,
+    TopoAlunoComponent,
+    CadastroAlunoComponent,
+    AdminComponent,
+    CadastroTurmaComponent,
   ],
   imports: [
     BrowserModule,

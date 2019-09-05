@@ -1,10 +1,8 @@
 <div class="container">
-
-  <app-topo-adm></app-topo-adm>
-
+  
   <div class="row">
     <div class="tab">
-      <button class="tablinks" (click)="openCity(event, 'Turmas')">Turmas</button>
+      <button class="tablinks active" (click)="openCity(event, 'Turmas')">Turmas</button>
       <button class="tablinks" (click)="openCity(event, 'Disciplinas')">Disciplinas</button>
       <button class="tablinks" (click)="openCity(event, 'Alunos')">Alunos</button>
       <button class="tablinks" (click)="openCity(event, 'Professores')">Professores</button>
@@ -13,7 +11,33 @@
 
     <div id="Turmas" class="tabcontent">
       <h3>Turmas</h3>
-      <p>Faça o cadastro de novas Turmas, edite ou remova alguma existente ou liste-as.</p>
+      <p>Faça o cadastro de novas Turmas, edite, remova ou liste-as.</p>
+
+
+      <div class="row" style="justify-content: center">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./turma']">Cadastro</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Lista</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Remover</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Editar</button>
+        </div>
+      </div>
+
     </div>
 
     <div id="Disciplinas" class="tabcontent" style="display: none">

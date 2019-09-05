@@ -1,10 +1,10 @@
-.card-home{
-    height: 52vh;
-    width: 50vw;
-    
-}
-
 .btn{
     background-color: #f8b435; 
     border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+
+.tab-controls{
+
+    border: 1px solid #ccc;
+    
 }
