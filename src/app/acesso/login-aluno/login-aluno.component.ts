@@ -32,7 +32,7 @@ export class LoginAlunoComponent implements OnInit {
           this.errorMessage = this.autenticacao.errorMessage
         })
     }else{
-      this.errorMessage = "Um dos campos não estão correto"
+      this.errorMessage = "Matrícula ou senha está incorreto. Por favor tente novamente, se não conseguir tente trocar de senha."
     }
   }
 
