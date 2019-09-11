@@ -32,7 +32,7 @@ export class LoginAlunoComponent implements OnInit {
           this.errorMessage = this.autenticacao.errorMessage
         })
     }else{
-      this.errorMessage = "Os campos não estão preenchidos"
+      this.errorMessage = "Um dos campos não estão correto"
     }
   }
 
