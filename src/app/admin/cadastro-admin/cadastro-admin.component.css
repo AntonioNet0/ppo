@@ -1,0 +1,13 @@
+.btn {
+    background-color: #f8b435; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+
+.page-link.active{
+    background-color: #343A40;
+    color: white;
+}
+
+.page-link{
+    color: black;
+}

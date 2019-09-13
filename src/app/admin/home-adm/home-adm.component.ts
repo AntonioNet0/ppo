@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-home-adm',
   templateUrl: './home-adm.component.html',
@@ -14,7 +15,7 @@ export class HomeAdmComponent implements OnInit {
 
   public openCity(evt: Event, cityName):void {
     // Declare all variables
-    var i, tabcontent, tablinks;
+    let i, tabcontent, tablinks;
   
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");

@@ -1,5 +1,10 @@
 .card-home{
-    height: 52vh;
+    height: 45vh;
     width: 100vw;
     vertical-align: middle
+}
+
+.btn{
+    background-color: #f8b435; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
 }

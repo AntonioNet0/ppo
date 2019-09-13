@@ -1,5 +1,18 @@
-.card-home{
-    height: 52vh;
-    width: 100vw;
+p {
+    color: black; 
+    text-align: justify; 
+    font-size: 16pt;
+    margin-left: 10px;
+    margin-right: 10px; 
+}
 
+.container {
+    min-height: 375px;
+    display: block;
+    height: 70vh;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    border: 1px solid rgba(211, 211, 211, 1);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
