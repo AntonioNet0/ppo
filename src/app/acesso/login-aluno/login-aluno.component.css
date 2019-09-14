@@ -16,3 +16,15 @@ p {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+.btn{
+    background-color: #00507C; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+.btn:hover{
+    background-color: #DA0044; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+
+
+
+
