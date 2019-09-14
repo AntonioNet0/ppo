@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark ">
 
-      <a class="navbar-brand" href="#">Sistema Acadêmico</a>
+      <a class="navbar-brand" routerLink="/home-admin">Sistema Acadêmico</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
           <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSite">
 
-          <ul class="navbar-nav ml-auto" style="font-size: 10pt">
+          <ul class="navbar-nav ml-auto" >
 
               <li class="nav-item">
                   <a class="nav-link" [routerLink] = "['/home-admin']">Início</a>
@@ -21,7 +21,7 @@
                       Alunos
                   </a>
                   <div class="dropdown-menu" style="font-size: 10pt">
-                      <a class="dropdown-item" href="#">Cadastro</a>
+                      <a class="dropdown-item" routerLink="./aluno">Cadastro</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Listar</a>
                       <a class="dropdown-item" href="#">Remover</a>
@@ -34,7 +34,7 @@
                       Professor
                   </a>
                   <div class="dropdown-menu" style="font-size: 10pt">
-                      <a class="dropdown-item" href="#">Cadastro</a>
+                      <a class="dropdown-item"  routerLink="./professor">Cadastro</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Listar</a>
                       <a class="dropdown-item" href="#">Remover</a>
@@ -47,7 +47,7 @@
                       Turmas
                   </a>
                   <div class="dropdown-menu" style="font-size: 10pt">
-                      <a class="dropdown-item" href="#">Cadastro</a>
+                      <a class="dropdown-item" routerLink="./turma">Cadastro</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Listar</a>
                       <a class="dropdown-item" href="#">Remover</a>
@@ -60,7 +60,7 @@
                       Disciplinas
                   </a>
                   <div class="dropdown-menu" style="font-size: 10pt">
-                      <a class="dropdown-item" href="#">Cadastro</a>
+                      <a class="dropdown-item"  routerLink="./disciplina">Cadastro</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Listar</a>
                       <a class="dropdown-item" href="#">Remover</a>
@@ -73,7 +73,7 @@
                       Administrador
                   </a>
                   <div class="dropdown-menu" style="font-size: 10pt">
-                      <a class="dropdown-item" href="#">Cadastro</a>
+                      <a class="dropdown-item"  routerLink="./admin">Cadastro</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Listar</a>
                       <a class="dropdown-item" href="#">Remover</a>

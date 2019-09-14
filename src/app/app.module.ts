@@ -23,6 +23,9 @@ import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
 import { CadastroAlunoComponent } from './admin/cadastro-aluno/cadastro-aluno.component';
 import { AdminComponent } from './admin/admin.component';
 import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.component';
+import { CadastroDisciplinaComponent } from './admin/cadastro-disciplina/cadastro-disciplina.component';
+import { CadastroProfessorComponent } from './admin/cadastro-professor/cadastro-professor.component';
+import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.component';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.co
     CadastroAlunoComponent,
     AdminComponent,
     CadastroTurmaComponent,
+    CadastroDisciplinaComponent,
+    CadastroProfessorComponent,
+    CadastroAdminComponent,
   ],
   imports: [
     BrowserModule,

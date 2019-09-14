@@ -1,6 +1,7 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { Administrador } from '../shared/admin.model';
 
 @Injectable()
 export class Autenticacao{
@@ -13,7 +14,7 @@ export class Autenticacao{
     constructor(private  router: Router){
     }
 
-    public autenticar(matricula: string, senha: string): Promise<any>{
+    public autenticarAluno(matricula: string, senha: string): Promise<any>{
         this.errorMessage = undefined
         return firebase.auth().signInWithEmailAndPassword(matricula+this.dominio, senha)
             .then((resposta: any) => {

@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="tab">
       <button class="tablinks active" (click)="openCity(event, 'Turmas')">Turmas</button>
@@ -8,15 +8,44 @@
       <button class="tablinks" (click)="openCity(event, 'Professores')">Professores</button>
       <button class="tablinks" (click)="openCity(event, 'Admin')">Admin</button>
     </div>
+      <div id= "Turmas" class="tabcontent">
+        <h3>Turmas</h3>
+        <p>Faça o cadastro de novas Turmas, edite, remova ou liste-as.</p>
 
-    <div id="Turmas" class="tabcontent">
-      <h3>Turmas</h3>
-      <p>Faça o cadastro de novas Turmas, edite, remova ou liste-as.</p>
 
+        <div class="row" style="justify-content: center">
+          <div class="col col-sm-7 col-md-6">
+            <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./turma']">Cadastro</button>
+          </div>
+        </div>
+
+        <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+          <div class="col col-sm-7 col-md-6">
+            <button class="btn btn-primary btn-sm btn-block">Lista</button>
+          </div>
+        </div>
+
+        <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+          <div class="col col-sm-7 col-md-6">
+            <button class="btn btn-primary btn-sm btn-block">Remover</button>
+          </div>
+        </div>
+
+        <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+          <div class="col col-sm-7 col-md-6">
+            <button class="btn btn-primary btn-sm btn-block">Editar</button>
+          </div>
+        </div>
+
+      </div>
+    
+    <div id="Disciplinas" class="tabcontent" style="display: none">
+      <h3>Disciplinas</h3>
+      <p>Faça o cadastro das disciplinas, edite ou remova alguma existente ou liste-as.</p>
 
       <div class="row" style="justify-content: center">
         <div class="col col-sm-7 col-md-6">
-          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./turma']">Cadastro</button>
+          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./disciplina']">Cadastro</button>
         </div>
       </div>
 
@@ -40,24 +69,94 @@
 
     </div>
 
-    <div id="Disciplinas" class="tabcontent" style="display: none">
-      <h3>Disciplinas</h3>
-      <p>Faça o cadastro das disciplinas, edite ou remova alguma existente ou liste-as.</p>
-    </div>
-
     <div id="Alunos" class="tabcontent" style="display: none">
       <h3>Alunos</h3>
       <p>Faça o cadastro de novos alunos, edite ou remova algum existente ou liste-os.</p>
+
+      <div class="row" style="justify-content: center">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./aluno']">Cadastro</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Lista</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Remover</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Editar</button>
+        </div>
+      </div>
+
     </div>
 
     <div id="Professores" class="tabcontent" style="display: none">
       <h3>Professores</h3>
       <p>Faça o cadastro de novos professores, edite ou remova algum existente ou liste-os.</p>
+
+      <div class="row" style="justify-content: center">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./professor']">Cadastro</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Lista</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Remover</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Editar</button>
+        </div>
+      </div>
+
     </div>
 
     <div id="Admin" class="tabcontent" style="display: none">
       <h3>Administradores</h3>
       <p>Faça o cadastro de novos administradores, edite ou remova algum existente ou liste-os.</p>
+
+      <div class="row" style="justify-content: center">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block" [routerLink]="['./admin']">Cadastro</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Lista</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Remover</button>
+        </div>
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 10px; margin-bottom: 10px">
+        <div class="col col-sm-7 col-md-6">
+          <button class="btn btn-primary btn-sm btn-block">Editar</button>
+        </div>
+      </div>
+
     </div>
 
   </div>

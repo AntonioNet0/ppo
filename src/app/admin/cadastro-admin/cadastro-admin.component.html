@@ -1,0 +1,80 @@
+<div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+    <h4 style="text-align: center" class="mt-2 mb-3">Gestão de Administradores</h4>
+
+    <div class="row" style="padding-left: 15px">
+
+        <div class="col col-sm-3 col-md-2 mb-2 col-3">
+            <div class="row mb-2">
+                <button class="btn btn-primary btn-sm btn-block" type="button" (click)="novo()"><img
+                        src="./../../assets/btn-novo.png" />
+                    Novo</button>
+            </div>
+            <div class="row  mb-2">
+                <button class="btn btn-primary btn-sm btn-block" type="button" disabled>
+                    <img src="./../../assets/btn-novo.png" />
+                    Editar</button>
+            </div>
+            <div class="row  mb-2">
+                <button class="btn btn-primary btn-sm btn-block" type="button" disabled>
+                    <img src="./../../assets/btn-excluir.png" />
+                    Exluir</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <form [formGroup]="formulario" (ngSubmit)="cadastro()">
+                <div class="form-group">
+                    <input type="input" class="form-control mb-2" placeholder="Nome" formControlName="nome">
+                    <input type="input" class="form-control mb-2" placeholder="Login" formControlName="login">
+                    <input type="password" class="form-control mb-2" placeholder="Senha" formControlName="senha">
+                    <input type="email" class="form-control mb-2" placeholder="Email" formControlName="email">
+                </div>
+                <div style="float: right;">
+                    <button type="submit" class="btn btn-primary btn-sm mb-2 mr-1" [disabled]="estadoButton"
+                        (click)="cancelar()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm mb-2 ml-1" [disabled]="estadoButton"><img
+                            src="./../../assets/btn-salvar.png" /> Salvar</button>
+                </div>
+
+            </form>
+        </div>
+        <table class="table table-bordered mr-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let admin of admins">
+                    <th scope="row"></th>
+                    <td>{{ admin.nome }}</td>
+                    <td>{{ admin.login }}</td>
+                    <td>{{ admin.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col" style="padding:0px; display: flex; justify-content: center;" >
+            <nav aria-label="...">
+                <ul class="pagination  ">
+                    <li class="page-item">
+                        <a class="page-link " href="#" tabindex="-1">Anterior</a>
+                    </li>
+                    <div >
+                        <li class="page-item" ><a class="page-link active" href="#">1</a></li>
+                    </div>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Próximo</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+
+    </div>
+</div>

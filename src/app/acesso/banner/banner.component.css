@@ -1,10 +1,38 @@
-.card-home{
-    height: 52vh;
-    width: 50vw;
-    
+.banner{
+    min-height: 375px;
+    margin: 0px;
+    height: 70vh;   
+    border: 1px solid rgba(211, 211, 211, 1);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-.btn{
-    background-color: #f8b435; 
-    border: rgba(0, 0, 0, 0.5) 1px solid;
+div{
+    margin-top: 10%;
+}
+
+.brand-image {
+    max-height: 150px;
+    max-width: 40%; 
+    align-items: center;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    color: black; 
+    text-align: justify; 
+    font-size: 16pt;
+    margin-left: 10px;
+    margin-right: 10px; 
+}
+
+.btn-module {
+    height: 10vh;
+    margin: 0px 10px;
+    padding: 0px;
 }

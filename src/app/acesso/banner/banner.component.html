@@ -1,8 +1,9 @@
+<!--
 <div class="container d-flex justify-content-center ">
   <div class="card card-home" style="width: 20rem;">
     <div class="card-body">
       <div class="card-title"></div>
-      <p style="color: #354d71; text-align: justify; text-indent: 0.83em">Seja Bem-Vindo ao ???? ??????. Escolha o módulo
+      <p style="color: #354d71; text-align: justify; text-indent: 0.83em">Seja Bem-Vindo ao Aerium. Escolha o módulo
         de acesso que deseja acessar. E preencha as informações ao lado.</p>
       <div class="row justify-content-center">
         <div class="col col-sm-6 col-md-5 mb-5">
@@ -22,8 +23,42 @@
               Aluno
           </button>
         </div>
-
       </div>
     </div>
   </div>
+</div>
+-->
+<div class="container banner" style="background-color: white;">
+
+  <div>  
+    <img src="../../../assets/aerium.png" class="brand-image" alt="Logo Marca" />
+  </div>
+
+  <div class=""> 
+    <p>Seja Bem-Vindo ao Aerium. Escolha o módulo
+    de acesso que deseja acessar. E preencha as informações ao lado.</p>
+  </div>
+ 
+    <div class="row justify-content-center" style="margin: 0px">
+        <div class="col col-sm-6 col-md-5 mb-5 btn-module" >
+          <button 
+            type="button" 
+            style="margin: 0px"
+            class="btn btn-primary btn-sm btn-block" 
+            (click)="trocarModuloLogin('professor')">
+              Professor
+            </button>
+        </div>
+
+        <div class="col col-sm-6 col-md-5 mb-5 btn-module">
+          <button 
+            type="button" 
+            style="margin: 0px"
+            class="btn btn-primary btn-sm btn-block"      
+            (click)="trocarModuloLogin('aluno')">
+              Aluno
+          </button>
+        </div>
+      </div>
+
 </div>
