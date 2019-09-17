@@ -26,6 +26,7 @@ import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.co
 import { CadastroDisciplinaComponent } from './admin/cadastro-disciplina/cadastro-disciplina.component';
 import { CadastroProfessorComponent } from './admin/cadastro-professor/cadastro-professor.component';
 import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.component';
+import { IncluirDisciplinasComponent } from './admin/cadastro-turma/incluir-disciplinas/incluir-disciplinas.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.co
     CadastroDisciplinaComponent,
     CadastroProfessorComponent,
     CadastroAdminComponent,
+    IncluirDisciplinasComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,73 @@
+<!-- Modal -->
+<div class="modal fade" id="disciplinaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+    <div class="modal-content">
+      <form [formGroup]="formulario" (ngSubmit)="publicar()">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Dsiciplinas Cadastradas</h5>
+            <select class="custom-select mr-1 mt-3 ml-auto" id="formaBusca">
+              <option value="0" selected>Buscar por:</option>
+              <option value="codigo">Código</option>
+              <option value="nome">Nome</option>
+            </select>
+
+            <!--Dinâmico para mudar exemplo quando Código ou Nome-->
+            <input type="text" class="form-control ml-1 mt-3" placeholder="ex: Jóse" />
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+            <table class="table table-bordered mr-3">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Login</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let admin of admins">
+                  <th scope="row"></th>
+                  <td>{{ admin.nome }}</td>
+                  <td>{{ admin.login }}</td>
+                  <td>{{ admin.email }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="col" style="padding:0px; display: flex; justify-content: center;" >
+                <nav aria-label="...">
+                    <ul class="pagination  ">
+                        <li class="page-item">
+                            <a class="page-link " href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <div >
+                            <li class="page-item" ><a class="page-link active" href="#">1</a></li>
+                        </div>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+          </div>
+
+      </form>
+
+
+    </div>
+
+  </div>
+</div>

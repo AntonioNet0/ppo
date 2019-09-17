@@ -8,10 +8,10 @@ p {
 
 .container {
     min-height: 375px;
+    max-height: 475px;
     display: block;
     height: 70vh;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
+    
     border: 1px solid rgba(211, 211, 211, 1);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

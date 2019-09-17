@@ -1,7 +1,8 @@
 .banner{
     min-height: 375px;
     margin: 0px;
-    height: 70vh;   
+    height: 70vh; 
+    max-height: 475px;  
     border: 1px solid rgba(211, 211, 211, 1);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -44,4 +45,5 @@ p {
     background-color: #DA0044; 
     border: rgba(0, 0, 0, 0.5) 1px solid;
 }
+
 
