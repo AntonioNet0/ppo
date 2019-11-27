@@ -9,13 +9,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CadastroTurmaComponent implements OnInit {
 
   public formulario: FormGroup = new FormGroup({
-    'matricula': new FormControl(null, [Validators.required]),
-    'senha': new FormControl(null, [Validators.required, Validators.minLength(6)]) 
+    'codigo': new FormControl(null, [ Validators.required ]),
+    'nome': new FormControl(null, [ Validators.required ]),
+    'sala': new FormControl(null, [ Validators.required ]),
+    'disciplinas': new FormControl(null, [ Validators.required ]),
+    'turno': new FormControl('Turno', [ Validators.required ])
   })
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public a(): void{
+
   }
 
 }

@@ -13,8 +13,6 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './acesso/banner/banner.component';
 import { AcessoComponent } from './acesso/acesso.component';
 import { TopoComponent } from './acesso/topo/topo.component';
-import { LoginProfessorComponent } from './acesso/login-professor/login-professor.component';
-import { LoginAlunoComponent } from './acesso/login-aluno/login-aluno.component';
 import { HomeAlunoComponent } from './aluno/home-aluno/home-aluno.component';
 import { HomeProfessorComponent } from './homes/home-professor/home-professor.component';
 import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
@@ -27,6 +25,10 @@ import { CadastroDisciplinaComponent } from './admin/cadastro-disciplina/cadastr
 import { CadastroProfessorComponent } from './admin/cadastro-professor/cadastro-professor.component';
 import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.component';
 import { IncluirDisciplinasComponent } from './admin/cadastro-turma/incluir-disciplinas/incluir-disciplinas.component';
+import { LoginComponent } from './acesso/login/login.component';
+import { ListarAdminsComponent } from './admin/listar-admins/listar-admins.component';
+import { RemoverAdminComponent } from './admin/listar-admins/remover-admin/remover-admin.component';
+import { EditarAdminComponent } from './admin/listar-admins/editar-admin/editar-admin.component';
 
 
 @NgModule({
@@ -35,8 +37,6 @@ import { IncluirDisciplinasComponent } from './admin/cadastro-turma/incluir-disc
     BannerComponent,
     AcessoComponent,
     TopoComponent,
-    LoginProfessorComponent,
-    LoginAlunoComponent,
     HomeAlunoComponent,
     HomeProfessorComponent,
     HomeAdmComponent,
@@ -49,14 +49,22 @@ import { IncluirDisciplinasComponent } from './admin/cadastro-turma/incluir-disc
     CadastroProfessorComponent,
     CadastroAdminComponent,
     IncluirDisciplinasComponent,
+    LoginComponent,
+    ListarAdminsComponent,
+    RemoverAdminComponent,
+    EditarAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+
   ],
   providers: [ Autenticacao, AutenticacaoGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

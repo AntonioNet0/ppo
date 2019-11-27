@@ -11,6 +11,7 @@ export class Disciplina{
     public horaInicio: Date
     public horaFim: Date
     public turma: Turma
+    public periodo: string
     public notas: NotasDisciplina[] 
 
     constructor(){

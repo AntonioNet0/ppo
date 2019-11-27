@@ -3,6 +3,7 @@ import { Disciplina } from './disciplina.model';
 
 export class Professor{
 
+    public nome: string
     public matricula: string
     public senha: string
     public email: string

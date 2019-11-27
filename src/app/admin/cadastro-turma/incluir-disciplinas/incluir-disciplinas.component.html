@@ -1,27 +1,27 @@
 <!-- Modal -->
 <div class="modal fade" id="disciplinaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
 
     <div class="modal-content">
-      <form [formGroup]="formulario" (ngSubmit)="publicar()">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Dsiciplinas Cadastradas</h5>
-            <select class="custom-select mr-1 mt-3 ml-auto" id="formaBusca">
-              <option value="0" selected>Buscar por:</option>
-              <option value="codigo">Código</option>
-              <option value="nome">Nome</option>
-            </select>
+      <form [formGroup]="subFormulario">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dsiciplinas Cadastradas</h5>
+          <select class="custom-select mr-1 mt-3 ml-auto" id="formaBusca">
+            <option value="0" selected>Buscar por:</option>
+            <option value="codigo">Código</option>
+            <option value="nome">Nome</option>
+          </select>
 
-            <!--Dinâmico para mudar exemplo quando Código ou Nome-->
-            <input type="text" class="form-control ml-1 mt-3" placeholder="ex: Jóse" />
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+          <!--Dinâmico para mudar exemplo quando Código ou Nome-->
+          <input type="text" class="form-control ml-1 mt-3" placeholder="ex: Jóse" />
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-          <div class="modal-body">
-
+        <div class="modal-body">
+          <!--
             <table class="table table-bordered mr-3">
               <thead class="thead-light">
                 <tr>
@@ -40,29 +40,47 @@
                 </tr>
               </tbody>
             </table>
+          -->
+          <div class="row">
+            <div class="col col-6">
+              <table class="table table-bordered mr-3" id="todas-disciplinas">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Disciplinas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let disciplina of disciplinas">
 
-            <div class="col" style="padding:0px; display: flex; justify-content: center;" >
-                <nav aria-label="...">
-                    <ul class="pagination  ">
-                        <li class="page-item">
-                            <a class="page-link " href="#" tabindex="-1">Anterior</a>
-                        </li>
-                        <div >
-                            <li class="page-item" ><a class="page-link active" href="#">1</a></li>
-                        </div>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Próximo</a>
-                        </li>
-                    </ul>
-                </nav>
+                    <td (click)="adicionarDisciplina(disciplina.nome)">{{disciplina.nome}}</td>
+
+                  </tr>
+                </tbody>
+              </table>
             </div>
+            <div class="col col-6">
+              <table class="table table-bordered mr-3" id="disciplinas-selecionadas">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Disciplinas</th>
 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let disciplina of disciplinasSelecionadas">
+                    <td (click)="removerDisciplina(disciplina.nome)"> {{disciplina.nome}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
-          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
 
       </form>
 

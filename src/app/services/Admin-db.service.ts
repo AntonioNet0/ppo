@@ -1,17 +1,19 @@
 import * as firebase from 'firebase';
 import { Injectable } from '@angular/core';
 import { Administrador } from '../shared/admin.model';
-import { promise } from 'protractor';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AdminDB {
 
-    private dominio: string = '@dominio.com'
+    private dominio: string = '@dominioadmin.com'
 
     public errorMessage: string
     public token_id: string
 
-    constructor() {
+    constructor(
+        private router: Router
+    ) {
     }
 
     public cadastroAdmin(admin: Administrador): Promise<any> {
@@ -22,7 +24,7 @@ export class AdminDB {
 
                 firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`)
                     .set(admin)
-                console.log('chegou aqui')
+                this.router.navigate(['home-admin/admin/listar'])
 
             })
             .catch((erro: Error) => {
@@ -46,11 +48,19 @@ export class AdminDB {
 
                     admins.push(admin)
                 })
-                
+
                 return admins
             })
 
+    }
 
+    public removeAdmin(admin: Administrador): Promise<any> {
+        return firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`).remove()
+    }
+
+    public editarAdmin(admin: Administrador, login: string): Promise<any> {
+        delete admin.senha
+        return firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`).set(admin)
     }
 
 }

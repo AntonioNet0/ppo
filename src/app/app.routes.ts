@@ -9,18 +9,20 @@ import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.co
 import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.component';
 import { CadastroDisciplinaComponent } from './admin/cadastro-disciplina/cadastro-disciplina.component';
 import { CadastroProfessorComponent } from './admin/cadastro-professor/cadastro-professor.component';
+import { ListarAdminsComponent } from './admin/listar-admins/listar-admins.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
     { path: 'home-aluno', component: HomeAlunoComponent, canActivate: [ AutenticacaoGuard ]},
     { path: 'home-admin', component: AdminComponent, children:[
         { path: '', component: HomeAdmComponent },
-        { path: 'admin', component: CadastroAdminComponent },
+        { path: 'admin', children:[
+            { path: '', component: CadastroAdminComponent },
+            { path: 'listar', component: ListarAdminsComponent}
+        ] },
         { path: 'aluno', component: CadastroAlunoComponent },
         { path: 'disciplina', component: CadastroDisciplinaComponent },
         { path: 'professor', component: CadastroProfessorComponent },
         { path: 'turma', component: CadastroTurmaComponent },
-        
-        
     ] },
 ]
