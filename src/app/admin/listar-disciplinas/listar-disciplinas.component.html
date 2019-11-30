@@ -1,0 +1,72 @@
+<div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <h4 style="text-align: center" class="mt-3 mb-5">Disciplinas</h4>
+
+  <table class="table table-bordered mr-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nome</th>
+        <th scope="col">Código</th>
+        <th scope="col">Carga Horária</th>
+        <th scope="col">Matricula Professor</th>
+        <!--
+        <th scope="col">Hora Início</th>
+        <th scope="col">Hora Fim</th>
+        -->
+        <th scope="col">Período</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="disciplinasPagina !== null && disciplinasPagina.length !== 0 ; else tabelaVazia">
+      <tr *ngFor="let disciplina of disciplinasPagina">
+        <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
+
+          <button type="button" [value]="disciplina.codigo" (click)=" setDisciplinaTemp(disciplina)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+            <i class="fas fa-edit"></i>
+          </button>
+          
+          <button type="button" [value]="disciplina.matricula" (click)=" modalUsuario(disciplina)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+
+        </td>
+        <td>{{ disciplina.nome }}</td>
+        <td>{{ disciplina.codigo }}</td>
+        <td>{{ disciplina.cargaHoraria }}</td>
+        <td>{{ disciplina.professorMatricula }}</td>
+        <!--
+        <td>{{ disciplina.horaInicio }}</td>
+        <td>{{ disciplina.horaFim }}</td>
+        -->
+        <td>{{ disciplina.periodo }}</td>
+      </tr>
+    </tbody>
+    <ng-template #tabelaVazia>
+      <td></td>
+      <td>Nenhuma informação encontrada</td>
+      <td></td>
+      <td></td>
+    </ng-template>
+  </table>
+  <div class="col" style="padding:0px; display: flex; justify-content: center;">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link " (click)="exibirDisciplinaPaginacao(paginaAtual-1)" tabindex="-1">Anterior</a>
+        </li>
+        <div *ngFor="let num of paginacao">
+          <li class="page-item" [value]="num.val">
+            <a class="page-link" (click)="exibirDisciplinaPaginacao(num.val)" tabindex="-1">{{ num.val }}</a>
+          </li>
+        </div>
+        <li class="page-item">
+          <a class="page-link" (click)="exibirDisciplinaPaginacao(paginaAtual+1)" tabindex="-1">Próximo</a>
+        </li>
+      </ul>
+    </nav>
+
+    
+    <app-remover-disciplina [disciplina]="disciplinaTemp"></app-remover-disciplina>
+    <app-editar-disciplina [disciplina]="disciplinaTemp"></app-editar-disciplina>
+    
+  </div>

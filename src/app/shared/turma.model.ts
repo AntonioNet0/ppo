@@ -7,7 +7,7 @@ export class Turma{
     public codigo: string
     public nome: string
     public alunos: Aluno[]
-    public disciplina: Disciplina[]
+    public disciplinas: string
     public sala: string
     public turno: string
 

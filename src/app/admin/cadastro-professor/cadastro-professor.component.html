@@ -1,30 +1,40 @@
 <div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+    
     <h4 style="text-align: center" class="mt-2 mb-3">Gestão de Professores</h4>
+    
     <div class="row" style="padding-left: 15px">
+        
         <div class="col">
 
-            <form [formGroup]="formulario" (ngSubmit)="autenticar()">
+            <form [formGroup]="formulario" (ngSubmit)="cadastro()">
+                <div class="form-group">
+                    <input 
+                        type="input" 
+                        class="form-control mb-2" 
+                        placeholder="Nome" 
+                        formControlName="nome"
+                    />
+                </div>
+                <div class="form-group">
+                    <input 
+                        type="input" 
+                        class="form-control" 
+                        placeholder="Matricula" 
+                        formControlName="matricula"
+                    />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control mb-2" placeholder="Senha" formControlName="senha">
+                </div>
 
                 <div class="form-group">
-                    <input type="input" class="form-control mb-2" placeholder="Nome" />
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Matricula">
-                </div>
-                <div class="form-group">
-                    <input type="input" class="form-control mb-2" placeholder="Login" />
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control mb-2" placeholder="Senha">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control mb-2" placeholder="Email">
+                    <input type="email" class="form-control mb-2" placeholder="Email" formControlName="email">
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control mb-2" placeholder="telefone">
+                    <input type="text" class="form-control mb-2" placeholder="CPF" formControlName="cpf"/>
                 </div>
-
+                
                 <div style="float: right;">
                     <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="estadoButton">
                         Salvar

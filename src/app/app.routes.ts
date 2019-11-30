@@ -10,6 +10,10 @@ import { CadastroAdminComponent } from './admin/cadastro-admin/cadastro-admin.co
 import { CadastroDisciplinaComponent } from './admin/cadastro-disciplina/cadastro-disciplina.component';
 import { CadastroProfessorComponent } from './admin/cadastro-professor/cadastro-professor.component';
 import { ListarAdminsComponent } from './admin/listar-admins/listar-admins.component';
+import { ListarProfessoresComponent } from './admin/listar-professores/listar-professores.component';
+import { ListarDisciplinasComponent } from './admin/listar-disciplinas/listar-disciplinas.component';
+import { ListarTurmasComponent } from './admin/listar-turmas/listar-turmas.component';
+import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -20,9 +24,21 @@ export const ROUTES: Routes = [
             { path: '', component: CadastroAdminComponent },
             { path: 'listar', component: ListarAdminsComponent}
         ] },
-        { path: 'aluno', component: CadastroAlunoComponent },
-        { path: 'disciplina', component: CadastroDisciplinaComponent },
-        { path: 'professor', component: CadastroProfessorComponent },
-        { path: 'turma', component: CadastroTurmaComponent },
+        { path: 'aluno', children: [
+            { path: '', component: CadastroAlunoComponent },
+            { path: 'listar', component: ListarAlunosComponent }
+        ] },
+        { path: 'disciplina', children: [
+            { path: '', component: CadastroDisciplinaComponent},
+            { path: 'listar', component: ListarDisciplinasComponent } 
+        ] },
+        { path: 'professor', children:[
+            { path: '', component: CadastroProfessorComponent },
+            { path: 'listar', component: ListarProfessoresComponent }
+        ] },
+        { path: 'turma', children: [
+            { path: '', component: CadastroTurmaComponent },
+            { path: 'listar', component: ListarTurmasComponent }
+        ] },
     ] },
 ]

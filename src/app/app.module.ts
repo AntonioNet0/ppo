@@ -29,6 +29,17 @@ import { LoginComponent } from './acesso/login/login.component';
 import { ListarAdminsComponent } from './admin/listar-admins/listar-admins.component';
 import { RemoverAdminComponent } from './admin/listar-admins/remover-admin/remover-admin.component';
 import { EditarAdminComponent } from './admin/listar-admins/editar-admin/editar-admin.component';
+import { ListarProfessoresComponent } from './admin/listar-professores/listar-professores.component';
+import { EditarProfessorComponent } from './admin/listar-professores/editar-professor/editar-professor.component';
+import { RemoverProfessorComponent } from './admin/listar-professores/remover-professor/remover-professor.component';
+import { ListarDisciplinasComponent } from './admin/listar-disciplinas/listar-disciplinas.component';
+import { RemoverDisciplinaComponent } from './admin/listar-disciplinas/remover-disciplina/remover-disciplina.component';
+import { EditarDisciplinaComponent } from './admin/listar-disciplinas/editar-disciplina/editar-disciplina.component';
+import { ListarTurmasComponent } from './admin/listar-turmas/listar-turmas.component';
+import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.component';
+import { RemoverAlunoComponent } from './admin/listar-alunos/remover-aluno/remover-aluno.component';
+import { EditarAlunoComponent } from './admin/listar-alunos/editar-aluno/editar-aluno.component';
+
 
 
 @NgModule({
@@ -52,7 +63,18 @@ import { EditarAdminComponent } from './admin/listar-admins/editar-admin/editar-
     LoginComponent,
     ListarAdminsComponent,
     RemoverAdminComponent,
-    EditarAdminComponent
+    EditarAdminComponent,
+    ListarProfessoresComponent,
+    EditarProfessorComponent,
+    RemoverProfessorComponent,
+    ListarDisciplinasComponent,
+    RemoverDisciplinaComponent,
+    EditarDisciplinaComponent,
+    ListarTurmasComponent,
+    ListarAlunosComponent,
+    RemoverAlunoComponent,
+    EditarAlunoComponent,
+
   ],
   imports: [
     BrowserModule,

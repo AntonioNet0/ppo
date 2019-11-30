@@ -23,6 +23,7 @@
     "core-js": "^2.6.10",
     "firebase": "^6.6.2",
     "jquery": "^3.4.1",
+    "libphonenumber-js": "^1.7.29",
     "ngx-mask": "^8.1.6",
     "popper.js": "^1.16.0",
     "rxjs": "~6.3.3",

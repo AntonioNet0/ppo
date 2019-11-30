@@ -9,11 +9,12 @@ export class GenericValidator {
     static isValidCpf() {
         return (control: AbstractControl): Validators => {
             const cpf = control.value;
+            console.log(control.value)
             if (cpf) {
                 let numbers: any, digits: any, sum: any, i: any, result: any, equalDigits: any;
                 equalDigits = 1;
                 if (cpf.length < 11) {
-                    return null;
+                    return { cpfNotValid: true };
                 }
 
                 for (i = 0; i < cpf.length - 1; i++) {
@@ -34,6 +35,7 @@ export class GenericValidator {
                     result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
 
                     if (result !== Number(digits.charAt(0))) {
+                        console.log(control.value)
                         return { cpfNotValid: true };
                     }
                     numbers = cpf.substring(0, 10);

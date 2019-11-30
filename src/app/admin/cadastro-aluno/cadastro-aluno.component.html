@@ -3,7 +3,7 @@
     <div class="row" style="padding-left: 15px">
 
         <div class="col">
-            <form [formGroup]="formulario" (ngSubmit)="autenticar()">
+            <form [formGroup]="formulario" (ngSubmit)="cadastro()">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
                 </div>
@@ -17,14 +17,14 @@
                     <input type="email" class="form-control" placeholder="Email" formControlName="email">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="___.___.___-__" formControlName="cpf">
+                    <input type="text" class="form-control" placeholder="CPF" title="Apenas Números" formControlName="cpf">
                 </div>
                 <div class="form-group" style="display: flex">
                     <div class="col col-sm-8 col-md-5 col-lg-4">
                         <h5 class="my-2">Selecione a turma: </h5>
                     </div>
                     <select class="custom-select" id="inputGroupSelect01" formControlName="turma">
-                        <option *ngFor="let turma of turmas" [value]="turma.nome"></option>
+                        <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}</option>
                     </select>
                 </div>
 

@@ -7,9 +7,28 @@
     border: rgba(0, 0, 0, 0.5) 1px solid;
 }
 
+.page-link.active{
+    background-color: #343A40;
+    color: white;
+}
 
-.tab-controls{
+.page-link{
+    color: black;
+}
 
-    border: 1px solid #ccc;
-    
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+select.ng-valid.ng-touched {
+    border: 1px solid green;
 }

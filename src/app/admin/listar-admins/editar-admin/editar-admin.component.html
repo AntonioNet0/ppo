@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Editar Administrador</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="form.reset()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -12,7 +12,7 @@
 
         <div class="col">
 
-          <form [formGroup]="formulario" (ngSubmit)="cadastro()">
+          <form #form="ngForm" [formGroup]="formulario" (keyup)="formValido()">
             <div class="form-group">
               <input type="input" class="form-control mb-2 mx-auto col-7" title="Nome" 
                 formControlName="nome" [placeholder]="admin.nome">
@@ -33,9 +33,9 @@
           </form>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="form.reset()">Cancelar</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal"
-              (click)="confirmarAlteracoes()">Confirmar</button>
+              (click)="confirmarAlteracoes()" [disabled]="estadoBotao">Confirmar</button>
           </div>
         </div>
       </div>

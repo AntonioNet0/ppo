@@ -58,18 +58,17 @@
                         <h5 class="my-2">Selecione o turno: </h5>
                     </div>
                     <select class="custom-select" id="inputGroupSelect01" formControlName="turno">
-                        <option value="0" selected>Turno</option>
-                        <option value="manha">Manhã</option>
-                        <option value="tarde">Tarde</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
                     </select>
                 </div>
 
                 <div style="float: right;">
-                    <button type="submit" class="btn btn-primary btn-sm mb-2 ml-1" [disabled]="estadoButton"> 
+                    <button type="submit" class="btn btn-primary btn-sm mb-2 ml-1" [disabled]="estadoButton" (click)="cadastrar()"> 
                         Salvar
                     </button>
                 </div>
-                <app-incluir-disciplinas></app-incluir-disciplinas>
+                <app-incluir-disciplinas (disciplinasOutput)="inserirDisciplanas($event)"></app-incluir-disciplinas>
             </form>
             
 

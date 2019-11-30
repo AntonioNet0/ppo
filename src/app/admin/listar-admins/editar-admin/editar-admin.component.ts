@@ -13,6 +13,8 @@ export class EditarAdminComponent implements OnInit {
 
   @Input() public admin: Administrador
 
+  public estadoBotao: boolean = true
+
   public formulario: FormGroup = new FormGroup({
     'nome': new FormControl({value:'', disabled: false}, [Validators.required]),
     'login': new FormControl({value:'', disabled: true}),
@@ -27,12 +29,18 @@ export class EditarAdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  public formValido(): void{
+    if(this.formulario.valid){
+      this.estadoBotao = false
+    }else{ 
+      this.estadoBotao = true
+    }
+  }
+
   public confirmarAlteracoes(): void {
     if (!this.formulario.valid) {
 
       this.formulario.get('nome').markAsTouched()
-      this.formulario.get('login').markAsTouched()
-      this.formulario.get('senha').markAsTouched()
       this.formulario.get('email').markAsTouched()
 
 

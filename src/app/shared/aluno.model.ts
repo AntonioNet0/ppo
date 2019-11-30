@@ -8,7 +8,7 @@ class Aluno{
     public nome: string
     public email: string
     public cpf: string
-    public turma: Turma
+    public turma: string
     public boletim: Boletim
 
     constructor(){}

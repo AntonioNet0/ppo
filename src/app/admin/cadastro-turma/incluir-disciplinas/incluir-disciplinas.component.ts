@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 
 @Component({
   selector: 'app-incluir-disciplinas',
   templateUrl: './incluir-disciplinas.component.html',
-  styleUrls: ['./incluir-disciplinas.component.css']
+  styleUrls: ['./incluir-disciplinas.component.css'],
+  providers: [ DisciplinaBD ]
 })
 export class IncluirDisciplinasComponent implements OnInit {
 
@@ -12,12 +14,22 @@ export class IncluirDisciplinasComponent implements OnInit {
     
   })
 
-  public disciplinas: any[] = [{nome: 'disciplina 1'}, {nome: 'disciplina 2'}]
+  @Output() public disciplinasOutput: EventEmitter<string> = new EventEmitter()
+
+  public disciplinasText: any 
+
+  public disciplinas: any[] = []
   public disciplinasSelecionadas: any[] = []
 // 
-  constructor() { }
+  constructor(
+    private discplinaBD: DisciplinaBD
+  ) { }
 
   ngOnInit() {
+    this.discplinaBD.listaDisciplinas()
+      .then((disciplinas: any) => {
+        this.disciplinas = disciplinas
+      })
   }
 
   public adicionarDisciplina(valor: string): void{
@@ -28,6 +40,15 @@ export class IncluirDisciplinasComponent implements OnInit {
   public removerDisciplina(valor: string): void{
     this.disciplinas.push({nome: valor})
     this.disciplinasSelecionadas.splice(this.disciplinasSelecionadas.findIndex(d => d.nome === valor), 1)
+  }
+
+  public adicionarDisciplinas(): void{
+    this.disciplinasText = ''
+    this.disciplinasSelecionadas.forEach(d => {
+      this.disciplinasText += d.nome + '_'
+
+    });
+    this.disciplinasOutput.emit(this.disciplinasText)
   }
 
 }
