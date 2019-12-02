@@ -39,6 +39,9 @@ import { ListarTurmasComponent } from './admin/listar-turmas/listar-turmas.compo
 import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.component';
 import { RemoverAlunoComponent } from './admin/listar-alunos/remover-aluno/remover-aluno.component';
 import { EditarAlunoComponent } from './admin/listar-alunos/editar-aluno/editar-aluno.component';
+import { RemoverTurmaComponent } from './admin/listar-turmas/remover-turma/remover-turma.component';
+import { EditarTurmaComponent } from './admin/listar-turmas/editar-turma/editar-turma.component';
+import { AlterarDisciplinasComponent } from './admin/listar-turmas/alterar-disciplinas/alterar-disciplinas.component';
 
 
 
@@ -74,6 +77,9 @@ import { EditarAlunoComponent } from './admin/listar-alunos/editar-aluno/editar-
     ListarAlunosComponent,
     RemoverAlunoComponent,
     EditarAlunoComponent,
+    RemoverTurmaComponent,
+    EditarTurmaComponent,
+    AlterarDisciplinasComponent,
 
   ],
   imports: [

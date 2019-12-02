@@ -73,18 +73,28 @@ export class ListarTurmasComponent implements OnInit {
 
   }
 
-
-  public turmaTemp: Turma = new Turma()
-
+  public turmaTemp: Turma = {codigo: '', nome: '', alunos: [], disciplinas: '', sala: '', turno: '' }
 
   public modalUsuario(turma: Turma): void {
     let elemento = document.getElementById('body-modal') as HTMLInputElement
     elemento.innerHTML = "Você tem certeza que deseja excluir o Professor: " + turma.nome
-    this.setProfTemp(turma)
+    this.setTurmaTemp(turma)
   }
 
-  public setProfTemp(turma: Turma): void{
+  public setTurmaTemp(turma: Turma): void{
     this.turmaTemp = turma
+  }
+
+  public inserirDisciplanas(turma: Turma): void{
+    console.log(turma)
+    this.turmaBD.editarTurma(turma, turma.codigo)
+    .then(() => {
+      alert("Sucesso!")
+      window.location.reload()
+    },
+      (error: any) => {
+        alert("Erro!")
+      })
   }
 
 }

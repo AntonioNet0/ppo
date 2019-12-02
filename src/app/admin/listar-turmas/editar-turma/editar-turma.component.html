@@ -1,0 +1,64 @@
+<div class="modal fade bd-example-modal-lg" id="modalEditar" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Turma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="form.reset()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="body-modal">
+
+        <div class="col">
+          
+          <form #form="ngForm" [formGroup]="formulario" (change)="formValido()">
+
+              <div class="form-group">
+                  <input 
+                      type="text"
+                      class="form-control mb-2"
+                      [placeholder]="turma.codigo"
+                      formControlName="codigo"
+                  />
+              </div>
+
+              <div class="form-group">
+                  <input 
+                      type="text" 
+                      class="form-control mb-2" 
+                      [placeholder]="turma.nome" 
+                      formControlName="nome"
+                  />    
+              </div>
+              
+              <div class="form-group">
+                  <input 
+                      type="text" 
+                      class="form-control mb-2" 
+                      [placeholder]="turma.sala"
+                      formControlName="sala" 
+                  />
+              </div>
+              
+
+              <div class="form-group" style="display: flex">
+                  <div class="col col-sm-8 col-md-5 col-lg-4">
+                      <h5 class="my-2">Selecione o turno: </h5>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01" formControlName="turno">
+                      <option value="Manhã">Manhã</option>
+                      <option value="Tarde">Tarde</option>
+                  </select>
+              </div>
+
+          </form>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="form.reset()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal"
+              (click)="confirmarAlteracoes()" [disabled]="estadoBotao">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>

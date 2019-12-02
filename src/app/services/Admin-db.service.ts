@@ -16,7 +16,7 @@ export class AdminDB {
     ) {
     }
 
-    public cadastroAdmin(admin: Administrador): Promise<any> {
+    public async cadastroAdmin(admin: Administrador): Promise<any> {
         return firebase.auth().createUserWithEmailAndPassword(admin.login + this.dominio, admin.senha)
             .then((resposta: any) => {
 
@@ -34,9 +34,9 @@ export class AdminDB {
             )
     }
 
-    public listAdmin(): Promise<any> {
+    public async listAdmin(): Promise<any> {
 
-        return firebase.database().ref(`administradores`)
+        return firebase.database().ref(`administradores`).orderByChild('nome')
             .once('value')
             .then((snapshot: any) => {
                 let admins: Administrador[] = []
@@ -54,13 +54,17 @@ export class AdminDB {
 
     }
 
-    public removeAdmin(admin: Administrador): Promise<any> {
+    public async removeAdmin(admin: Administrador): Promise<any> {
         return firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`).remove()
     }
 
-    public editarAdmin(admin: Administrador, login: string): Promise<any> {
+    public async editarAdmin(admin: Administrador, login: string): Promise<any> {
         delete admin.senha
         return firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`).set(admin)
+    }
+
+    public async pesquisaAdmins(termo: string): Promise<any>{
+        return firebase.database().ref(`as`)
     }
 
 }

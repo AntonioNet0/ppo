@@ -35,7 +35,7 @@ export class ProfessorBD {
 
     public async listProfessores(): Promise<any> {
 
-        return firebase.database().ref(`professores`)
+        return firebase.database().ref(`professores`).orderByChild('nome')
             .once('value')
             .then((snapshot: any) => {
                 let professores: Professor[] = []

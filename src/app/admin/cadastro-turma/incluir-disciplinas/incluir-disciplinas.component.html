@@ -7,46 +7,28 @@
       <form [formGroup]="subFormulario">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Dsiciplinas Cadastradas</h5>
+          <!--
           <select class="custom-select mr-1 mt-3 ml-auto" id="formaBusca">
             <option value="0" selected>Buscar por:</option>
-            <option value="codigo">Código</option>
             <option value="nome">Nome</option>
+            <option value="periodo">Período</option>
           </select>
 
-          <!--Dinâmico para mudar exemplo quando Código ou Nome-->
+          <! --Dinâmico para mudar exemplo quando Código ou Nome- ->
           <input type="text" class="form-control ml-1 mt-3" placeholder="ex: Jóse" />
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+        -->
         </div>
 
         <div class="modal-body">
-          <!--
-            <table class="table table-bordered mr-3">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Login</th>
-                  <th scope="col">Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let admin of admins">
-                  <th scope="row"></th>
-                  <td>{{ admin.nome }}</td>
-                  <td>{{ admin.login }}</td>
-                  <td>{{ admin.email }}</td>
-                </tr>
-              </tbody>
-            </table>
-          -->
           <div class="row">
             <div class="col col-6">
               <table class="table table-bordered mr-3" id="todas-disciplinas">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Disciplinas</th>
+                    <th scope="col">Disciplinas Encontardas</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -62,7 +44,7 @@
               <table class="table table-bordered mr-3" id="disciplinas-selecionadas">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Disciplinas</th>
+                    <th scope="col">Disciplinas Selecionadas</th>
 
                   </tr>
                 </thead>

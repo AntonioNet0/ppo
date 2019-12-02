@@ -45,7 +45,13 @@ export class IncluirDisciplinasComponent implements OnInit {
   public adicionarDisciplinas(): void{
     this.disciplinasText = ''
     this.disciplinasSelecionadas.forEach(d => {
-      this.disciplinasText += d.nome + '_'
+      console.log(d)
+      if(this.disciplinasSelecionadas[this.disciplinasSelecionadas.length-1].nome === d.nome) {
+        this.disciplinasText += d.nome
+      }else{
+         this.disciplinasText += d.nome + '_'
+      }
+     
 
     });
     this.disciplinasOutput.emit(this.disciplinasText)

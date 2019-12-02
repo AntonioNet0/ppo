@@ -28,6 +28,7 @@ export class ListarAdminsComponent implements OnInit {
         this.paginacao = this.criarPaginacao()
         this.exibriAdminPaginacao(1)
       })
+  
   }
 
   private criarPaginacao(): any {

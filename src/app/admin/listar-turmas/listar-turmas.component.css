@@ -1,0 +1,10 @@
+.disciplinas{
+    color: #00507C;
+}
+
+.disciplinas:hover{
+    color: rgba(0, 80, 124, 1);
+    font-weight: bolder;
+    text-decoration: underline;
+    cursor: pointer;
+}

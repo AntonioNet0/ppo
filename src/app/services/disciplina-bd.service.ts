@@ -21,7 +21,7 @@ export class DisciplinaBD {
 
     public async listaDisciplinas(): Promise<any> {
 
-        return firebase.database().ref(`disciplinas`)
+        return firebase.database().ref(`disciplinas`).orderByChild('nome')
             .once('value')
             .then((snapshot: any) => {
                 let disciplinas: Disciplina[] = []

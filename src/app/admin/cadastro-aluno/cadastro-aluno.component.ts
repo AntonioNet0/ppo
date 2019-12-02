@@ -19,7 +19,7 @@ export class CadastroAlunoComponent implements OnInit {
     'matricula': new FormControl(null, [ Validators.required ]),
     'senha': new FormControl(null, [ Validators.required ]),
     'email': new FormControl(null, [ Validators.required ]),
-    'cpf': new FormControl(null, [ Validators.required, GenericValidator.isValidCpf ]),
+    'cpf': new FormControl(null, [ Validators.required, Validators.minLength(11), Validators.maxLength(11), GenericValidator.isValidCpf ]),
     'turma': new FormControl(null, [ Validators.required ])
   }) 
 

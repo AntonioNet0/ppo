@@ -11,6 +11,24 @@
     background-color: #343A40;
     color: white;
 }
+
 .page-link{
     color: black;
+}
+
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+select.ng-valid.ng-touched {
+    border: 1px solid green;
 }
