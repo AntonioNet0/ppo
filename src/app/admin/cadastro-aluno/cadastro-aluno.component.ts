@@ -59,7 +59,14 @@ export class CadastroAlunoComponent implements OnInit {
 
       this.alunoBD.cadastroAluno(aluno)
       .then(()=>{
-        alert("Sucesso!")
+        this.turmaBD.adicionarAluno(aluno.turma, {nome: aluno.nome, matricula: aluno.matricula})
+        .then(()=>{
+           alert("Sucesso!")
+        }),
+        (error: any) => {
+          alert("ERRO!")
+        }
+       
       },
       (error: any) => {
         alert("Erro!")

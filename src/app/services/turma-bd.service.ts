@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Professor } from '../shared/professor.model';
 import { Router } from '@angular/router';
 import { Turma } from '../shared/turma.model';
+import { Aluno } from '../shared/aluno.model';
 
 @Injectable()
 export class TurmaBD {
@@ -42,8 +43,17 @@ export class TurmaBD {
         return firebase.database().ref(`turmas/${turma.codigo}`).remove()
     }
 
-    public editarTurma(turma: Turma, codigo: string): Promise<any>{
+    public async editarTurma(turma: Turma, codigo: string): Promise<any>{
         return firebase.database().ref(`turmas/${codigo}`).set(turma)
     }
+
+    public async adicionarAluno(turmaCodigo: string, aluno: any): Promise<any>{
+        return firebase.database().ref(`turmas/${turmaCodigo}/alunos/${aluno.matricula}`).set(aluno)
+    }
+
+    public async removerAluno(turmaCodigo: string, aluno: any): Promise<any>{
+        return firebase.database().ref(`turmas/${turmaCodigo}/alunos/${aluno.matricula}`).remove()
+    }
+
 
 }

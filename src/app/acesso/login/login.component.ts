@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   public autenticar(): void{
     if(this.formulario.valid){
-      this.autenticacao.autenticarAluno(
+      this.autenticacao.autenticar(
         this.formulario.value.matricula,
         this.formulario.value.senha)
         .then(()=>{

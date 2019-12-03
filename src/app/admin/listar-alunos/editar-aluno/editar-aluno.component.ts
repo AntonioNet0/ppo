@@ -71,6 +71,12 @@ export class EditarAlunoComponent implements OnInit {
       
       this.alunoBD.editarAluno(aluno, this.aluno.matricula)
         .then(() => {
+          if(this.aluno.turma !== aluno.turma){
+            this.turmaBD.removerAluno(this.aluno.turma, {nome: aluno.nome, matricula: aluno.matricula})
+              .then(()=> {
+                this.turmaBD.adicionarAluno(aluno.turma, {nome: aluno.nome, matricula: aluno.matricula})
+              })
+          }
           alert('Sucesso!')
           window.location.reload()
         },

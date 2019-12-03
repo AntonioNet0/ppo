@@ -42,6 +42,7 @@ import { EditarAlunoComponent } from './admin/listar-alunos/editar-aluno/editar-
 import { RemoverTurmaComponent } from './admin/listar-turmas/remover-turma/remover-turma.component';
 import { EditarTurmaComponent } from './admin/listar-turmas/editar-turma/editar-turma.component';
 import { AlterarDisciplinasComponent } from './admin/listar-turmas/alterar-disciplinas/alterar-disciplinas.component';
+import { EncrDecrService } from './services/encrDecr.service';
 
 
 
@@ -89,7 +90,7 @@ import { AlterarDisciplinasComponent } from './admin/listar-turmas/alterar-disci
     RouterModule.forRoot(ROUTES),
 
   ],
-  providers: [ Autenticacao, AutenticacaoGuard ],
+  providers: [ Autenticacao, AutenticacaoGuard, EncrDecrService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

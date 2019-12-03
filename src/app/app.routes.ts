@@ -18,7 +18,7 @@ import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.compo
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
     { path: 'home-aluno', component: HomeAlunoComponent, canActivate: [ AutenticacaoGuard ]},
-    { path: 'home-admin', component: AdminComponent, children:[
+    { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },
         { path: 'admin', children:[
             { path: '', component: CadastroAdminComponent },
