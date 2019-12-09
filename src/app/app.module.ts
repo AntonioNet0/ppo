@@ -14,7 +14,6 @@ import { BannerComponent } from './acesso/banner/banner.component';
 import { AcessoComponent } from './acesso/acesso.component';
 import { TopoComponent } from './acesso/topo/topo.component';
 import { HomeAlunoComponent } from './aluno/home-aluno/home-aluno.component';
-import { HomeProfessorComponent } from './homes/home-professor/home-professor.component';
 import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
 import { TopoAdmComponent } from './admin/topo-adm/topo-adm.component';
 import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
@@ -42,7 +41,9 @@ import { EditarAlunoComponent } from './admin/listar-alunos/editar-aluno/editar-
 import { RemoverTurmaComponent } from './admin/listar-turmas/remover-turma/remover-turma.component';
 import { EditarTurmaComponent } from './admin/listar-turmas/editar-turma/editar-turma.component';
 import { AlterarDisciplinasComponent } from './admin/listar-turmas/alterar-disciplinas/alterar-disciplinas.component';
-import { EncrDecrService } from './services/encrDecr.service';
+import { ProfessorComponent } from './professor/professor.component';
+import { TopoProfessorComponent } from './professor/topo-professor/topo-professor.component';
+import { HomeProfessorComponent } from './professor/home-professor/home-professor.component';
 
 
 
@@ -53,7 +54,6 @@ import { EncrDecrService } from './services/encrDecr.service';
     AcessoComponent,
     TopoComponent,
     HomeAlunoComponent,
-    HomeProfessorComponent,
     HomeAdmComponent,
     TopoAdmComponent,
     TopoAlunoComponent,
@@ -81,6 +81,9 @@ import { EncrDecrService } from './services/encrDecr.service';
     RemoverTurmaComponent,
     EditarTurmaComponent,
     AlterarDisciplinasComponent,
+    ProfessorComponent,
+    TopoProfessorComponent,
+    HomeProfessorComponent,
 
   ],
   imports: [
@@ -90,7 +93,7 @@ import { EncrDecrService } from './services/encrDecr.service';
     RouterModule.forRoot(ROUTES),
 
   ],
-  providers: [ Autenticacao, AutenticacaoGuard, EncrDecrService ],
+  providers: [ Autenticacao, AutenticacaoGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

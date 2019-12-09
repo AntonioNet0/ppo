@@ -2,7 +2,6 @@ import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Administrador } from '../shared/admin.model';
-import { EncrDecrService } from './encrDecr.service';
 
 @Injectable()
 export class Autenticacao {
@@ -13,8 +12,7 @@ export class Autenticacao {
     public token_id: string
 
     constructor(
-        private router: Router,
-        private encrDecrService: EncrDecrService
+        private router: Router
     ) { }
 
     public async autenticar(matricula: string, senha: string): Promise<any> {
@@ -25,8 +23,8 @@ export class Autenticacao {
                     .then((idToken: string) => {
                         this.token_id = idToken
                         localStorage.setItem('idToken', idToken)
-                        let modulo = this.encrDecrService.set('123456$#@$^@1ERF', 'tipoLogin')
-                        let tipoLogin = this.encrDecrService.set('123456$#@$^@1ERF', 'aluno')
+                        let modulo = '67766362796274766120'
+                        let tipoLogin = '6E7968616220'
                         localStorage.setItem(modulo, tipoLogin)
                         this.router.navigate(['/home-aluno'])
                         console.log("autenticou aluno")
@@ -39,8 +37,8 @@ export class Autenticacao {
                             .then((idToken: string) => {
                                 this.token_id = idToken
                                 localStorage.setItem('idToken', idToken)
-                                let modulo = this.encrDecrService.set('123456$#@$^@1ERF', 'tipoLogin')
-                                let tipoLogin = this.encrDecrService.set('123456$#@$^@1ERF', 'professor')
+                                let modulo = '67766362796274766120'
+                                let tipoLogin = '63656273726666626520'
                                 localStorage.setItem(modulo, tipoLogin)
                                 this.router.navigate(['/home-professor'])
                                 console.log("autenticou prof")
@@ -53,8 +51,8 @@ export class Autenticacao {
                                     .then((idToken: string) => {
                                         this.token_id = idToken
                                         localStorage.setItem('idToken', idToken)
-                                        let modulo = this.encrDecrService.set('123456$#@$^@1ERF', 'tipoLogin')
-                                        let tipoLogin = this.encrDecrService.set('123456$#@$^@1ERF', 'admin')
+                                        let modulo =  '67766362796274766120'
+                                        let tipoLogin = '6E717A7661'
                                         localStorage.setItem(modulo, tipoLogin)
                                         this.router.navigate(['/home-admin'])
                                         console.log("autenticou admin")
@@ -68,15 +66,15 @@ export class Autenticacao {
     public autenticado(): boolean {
 
         if (this.token_id === undefined && localStorage.getItem('idToken') !== null) {
-            let modulo = this.encrDecrService.set('123456$#@$^@1ERF', 'tipoLogin')
-            let tipoLogin = this.encrDecrService.get('123456$#@$^@1ERF', localStorage.getItem(modulo))
-            if ( tipoLogin === 'aluno') {
+            let modulo = '67766362796274766120'
+            let tipoLogin = localStorage.getItem(modulo)
+            if ( tipoLogin === '6E7968616220') {
                 this.token_id = localStorage.getItem('idToken')
                 this.router.navigate(['home-aluno'])
-            } else if (tipoLogin === 'professor') {
+            } else if (tipoLogin === '63656273726666626520') {
                 this.token_id = localStorage.getItem('idToken')
                 this.router.navigate(['home-professor'])
-            } else if (tipoLogin === 'admin') {
+            } else if (tipoLogin === '6E717A7661') {
                 this.token_id = localStorage.getItem('idToken')
                 this.router.navigate(['home-admin'])
             }
@@ -92,7 +90,7 @@ export class Autenticacao {
     public async logout(): Promise<any> {
         if (localStorage.getItem('idToken') !== null) {
             localStorage.removeItem('idToken')
-            localStorage.removeItem(this.encrDecrService.set('123456$#@$^@1ERF', 'tipoLogin'))
+            localStorage.removeItem('67766362796274766120')
             this.router.navigate([''])
         }
     }

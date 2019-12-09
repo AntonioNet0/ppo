@@ -1,0 +1,24 @@
+div{
+    background-color: #00507C;
+}
+
+.dropdown-item{
+    color: white
+}
+
+.dropdown-item:hover{
+    color: black
+}
+
+.brand-image {
+    max-height: 150px;
+    max-width: 40%; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ a .brand-image{
+     padding-bottom: auto;
+     padding-top: auto
+
+ }

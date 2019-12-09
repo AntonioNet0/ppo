@@ -1,0 +1,18 @@
+
+.active {
+    background-color: #cccccc
+}
+
+p{
+  color: #354d71;
+}
+
+.btn{
+  background-color: #00507C; 
+  border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+.btn:hover{
+  background-color: #DA0044; 
+  border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+

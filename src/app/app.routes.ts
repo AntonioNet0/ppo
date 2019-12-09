@@ -14,6 +14,8 @@ import { ListarProfessoresComponent } from './admin/listar-professores/listar-pr
 import { ListarDisciplinasComponent } from './admin/listar-disciplinas/listar-disciplinas.component';
 import { ListarTurmasComponent } from './admin/listar-turmas/listar-turmas.component';
 import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.component';
+import { HomeProfessorComponent } from './professor/home-professor/home-professor.component';
+import { ProfessorComponent } from './professor/professor.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -41,4 +43,7 @@ export const ROUTES: Routes = [
             { path: 'listar', component: ListarTurmasComponent }
         ] },
     ] },
+    { path: 'home-professor', component: ProfessorComponent, children: [
+        { path: '', component: HomeProfessorComponent }
+    ]}
 ]

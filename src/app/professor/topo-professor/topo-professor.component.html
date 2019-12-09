@@ -1,0 +1,54 @@
+<div class="container" style="margin: 20px 0px;">
+
+  <nav class="navbar navbar-expand-md navbar-dark ">
+
+      <a class="navbar-brand" routerLink="/home-admin">
+          
+          <img src="../../../assets/aerium.png" class="brand-image" alt="Logo Marca" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSite">
+
+          <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/home-professor']">Início</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="#" id="dropdownSite" data-toggle="dropdown">
+                      Horário Individual
+                  </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdownSite" data-toggle="dropdown">
+                      Professor
+                  </a>
+                  <div class="dropdown-menu" style="font-size: 10pt">
+                      <a class="dropdown-item" routerLink="./professor">Alterar Senha</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item"routerLink="./professor/listar">Informações Pessoais</a>
+                  </div>
+              </li>
+
+              <li class="nav-item ">
+                  <a class="nav-link " href="#" id="dropdownSite" data-toggle="dropdown">
+                      Turmas
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;" (click)="logout()">Sair</a>
+              </li>
+
+          </ul>
+
+      </div>
+
+  </nav>
+</div>
