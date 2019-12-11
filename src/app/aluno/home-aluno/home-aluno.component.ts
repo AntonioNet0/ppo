@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Autenticacao } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home-aluno',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeAlunoComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+  private autenticaco: Autenticacao){}
   ngOnInit() {
+  }
+  public logout(): void{
+    console.log("clicou")
+    this.autenticaco.logout()
   }
 
 }
