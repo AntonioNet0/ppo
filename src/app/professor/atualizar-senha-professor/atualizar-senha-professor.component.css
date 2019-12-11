@@ -1,0 +1,67 @@
+.float-label {
+    position: relative;
+    height: 37px;
+    width: 40vw;
+  }
+  
+.float-label label,
+.float-label input {
+    display: block;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.float-label label {
+    transition-duration: 0.2s;
+    left: 14px;
+    top: 25px;
+    color: gainsboro;
+}
+
+.float-label input {
+    top: 17px;
+}
+
+.float-label input:valid + label {
+    top: -10px;
+    color: black;
+    left: 0px;
+}
+
+.btn{
+    background-color: #00507C; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+.btn:hover{
+    background-color: #DA0044; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+    box-shadow: none;
+}
+
+.btn:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0, 80, 124, 0.5);
+}
+
+.btn:focus.btn:hover{
+    box-shadow: none;
+}
+
+.page-link.active{
+    background-color: #343A40;
+    color: white;
+}
+
+.page-link{
+    color: black;
+}
+
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+/*
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+*/

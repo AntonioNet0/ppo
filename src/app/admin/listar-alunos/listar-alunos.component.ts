@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Aluno } from 'src/app/shared/aluno.model';
 import { AlunoBD } from 'src/app/services/aluno-bd.service';
+import { Observable, Subject, of, from } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-alunos',
@@ -15,18 +17,46 @@ export class ListarAlunosComponent implements OnInit {
   public alunos: Aluno[]
   public alunosPagina: Aluno[] = null
 
+  public pesquisado: boolean = false
+
+  public ofertas: Observable<Aluno[]>
+
+  private subjectPesquisa: Subject<string> = new Subject<string>()
+
   constructor(
     private alunoBD: AlunoBD
   ) { }
 
 
   ngOnInit() {
+
+    this.ofertas = this.subjectPesquisa
+    .pipe(debounceTime(1000))
+    .pipe(distinctUntilChanged())
+    .pipe(
+      switchMap((termo: string) => {
+        if(termo.trim() === ''){
+          return of<Aluno[]>(this.alunosPagina)
+        }
+        return from(this.alunoBD.pesquisaAlunos(termo))
+      })
+    )
+    .pipe(catchError((err: any) => {
+      console.log(err)
+      return of<Aluno[]>(this.alunosPagina)
+    }))
+
     this.alunoBD.listarAlunos()
       .then((alunos: any) => {
         this.alunos = alunos
         this.paginacao = this.criarPaginacao()
         this.exibirAlunoPaginacao(1)
       })
+  }
+
+  public pesquisa(termoDaPesquisa: string): void{
+    this.pesquisado = true
+    this.subjectPesquisa.next(termoDaPesquisa)
   }
 
   private criarPaginacao(): any {

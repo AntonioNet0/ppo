@@ -1,6 +1,16 @@
 <div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
 
-  <h4 style="text-align: center" class="mt-3 mb-5">Disciplinas</h4>
+  <h4 style="text-align: center" class="mt-3 mb-4">Disciplinas</h4>
+
+  <div class="row">
+    <div class="col">
+      <h5 style="float: right;">Pesquisar Disciplinas: </h5>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control ml-1 mb-3" placeholder="ex: Matemática" #termoDaPesquisa
+        (keyup)="pesquisa(termoDaPesquisa.value)" />
+    </div>
+  </div>
 
   <table class="table table-bordered mr-3">
     <thead class="thead-dark">
@@ -17,17 +27,23 @@
         <th scope="col">Período</th>
       </tr>
     </thead>
-    <tbody *ngIf="disciplinasPagina !== null && disciplinasPagina.length !== 0 ; else tabelaVazia">
-      <tr *ngFor="let disciplina of disciplinasPagina">
+    <tbody *ngIf="disciplinasPagina !== null && disciplinasPagina.length !== 0 && pesquisado; else tabelaInicial">
+
+      <tr *ngFor="let disciplina of ofertas | async">
         <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
 
-          <button type="button" [value]="disciplina.codigo" (click)=" setDisciplinaTemp(disciplina)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
-            <i class="fas fa-edit"></i>
-          </button>
-          
-          <button type="button" [value]="disciplina.matricula" (click)=" modalUsuario(disciplina)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
-            <i class="fas fa-trash-alt"></i>
-          </button>
+          <div *ngIf="disciplina.nome !=='Nenhuma informação encontrada'">
+            <button type="button" [value]="disciplina.codigo" (click)=" setDisciplinaTemp(disciplina)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+              <i class="fas fa-edit"></i>
+            </button>
+
+            <button type="button" [value]="disciplina.matricula" (click)=" modalUsuario(disciplina)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+
 
         </td>
         <td>{{ disciplina.nome }}</td>
@@ -41,13 +57,35 @@
         <td>{{ disciplina.periodo }}</td>
       </tr>
     </tbody>
-    <ng-template #tabelaVazia>
-      <td></td>
-      <td>Nenhuma informação encontrada</td>
-      <td></td>
-      <td></td>
+
+    <ng-template #tabelaInicial>
+      <tr *ngFor="let disciplina of disciplinasPagina">
+        <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
+
+          <button type="button" [value]="disciplina.codigo" (click)=" setDisciplinaTemp(disciplina)"
+            class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+            <i class="fas fa-edit"></i>
+          </button>
+
+          <button type="button" [value]="disciplina.matricula" (click)=" modalUsuario(disciplina)"
+            class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+
+
+
+        </td>
+        <td>{{ disciplina.nome }}</td>
+        <td>{{ disciplina.codigo }}</td>
+        <td>{{ disciplina.cargaHoraria }}</td>
+        <td>{{ disciplina.professorMatricula }}</td>
+        <td>{{ disciplina.periodo }}</td>
+      </tr>
     </ng-template>
+
+
   </table>
+
   <div class="col" style="padding:0px; display: flex; justify-content: center;">
     <nav aria-label="...">
       <ul class="pagination">
@@ -65,8 +103,8 @@
       </ul>
     </nav>
 
-    
+
     <app-remover-disciplina [disciplina]="disciplinaTemp"></app-remover-disciplina>
     <app-editar-disciplina [disciplina]="disciplinaTemp"></app-editar-disciplina>
-    
+
   </div>

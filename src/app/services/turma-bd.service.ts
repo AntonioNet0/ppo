@@ -55,5 +55,28 @@ export class TurmaBD {
         return firebase.database().ref(`turmas/${turmaCodigo}/alunos/${aluno.matricula}`).remove()
     }
 
+    public async pesquisaTurmas(termo: string): Promise<Turma[]>{        
+        return firebase.database().ref(`turmas`).orderByChild('nome')
+        .once('value')
+        .then((snapshot: any) => {
+            let turmas: Turma[] = []
+            
+            snapshot.forEach((childSnapshot: any) => {
+                let turma = childSnapshot.val()
+                turma.key = childSnapshot.key
+
+                if((turma.codigo+'').toLowerCase().startsWith(termo.toLowerCase())){
+                    turmas.push(turma)
+                    console.log(turma.codigo)
+                }
+            })
+            if(turmas.length === 0) {
+                turmas.push({nome: '', alunos: null, disciplinas: null, codigo: 'Nenhuma informação encontrada', sala: null, turno: null})
+            }
+
+            return turmas
+        })
+    }
+
 
 }

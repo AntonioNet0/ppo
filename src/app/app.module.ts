@@ -44,6 +44,8 @@ import { AlterarDisciplinasComponent } from './admin/listar-turmas/alterar-disci
 import { ProfessorComponent } from './professor/professor.component';
 import { TopoProfessorComponent } from './professor/topo-professor/topo-professor.component';
 import { HomeProfessorComponent } from './professor/home-professor/home-professor.component';
+import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
+import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 
 
 
@@ -84,6 +86,9 @@ import { HomeProfessorComponent } from './professor/home-professor/home-professo
     ProfessorComponent,
     TopoProfessorComponent,
     HomeProfessorComponent,
+    AtualizarSenhaProfessorComponent,
+    InformacoesPessoaisComponent,
+
 
   ],
   imports: [

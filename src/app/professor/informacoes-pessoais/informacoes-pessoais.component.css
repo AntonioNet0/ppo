@@ -1,0 +1,55 @@
+label {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.btn{
+    background-color: #00507C; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+.btn:hover{
+    background-color: #DA0044; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+    box-shadow: none;
+}
+
+.btn:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0, 80, 124, 0.5);
+}
+
+.btn:focus.btn:hover{
+    box-shadow: none;
+}
+
+.btn-secondary:focus.btn-secondary:hover,
+.btn-secondary:focus {
+    box-shadow: none;
+}
+
+
+.btn-senha {
+    color: white;
+    margin-top: 15px;
+}
+
+.btn-senha:hover{
+    background-color: #00507C;
+}
+
+
+.page-link.active{
+    background-color: #343A40;
+    color: white;
+}
+
+.page-link{
+    color: black;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}

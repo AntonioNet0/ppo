@@ -27,6 +27,7 @@ export class AlunoBD {
 
             })
             .catch((erro: Error) => {
+                console.log("Aqui deu merda")
                 console.log(erro)
                 this.errorMessage = erro.message
             }
@@ -52,13 +53,37 @@ export class AlunoBD {
             })
     }
 
-    public async removeAluno(aluno: Aluno): Promise<any>{
-        return firebase.database().ref(`alunos/${btoa(aluno.matricula+this.dominio)}`).remove()
+    public async removeAluno(aluno: Aluno): Promise<any> {
+        return firebase.database().ref(`alunos/${btoa(aluno.matricula + this.dominio)}`).remove()
     }
 
-    public async editarAluno(aluno: Aluno, matricula: string): Promise<any>{
+    public async editarAluno(aluno: Aluno, matricula: string): Promise<any> {
         delete aluno.senha
-        return firebase.database().ref(`alunos/${btoa(matricula+this.dominio)}`).set(aluno)
+        return firebase.database().ref(`alunos/${btoa(matricula + this.dominio)}`).set(aluno)
+    }
+
+    public async pesquisaAlunos(termo: string): Promise<Aluno[]> {
+        return firebase.database().ref(`alunos`).orderByChild('nome')
+            .once('value')
+            .then((snapshot: any) => {
+                let alunos: Aluno[] = []
+
+                snapshot.forEach((childSnapshot: any) => {
+                    let aluno = childSnapshot.val()
+                    aluno.key = childSnapshot.key
+
+                    if ((aluno.nome + '').toLowerCase().startsWith(termo.toLowerCase())) {
+                        alunos.push(aluno)
+                        console.log(aluno.nome)
+                    }
+                })
+                if (alunos.length === 0) {
+                    alunos.push({ nome: 'Nenhuma informação encontrada', 
+                                cpf: '', matricula: '', email: '', senha: '',turma: '', boletim: null })
+                }
+
+                return alunos
+            })
     }
 
 }

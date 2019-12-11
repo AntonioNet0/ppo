@@ -13,7 +13,7 @@ export class ProfessorBD {
 
     constructor(
         private router: Router
-    ){}
+    ) { }
 
     public async cadastroProfessor(professor: Professor): Promise<any> {
         return firebase.auth().createUserWithEmailAndPassword(professor.matricula + this.dominio, professor.senha)
@@ -52,14 +52,82 @@ export class ProfessorBD {
             })
     }
 
-    public async editarProfessor(professor: Professor, matricula: string): Promise<any>{
+    public async editarProfessor(professor: Professor, matricula: string): Promise<any> {
         delete professor.senha
-        return firebase.database().ref(`professores/${btoa(matricula+this.dominio)}`).set(professor)
+        return firebase.database().ref(`professores/${btoa(matricula + this.dominio)}`).set(professor)
     }
 
-    
+    public async atualizarInformacoesProfessor(professor: Professor){
+        delete professor.senha
+        let email = firebase.auth().currentUser.email
+        return firebase.database().ref(`professores/${btoa(email)}`).set(professor)
+    }
+
     public async removeAdmin(professor: Professor): Promise<any> {
         return firebase.database().ref(`professores/${btoa(professor.matricula + this.dominio)}`).remove()
     }
+
+    public async confirmarSenha(senha: string): Promise<boolean> {
+        let email = firebase.auth().currentUser.email
+
+        return firebase.auth().signInWithEmailAndPassword(email, senha).then(() => true, () => false)
+    }
+
+    public async mudarSenha(senha: string): Promise<any> {
+        return firebase.auth().currentUser.updatePassword(senha).then(() => this.router.navigate(['home-admin']));
+    }
+
+    public async getProfessor(): Promise<any> {
+        let email = firebase.auth().currentUser.email
+        return firebase.database().ref(`professores/${btoa(email)}`)
+            .once('value')
+            .then((snapshot: any) => {
+                let professor: any = {cpf: '', email: '', matricula: '', nome: ''}
+
+                snapshot.forEach((childSnapshot: any) => {
+
+                    let prof = childSnapshot.val()
+                    
+                    if(childSnapshot.key === 'cpf'){
+                       professor.cpf = prof
+                    }else if(childSnapshot.key === 'email'){
+                        professor.email = prof
+                    }else if(childSnapshot.key === 'matricula'){
+                        professor.matricula = prof
+                    } else if(childSnapshot.key === 'nome'){
+                        professor.nome = prof
+                    }
+                    
+                   
+                })
+                //console.log(professor)
+                return professor
+            })
+    }
+
+
+    public async pesquisaProfessores(termo: string): Promise<Professor[]>{        
+        return firebase.database().ref(`professores`).orderByChild('nome')
+        .once('value')
+        .then((snapshot: any) => {
+            let professores: Professor[] = []
+            
+            snapshot.forEach((childSnapshot: any) => {
+                let professor = childSnapshot.val()
+                professor.key = childSnapshot.key
+
+                if((professor.nome+'').toLowerCase().startsWith(termo.toLowerCase())){
+                    professores.push(professor)
+                    console.log(professor.nome)
+                }
+            })
+            if(professores.length === 0) {
+                professores.push({nome: 'Nenhuma informação encontrada', email: '', senha: '', cargaHoraria: 0, matricula: '', cpf:'', disciplinas: []})
+            }
+
+            return professores
+        })
+    }
+
 
 }

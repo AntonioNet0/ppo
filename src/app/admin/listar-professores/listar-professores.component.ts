@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Professor } from 'src/app/shared/professor.model';
 import { ProfessorBD } from 'src/app/services/professor-bd.service';
+import { Observable, Subject, of, from } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-professores',
@@ -14,6 +16,12 @@ export class ListarProfessoresComponent implements OnInit {
   public professores: Professor[]
   public professoresPagina: Professor[] = null
 
+  public pesquisado: boolean = false
+
+  public ofertas: Observable<Professor[]>
+
+  private subjectPesquisa: Subject<string> = new Subject<string>()
+
   constructor(
     private professorBD: ProfessorBD
   ) { }
@@ -21,12 +29,33 @@ export class ListarProfessoresComponent implements OnInit {
 
 
   ngOnInit() {
+    this.ofertas = this.subjectPesquisa
+    .pipe(debounceTime(1000))
+    .pipe(distinctUntilChanged())
+    .pipe(
+      switchMap((termo: string) => {
+        if(termo.trim() === ''){
+          return of<Professor[]>(this.professoresPagina)
+        }
+        return from(this.professorBD.pesquisaProfessores(termo))
+      })
+    )
+    .pipe(catchError((err: any) => {
+      console.log(err)
+      return of<Professor[]>(this.professoresPagina)
+    }))
+
+
     this.professorBD.listProfessores()
       .then((professores: any) => {
         this.professores = professores
         this.paginacao = this.criarPaginacao()
         this.exibirProfessorPaginacao(1)
       })
+  }
+  public pesquisa(termoDaPesquisa: string): void{
+    this.pesquisado = true
+    this.subjectPesquisa.next(termoDaPesquisa)
   }
 
   private criarPaginacao(): any {

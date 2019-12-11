@@ -16,6 +16,8 @@ import { ListarTurmasComponent } from './admin/listar-turmas/listar-turmas.compo
 import { ListarAlunosComponent } from './admin/listar-alunos/listar-alunos.component';
 import { HomeProfessorComponent } from './professor/home-professor/home-professor.component';
 import { ProfessorComponent } from './professor/professor.component';
+import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
+import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -43,7 +45,9 @@ export const ROUTES: Routes = [
             { path: 'listar', component: ListarTurmasComponent }
         ] },
     ] },
-    { path: 'home-professor', component: ProfessorComponent, children: [
-        { path: '', component: HomeProfessorComponent }
+    { path: 'home-professor', component: ProfessorComponent,  canActivate: [ AutenticacaoGuard ], children: [
+        { path: '', component: HomeProfessorComponent },
+        { path: 'professor/seguranca', component: AtualizarSenhaProfessorComponent },
+        { path: 'professor/dados-pessoais', component: InformacoesPessoaisComponent },
     ]}
 ]

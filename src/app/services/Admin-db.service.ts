@@ -63,8 +63,29 @@ export class AdminDB {
         return firebase.database().ref(`administradores/${btoa(admin.login + this.dominio)}`).set(admin)
     }
 
-    public async pesquisaAdmins(termo: string): Promise<any>{
-        return firebase.database().ref(`as`)
+    public async pesquisaAdmins(termo: string): Promise<Administrador[]>{        
+        return firebase.database().ref(`administradores`).orderByChild('nome')
+        .once('value')
+        .then((snapshot: any) => {
+            let admins: Administrador[] = []
+            
+            snapshot.forEach((childSnapshot: any) => {
+                let admin = childSnapshot.val()
+                admin.key = childSnapshot.key
+
+                if((admin.nome+'').toLowerCase().startsWith(termo.toLowerCase())){
+                    admins.push(admin)
+                    console.log(admin.nome)
+                }
+            })
+            if(admins.length === 0) {
+                admins.push({nome: 'Nenhuma informação encontrada',login: '',email: '', senha: ''})
+            }
+
+            return admins
+        })
     }
+
+    
 
 }

@@ -1,6 +1,16 @@
 <div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
 
-  <h4 style="text-align: center" class="mt-3 mb-5">Professsores</h4>
+  <h4 style="text-align: center" class="mt-3 mb-4">Professsores</h4>
+
+  <div class="row">
+    <div class="col">
+      <h5 style="float: right;">Pesquisar Professores: </h5>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control ml-1 mb-3" placeholder="ex: Jóse" #termoDaPesquisa
+        (keyup)="pesquisa(termoDaPesquisa.value)" />
+    </div>
+  </div>
 
   <table class="table table-bordered mr-3">
     <thead class="thead-dark">
@@ -12,17 +22,22 @@
         <th scope="col">CPF</th>
       </tr>
     </thead>
-    <tbody *ngIf="professoresPagina !== null && professoresPagina.length !== 0 ; else tabelaVazia">
-      <tr *ngFor="let professor of professoresPagina">
+    <tbody *ngIf="professoresPagina !== null && professoresPagina.length !== 0 && pesquisado ; else tabelaInicial">
+
+      <tr *ngFor="let professor of ofertas | async">
         <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
 
-          <button type="button" [value]="professor.matricula" (click)=" setProfTemp(professor)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
-            <i class="fas fa-edit"></i>
-          </button>
-          
-          <button type="button" [value]="professor.matricula" (click)=" modalUsuario(professor)" class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
-            <i class="fas fa-trash-alt"></i>
-          </button>
+          <div *ngIf="professor.nome !== 'Nenhuma informação encontrada'">
+            <button type="button" [value]="professor.matricula" (click)=" setProfTemp(professor)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+              <i class="fas fa-edit"></i>
+            </button>
+
+            <button type="button" [value]="professor.matricula" (click)=" modalUsuario(professor)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
 
         </td>
         <td>{{ professor.nome }}</td>
@@ -31,11 +46,26 @@
         <td>{{ professor.cpf }}</td>
       </tr>
     </tbody>
-    <ng-template #tabelaVazia>
-      <td></td>
-      <td>Nenhuma informação encontrada</td>
-      <td></td>
-      <td></td>
+    <ng-template #tabelaInicial>
+        <tr *ngFor="let professor of professoresPagina">
+            <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
+    
+                <button type="button" [value]="professor.matricula" (click)=" setProfTemp(professor)"
+                  class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+                  <i class="fas fa-edit"></i>
+                </button>
+    
+                <button type="button" [value]="professor.matricula" (click)=" modalUsuario(professor)"
+                  class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+    
+            </td>
+            <td>{{ professor.nome }}</td>
+            <td>{{ professor.matricula }}</td>
+            <td>{{ professor.email }}</td>
+            <td>{{ professor.cpf }}</td>
+          </tr>
     </ng-template>
   </table>
   <div class="col" style="padding:0px; display: flex; justify-content: center;">
@@ -57,5 +87,5 @@
 
     <app-remover-professor [professor]="professorTemp"></app-remover-professor>
     <app-editar-professor [professor]="professorTemp"></app-editar-professor>
-    
+
   </div>

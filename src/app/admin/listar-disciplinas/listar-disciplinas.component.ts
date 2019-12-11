@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
+import { Observable, Subject, of, from } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-disciplinas',
@@ -15,17 +17,44 @@ export class ListarDisciplinasComponent implements OnInit {
   public disciplinas: Disciplina[]
   public disciplinasPagina: Disciplina[] = null
 
+  public pesquisado: boolean = false
+
+  public ofertas: Observable<Disciplina[]>
+
+  private subjectPesquisa: Subject<string> = new Subject<string>()
+
   constructor(
     private disciplinaBD: DisciplinaBD
   ) { }
 
   ngOnInit() {
+    this.ofertas = this.subjectPesquisa
+    .pipe(debounceTime(1000))
+    .pipe(distinctUntilChanged())
+    .pipe(
+      switchMap((termo: string) => {
+        if(termo.trim() === ''){
+          return of<Disciplina[]>(this.disciplinasPagina)
+        }
+        return from(this.disciplinaBD.pesquisaDisciplinas(termo))
+      })
+    )
+    .pipe(catchError((err: any) => {
+      console.log(err)
+      return of<Disciplina[]>(this.disciplinasPagina)
+    }))
+
     this.disciplinaBD.listaDisciplinas()
       .then((disciplinas: any) => {
         this.disciplinas = disciplinas
         this.paginacao = this.criarPaginacao()
         this.exibirDisciplinaPaginacao(1)
       })
+  }
+
+  public pesquisa(termoDaPesquisa: string): void{
+    this.pesquisado = true
+    this.subjectPesquisa.next(termoDaPesquisa)
   }
 
   private criarPaginacao(): any {

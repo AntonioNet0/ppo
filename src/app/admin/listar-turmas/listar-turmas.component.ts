@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Turma } from 'src/app/shared/turma.model';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
+import { Observable, Subject, of, from } from 'rxjs';
+import { distinctUntilChanged, debounceTime, switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar-turmas',
@@ -14,17 +16,44 @@ export class ListarTurmasComponent implements OnInit {
   public turmas: Turma[]
   public turmasPagina: Turma[] = null
 
+  public pesquisado: boolean = false
+
+  public ofertas: Observable<Turma[]>
+
+  private subjectPesquisa: Subject<string> = new Subject<string>()
+
   constructor(
     private turmaBD: TurmaBD
   ) { }
 
   ngOnInit() {
+    this.ofertas = this.subjectPesquisa
+    .pipe(debounceTime(1000))
+    .pipe(distinctUntilChanged())
+    .pipe(
+      switchMap((termo: string) => {
+        if(termo.trim() === ''){
+          return of<Turma[]>(this.turmasPagina)
+        }
+        return from(this.turmaBD.pesquisaTurmas(termo))
+      })
+    )
+    .pipe(catchError((err: any) => {
+      console.log(err)
+      return of<Turma[]>(this.turmasPagina)
+    }))
+
     this.turmaBD.listarTurmas()
       .then((turmas: any) => {
         this.turmas = turmas
         this.paginacao = this.criarPaginacao()
         this.exibirTurmaPaginacao(1)
       })
+  }
+
+  public pesquisa(termoDaPesquisa: string): void{
+    this.pesquisado = true
+    this.subjectPesquisa.next(termoDaPesquisa)
   }
 
   private criarPaginacao(): any {

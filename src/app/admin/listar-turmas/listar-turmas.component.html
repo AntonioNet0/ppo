@@ -1,6 +1,16 @@
 <div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
 
-  <h4 style="text-align: center" class="mt-3 mb-5">Turmas</h4>
+  <h4 style="text-align: center" class="mt-3 mb-4">Turmas</h4>
+
+  <div class="row">
+    <div class="col">
+      <h5 style="float: right;">Pesquisar Turmas: </h5>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control ml-1 mb-3" placeholder="ex: 20191A2CTM" #termoDaPesquisa
+        (keyup)="pesquisa(termoDaPesquisa.value)" />
+    </div>
+  </div>
 
   <table class="table table-bordered mr-3">
     <thead class="thead-dark">
@@ -13,7 +23,41 @@
         <th scope="col">Turno</th>
       </tr>
     </thead>
-    <tbody *ngIf="turmasPagina !== null && turmasPagina.length !== 0 ; else tabelaVazia">
+    <tbody *ngIf="turmasPagina !== null && turmasPagina.length !== 0 && pesquisado; else tabelaInicial">
+
+      <tr *ngFor="let turma of ofertas | async">
+        <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
+
+          <div *ngIf="turma.codigo !=='Nenhuma informação encontrada'">
+            <button type="button" [value]="turma.codigo" (click)="setTurmaTemp(turma)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+              <i class="fas fa-edit"></i>
+            </button>
+
+            <button type="button" [value]="turma.codigo" (click)=" modalUsuario(turma)"
+              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+
+
+        </td>
+        <td>{{ turma.codigo }}</td>
+        <td>{{ turma.nome }}</td>
+        <div *ngIf="turma.codigo ==='Nenhuma informação encontrada'; else disciplinas">
+          <td style="border: none;"></td>
+        </div>
+        <ng-template #disciplinas>
+            <td class="disciplinas" data-toggle="modal" data-target="#disciplinaModal" (click)="setTurmaTemp(turma)">
+                Disciplinas
+              </td>
+        </ng-template>
+        <td>{{ turma.sala }}</td>
+        <td>{{ turma.turno }}</td>
+      </tr>
+    </tbody>
+
+    <ng-template #tabelaInicial>
       <tr *ngFor="let turma of turmasPagina">
         <td scope="row" style="text-align: center; vertical-align: middle; width: 15%;">
 
@@ -36,13 +80,8 @@
         <td>{{ turma.sala }}</td>
         <td>{{ turma.turno }}</td>
       </tr>
-    </tbody>
-    <ng-template #tabelaVazia>
-      <td></td>
-      <td>Nenhuma informação encontrada</td>
-      <td></td>
-      <td></td>
     </ng-template>
+
   </table>
   <div class="col" style="padding:0px; display: flex; justify-content: center;">
     <nav aria-label="...">

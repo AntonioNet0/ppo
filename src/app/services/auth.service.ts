@@ -1,7 +1,6 @@
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Administrador } from '../shared/admin.model';
 
 @Injectable()
 export class Autenticacao {
@@ -51,7 +50,7 @@ export class Autenticacao {
                                     .then((idToken: string) => {
                                         this.token_id = idToken
                                         localStorage.setItem('idToken', idToken)
-                                        let modulo =  '67766362796274766120'
+                                        let modulo = '67766362796274766120'
                                         let tipoLogin = '6E717A7661'
                                         localStorage.setItem(modulo, tipoLogin)
                                         this.router.navigate(['/home-admin'])
@@ -64,19 +63,52 @@ export class Autenticacao {
     }
 
     public autenticado(): boolean {
-
+        let dominio: string = 'http://localhost:4200/'
         if (this.token_id === undefined && localStorage.getItem('idToken') !== null) {
+
             let modulo = '67766362796274766120'
             let tipoLogin = localStorage.getItem(modulo)
-            if ( tipoLogin === '6E7968616220') {
+
+            if (tipoLogin === '6E7968616220') {
+
                 this.token_id = localStorage.getItem('idToken')
                 this.router.navigate(['home-aluno'])
+
             } else if (tipoLogin === '63656273726666626520') {
+
                 this.token_id = localStorage.getItem('idToken')
-                this.router.navigate(['home-professor'])
+
+                if (window.location.href !== dominio) {
+
+                    let url = window.location.href
+                    let urlErro = dominio + 'home-professor'
+
+                    if (url.substring(0, urlErro.length) !== urlErro) {
+
+                        this.router.navigate(['home-professor'])
+
+                    }
+                } else {
+                    this.router.navigate(['home-professor'])
+                }
+
             } else if (tipoLogin === '6E717A7661') {
+
                 this.token_id = localStorage.getItem('idToken')
-                this.router.navigate(['home-admin'])
+
+                if (window.location.href !== dominio) {
+                   
+                    let url = window.location.href
+                    let urlErro = dominio + 'home-admin'
+
+                    if (url.substring(0, urlErro.length) !== urlErro) {
+
+                        this.router.navigate(['home-admin'])
+
+                    } 
+                } else {
+                        this.router.navigate(['home-admin'])
+                    }
             }
 
         }

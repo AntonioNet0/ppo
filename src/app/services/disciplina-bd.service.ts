@@ -47,4 +47,27 @@ export class DisciplinaBD {
 
     }
 
+    public async pesquisaDisciplinas(termo: string): Promise<Disciplina[]>{        
+        return firebase.database().ref(`disciplinas`).orderByChild('nome')
+        .once('value')
+        .then((snapshot: any) => {
+            let disciplinas: Disciplina[] = []
+            
+            snapshot.forEach((childSnapshot: any) => {
+                let disciplina = childSnapshot.val()
+                disciplina.key = childSnapshot.key
+
+                if((disciplina.nome+'').toLowerCase().startsWith(termo.toLowerCase())){
+                    disciplinas.push(disciplina)
+                    console.log(disciplina.nome)
+                }
+            })
+            if(disciplinas.length === 0) {
+                disciplinas.push({nome: 'Nenhuma informação encontrada', turma: null, cargaHoraria: null, codigo: '', notas: null,
+                                    periodo: '', professorMatricula: '' })
+            }
+            return disciplinas
+        })
+    }
+
 }
