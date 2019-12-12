@@ -16,7 +16,7 @@
     transition-duration: 0.2s;
     left: 14px;
     top: 25px;
-    color: gainsboro;
+    color: rgba(95, 93, 93, 0.5);
 }
 
 .float-label input {

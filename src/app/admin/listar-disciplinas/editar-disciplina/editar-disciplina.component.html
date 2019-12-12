@@ -11,34 +11,47 @@
       <div class="modal-body" id="body-modal">
 
         <div class="col">
-          
+
           <form #form="ngForm" [formGroup]="formulario" (change)="formValido()">
             <div class="form-group">
               <input type="text" class="form-control" [placeholder]="disciplina.nome" formControlName="nome">
-          </div>
-          <div class="form-group">
+            </div>
+            <div class="form-group">
               <input type="text" class="form-control" [placeholder]="disciplina.codigo" formControlName="codigo" />
-          </div>
+            </div>
 
-          <div class="form-group">
-              <input type="number" class="form-control" [placeholder]="disciplina.cargaHoraria" formControlName="cargaHoraria"
-                  minlength="0" maxlength="100" min="0" max="100" />
-          </div>
+            <div class="form-group">
+              <input type="number" class="form-control" [placeholder]="disciplina.cargaHoraria"
+                formControlName="cargaHoraria" minlength="0" maxlength="100" min="0" max="100" />
+            </div>
 
-          <div class="form-group" style="display: flex">
+            <div class="form-group" style="display: flex">
               <div class="col col-sm-8 col-md-5 col-lg-4">
-                  <h5 class="my-2">Selecione o professor: </h5>
+                <h5 class="my-2">Selecione o professor: </h5>
               </div>
               <select class="custom-select" id="inputGroupSelect01" formControlName="professor">
-                  <option *ngIf="professores.length === 0; else semProfessores">Nenhum professor encontrado
+                <option *ngIf="professores.length === 0; else semProfessores">Nenhum professor encontrado
+                </option>
+                <ng-template #semProfessores>
+                  <option *ngFor="let professor of professores" [value]="professor.matricula">{{professor.nome}}
                   </option>
-                  <ng-template #semProfessores>
-                      <option *ngFor="let professor of professores" [value]="professor.matricula">{{professor.nome}}
-                      </option>
-                  </ng-template>
+                </ng-template>
               </select>
-          </div>
-          <!--
+            </div>
+            <div class="form-group" style="display: flex">
+              <div class="col col-sm-8 col-md-5 col-lg-4">
+                <h5 class="my-2">Selecione a turma: </h5>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01" formControlName="turma">
+                <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro
+                </option>
+                <ng-template #semTurmas>
+                  <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}
+                  </option>
+                </ng-template>
+              </select>
+            </div>
+            <!--
           <div class="form-group" style="display: flex">
 
               <div class="col col-sm-8 col-md-5 col-lg-4">
@@ -61,30 +74,31 @@
 
           </div>
           -->
-          <div class="form-group" style="display: flex">
+            <div class="form-group" style="display: flex">
               <div class="col col-sm-8 col-md-5 col-lg-4">
-                  <h5 class="my-2">Selecione o período: </h5>
+                <h5 class="my-2">Selecione o período: </h5>
               </div>
               <select class="custom-select" id="inputGroupSelect01" formControlName="periodo">
-                  <option value="1">1º</option>
-                  <option value="2">2º</option>
-                  <option value="3">3º</option>
-                  <option value="4">4º</option>
-                  <option value="5">5º</option>
-                  <option value="6">6º</option>
-                  <option value="7">7º</option>
-                  <option value="8">8º</option>
-                  <option value="9">9º</option>
-                  <option value="10">10º</option>
+                <option value="1">1º</option>
+                <option value="2">2º</option>
+                <option value="3">3º</option>
+                <option value="4">4º</option>
+                <option value="5">5º</option>
+                <option value="6">6º</option>
+                <option value="7">7º</option>
+                <option value="8">8º</option>
+                <option value="9">9º</option>
+                <option value="10">10º</option>
               </select>
-          </div>
+            </div>
 
           </form>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="form.reset()">Cancelar</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal"
-              (click)="confirmarAlteracoes()" [disabled]="estadoBotao">Confirmar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              (click)="form.reset()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="confirmarAlteracoes()"
+              [disabled]="estadoBotao">Confirmar</button>
           </div>
         </div>
       </div>

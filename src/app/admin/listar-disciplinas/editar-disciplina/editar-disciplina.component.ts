@@ -4,12 +4,14 @@ import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProfessorBD } from 'src/app/services/professor-bd.service';
 import { Professor } from 'src/app/shared/professor.model';
+import { TurmaBD } from 'src/app/services/turma-bd.service';
+import { Turma } from 'src/app/shared/turma.model';
 
 @Component({
   selector: 'app-editar-disciplina',
   templateUrl: './editar-disciplina.component.html',
   styleUrls: ['./editar-disciplina.component.css'],
-  providers: [DisciplinaBD, ProfessorBD]
+  providers: [DisciplinaBD, ProfessorBD, TurmaBD]
 })
 export class EditarDisciplinaComponent implements OnInit {
 
@@ -22,16 +24,17 @@ export class EditarDisciplinaComponent implements OnInit {
     'codigo': new FormControl({ value: '', disabled: true }),
     'professor': new FormControl(null, [Validators.required]),
     'cargaHoraria': new FormControl(null, [Validators.required]),
-    //'horaInicio': new FormControl(null, [Validators.required]),
-   // 'horaFim': new FormControl(null, [Validators.required]),
-    'periodo': new FormControl(null, [Validators.required])
+    'periodo': new FormControl(null, [Validators.required]),
+    'turma': new FormControl(null, [ Validators.required ])
   })
 
   public professores: Professor[] = []
+  public turmas: Turma[] = []
 
   constructor(
     private disciplinaBD: DisciplinaBD,
-    private professorBD: ProfessorBD
+    private professorBD: ProfessorBD,
+    private turmaBD: TurmaBD
   ) { }
 
 
@@ -40,6 +43,10 @@ export class EditarDisciplinaComponent implements OnInit {
     this.professorBD.listProfessores()
       .then((professores: any) => {
         this.professores = professores
+      })
+    this.turmaBD.listarTurmas()
+      .then((turmas: any) => {
+        this.turmas = turmas
       })
   }
 
@@ -60,6 +67,7 @@ export class EditarDisciplinaComponent implements OnInit {
       //this.formulario.get('horaInicio').markAsTouched()
      // this.formulario.get('horaFim').markAsTouched()
       this.formulario.get('periodo').markAsTouched()
+      this.formulario.get('turma').markAsTouched()
 
     } else {
 
@@ -71,6 +79,7 @@ export class EditarDisciplinaComponent implements OnInit {
       //disciplina.horaInicio = this.formulario.get('horaInicio').value
      // disciplina.horaFim = this.formulario.get('horaFim').value
       disciplina.periodo = this.formulario.get('periodo').value
+      disciplina.turma = this.formulario.value.turma      
 
       this.disciplinaBD.editarDisciplina(disciplina, this.disciplina.nome)
         .then(() => {

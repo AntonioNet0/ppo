@@ -29,6 +29,21 @@
                         </ng-template>
                     </select>
                 </div>
+
+                <div class="form-group" style="display: flex">
+                        <div class="col col-sm-8 col-md-5 col-lg-4">
+                            <h5 class="my-2">Selecione a turma: </h5>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" formControlName="turma">
+                            <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro 
+                            </option>
+                            <ng-template #semTurmas>
+                                <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}
+                                </option>
+                            </ng-template>
+                        </select>
+                    </div>
+                
                 <!--
                 <div class="form-group" style="display: flex">
 

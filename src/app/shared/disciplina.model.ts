@@ -7,6 +7,8 @@ export class Disciplina{
     public codigo: string
     public professorMatricula: string
     public cargaHoraria: number
+    public horaInicio: string
+    public horaFim: string
     public turma: string
     public periodo: string
     public notas: NotasDisciplina[] 

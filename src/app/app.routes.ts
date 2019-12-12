@@ -18,6 +18,7 @@ import { HomeProfessorComponent } from './professor/home-professor/home-professo
 import { ProfessorComponent } from './professor/professor.component';
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
+import { TurmasComponent } from './professor/turmas/turmas.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -49,5 +50,6 @@ export const ROUTES: Routes = [
         { path: '', component: HomeProfessorComponent },
         { path: 'professor/seguranca', component: AtualizarSenhaProfessorComponent },
         { path: 'professor/dados-pessoais', component: InformacoesPessoaisComponent },
+        { path: 'professor/turmas', component: TurmasComponent },
     ]}
 ]

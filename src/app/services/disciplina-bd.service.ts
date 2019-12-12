@@ -64,7 +64,7 @@ export class DisciplinaBD {
             })
             if(disciplinas.length === 0) {
                 disciplinas.push({nome: 'Nenhuma informação encontrada', turma: null, cargaHoraria: null, codigo: '', notas: null,
-                                    periodo: '', professorMatricula: '' })
+                                    periodo: '', professorMatricula: '', horaFim: '', horaInicio: '' })
             }
             return disciplinas
         })
