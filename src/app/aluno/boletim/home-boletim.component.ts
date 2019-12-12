@@ -18,3 +18,10 @@ export class HomeBoletimComponent implements OnInit {
   }
 
 }
+  class boletim{
+    private nota: number;
+    private disciplinas: string;
+    constructor(nota: number){
+        this.nota = nota;
+    }
+  }
