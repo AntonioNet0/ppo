@@ -4,12 +4,14 @@ import { ProfessorBD } from 'src/app/services/professor-bd.service';
 import { Professor } from 'src/app/shared/professor.model';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
+import { TurmaBD } from 'src/app/services/turma-bd.service';
+import { Turma } from 'src/app/shared/turma.model';
 
 @Component({
   selector: 'app-cadastro-disciplina',
   templateUrl: './cadastro-disciplina.component.html',
   styleUrls: ['./cadastro-disciplina.component.css'],
-  providers: [ProfessorBD, DisciplinaBD]
+  providers: [ProfessorBD, DisciplinaBD, TurmaBD]
 })
 export class CadastroDisciplinaComponent implements OnInit {
 
@@ -18,22 +20,27 @@ export class CadastroDisciplinaComponent implements OnInit {
     'codigo': new FormControl(null, [Validators.required]),
     'professor': new FormControl(null, [Validators.required]),
     'cargaHoraria': new FormControl(null, [Validators.required]),
-    //'horaInicio': new FormControl(null, [Validators.required]),
-    //'horaFim': new FormControl(null, [Validators.required]),
+    'turma': new FormControl(null, [ Validators.required ]),
     'periodo': new FormControl(null, [Validators.required])
   })
 
   public professores: Professor[] = []
+  public turmas: Turma[] = []
 
   constructor(
     private professorBD: ProfessorBD,
-    private disciplinaBD: DisciplinaBD
+    private disciplinaBD: DisciplinaBD,
+    private turmaBD: TurmaBD
   ) { }
 
   ngOnInit() {
     this.professorBD.listProfessores()
       .then((professores: any) => {
         this.professores = professores
+      })
+    this.turmaBD.listarTurmas()
+      .then((turmas: any) => {
+        this.turmas = turmas
       })
   }
 
@@ -45,9 +52,8 @@ export class CadastroDisciplinaComponent implements OnInit {
       this.formulario.get('codigo').markAsTouched()
       this.formulario.get('professor').markAsTouched()
       this.formulario.get('cargaHoraria').markAsTouched()
-      //this.formulario.get('horaInicio').markAsTouched()
-      //this.formulario.get('horaFim').markAsTouched()
       this.formulario.get('periodo').markAsTouched()
+      this.formulario.get('turma').markAsTouched()
 
     } else {
 
@@ -56,12 +62,12 @@ export class CadastroDisciplinaComponent implements OnInit {
       disciplina.codigo = this.formulario.get('codigo').value
       disciplina.professorMatricula = this.formulario.get('professor').value
       disciplina.cargaHoraria = this.formulario.get('cargaHoraria').value
-      //disciplina.horaInicio = this.formulario.get('horaInicio').value
-      //disciplina.horaFim = this.formulario.get('horaFim').value
       disciplina.periodo = this.formulario.get('periodo').value
+      disciplina.turma= this.formulario.value.turma
 
       this.disciplinaBD.cadastroDisciplina(disciplina)
         .then(()=>{
+          this.professorBD.adicionarDisciplina(disciplina)
           alert("Sucesso!")
         },
         (error: any) => {

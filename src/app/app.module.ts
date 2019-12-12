@@ -46,6 +46,7 @@ import { TopoProfessorComponent } from './professor/topo-professor/topo-professo
 import { HomeProfessorComponent } from './professor/home-professor/home-professor.component';
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
+import { TurmasComponent } from './professor/turmas/turmas.component';
 
 
 
@@ -88,6 +89,7 @@ import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/i
     HomeProfessorComponent,
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
+    TurmasComponent,
 
 
   ],

@@ -2,6 +2,7 @@ import * as firebase from 'firebase';
 import { Injectable } from '@angular/core';
 import { Professor } from '../shared/professor.model';
 import { Router } from '@angular/router';
+import { Disciplina } from '../shared/disciplina.model';
 
 @Injectable()
 export class ProfessorBD {
@@ -127,6 +128,10 @@ export class ProfessorBD {
 
             return professores
         })
+    }
+
+    public async adicionarDisciplina(disciplina: Disciplina): Promise<any> {
+        return firebase.database().ref(`professores/${disciplina.professorMatricula+this.dominio}/disciplinas/${disciplina.nome}`).set({nome: disciplina.nome, turma: disciplina.turma})
     }
 
 

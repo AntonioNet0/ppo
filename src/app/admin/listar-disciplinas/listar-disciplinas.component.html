@@ -20,10 +20,8 @@
         <th scope="col">Código</th>
         <th scope="col">Carga Horária</th>
         <th scope="col">Matricula Professor</th>
-        <!--
-        <th scope="col">Hora Início</th>
-        <th scope="col">Hora Fim</th>
-        -->
+        <th scope="col">Turma</th>
+ 
         <th scope="col">Período</th>
       </tr>
     </thead>
@@ -50,10 +48,8 @@
         <td>{{ disciplina.codigo }}</td>
         <td>{{ disciplina.cargaHoraria }}</td>
         <td>{{ disciplina.professorMatricula }}</td>
-        <!--
-        <td>{{ disciplina.horaInicio }}</td>
-        <td>{{ disciplina.horaFim }}</td>
-        -->
+        <td>{{ disciplina.turma }}</td>
+        
         <td>{{ disciplina.periodo }}</td>
       </tr>
     </tbody>
@@ -79,6 +75,8 @@
         <td>{{ disciplina.codigo }}</td>
         <td>{{ disciplina.cargaHoraria }}</td>
         <td>{{ disciplina.professorMatricula }}</td>
+        <td>{{ disciplina.turma }}</td>
+        
         <td>{{ disciplina.periodo }}</td>
       </tr>
     </ng-template>
