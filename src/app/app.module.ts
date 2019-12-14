@@ -16,7 +16,6 @@ import { TopoComponent } from './acesso/topo/topo.component';
 import { HomeAlunoComponent } from './aluno/home-aluno/home-aluno.component';
 import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
 import { TopoAdmComponent } from './admin/topo-adm/topo-adm.component';
-import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
 import { CadastroAlunoComponent } from './admin/cadastro-aluno/cadastro-aluno.component';
 import { AdminComponent } from './admin/admin.component';
 import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.component';
@@ -47,6 +46,8 @@ import { HomeProfessorComponent } from './professor/home-professor/home-professo
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
+import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
+
 
 
 
@@ -90,7 +91,7 @@ import { TurmasComponent } from './professor/turmas/turmas.component';
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
     TurmasComponent,
-
+  
 
   ],
   imports: [
