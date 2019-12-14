@@ -19,10 +19,15 @@ import { ProfessorComponent } from './professor/professor.component';
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
+import { PerfilComponent } from './aluno/perfil/perfil.component';
+import { AlunoComponent } from './aluno/aluno.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
-    { path: 'home-aluno', component: HomeAlunoComponent, canActivate: [ AutenticacaoGuard ]},
+    { path: 'home-aluno', component: AlunoComponent, canActivate: [ AutenticacaoGuard ], children:[
+        { path: '', component: HomeAlunoComponent },
+        { path: 'aluno/perfil', component: PerfilComponent },
+    ]},
     { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },
         { path: 'admin', children:[

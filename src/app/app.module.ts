@@ -47,6 +47,8 @@ import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-pr
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
 import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
+import { PerfilComponent } from './aluno/perfil/perfil.component';
+import { AlunoComponent } from './aluno/aluno.component';
 
 
 
@@ -91,6 +93,8 @@ import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
     TurmasComponent,
+    PerfilComponent,
+    AlunoComponent,
   
 
   ],

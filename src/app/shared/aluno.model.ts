@@ -11,7 +11,7 @@ class Aluno{
     public turma: string
     public boletim: Boletim
 
-    constructor(){}
+    constructor(turma: string, boletim: Boletim){}
 
 }
 export { Aluno }
