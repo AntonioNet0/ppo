@@ -67,7 +67,7 @@ export class AlunoBD {
         return firebase.database().ref(`alunos/${btoa(email)}`)
             .once('value')
             .then((snapshot: any) => {
-                let aluno: any = {cpf: '', email: '', matricula: '', nome: ''}
+                let aluno: any = {cpf: '', email: '', matricula: '', nome: '', turma: ''}
 
                 snapshot.forEach((childSnapshot: any) => {
 
@@ -81,6 +81,8 @@ export class AlunoBD {
                         aluno.matricula = prof
                     } else if(childSnapshot.key === 'nome'){
                         aluno.nome = prof
+                    } else if(childSnapshot.key === 'turma'){
+                        aluno.turma = prof
                     }
                     
                    
@@ -95,6 +97,8 @@ export class AlunoBD {
         let email = firebase.auth().currentUser.email
         return firebase.database().ref(`alunos/${btoa(email)}`).set(aluno)
     }
+
+
     public async pesquisaAlunos(termo: string): Promise<Aluno[]> {
         return firebase.database().ref(`alunos`).orderByChild('nome')
             .once('value')

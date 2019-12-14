@@ -22,7 +22,6 @@ export class PerfilComponent implements OnInit {
     'matricula': new FormControl(null),
     'email': new FormControl(null, [Validators.required]),
     'cpf': new FormControl(null, [Validators.required, GenericValidator.isValidCpf()])
-
   })
 
   constructor(
@@ -49,17 +48,14 @@ export class PerfilComponent implements OnInit {
       this.formulario.get('nome').markAsTouched()
       this.formulario.get('cpf').markAsTouched()
       this.formulario.get('email').markAsTouched()
-    } else {
-
-  
-      let aluno: Aluno = new Aluno(
-        this.formulario.value.nome+''.trim(),
-        this.aluno.matricula+''.trim(),
-        '',
-        this.formulario.value.email+''.trim(),
-        this.formulario.value.cpf+''.trim()
-      )
-
+      
+    } else{
+      let aluno: Aluno = new Aluno()
+        aluno.nome = this.formulario.value.nome+''.trim(),
+        aluno.matricula = this.aluno.matricula+''.trim(),
+        aluno.email = this.formulario.value.email+''.trim(),
+        aluno.cpf = this.formulario.value.cpf+''.trim(),
+        aluno.turma = this.aluno.turma+''.trim(),
 
       this.alunoBD.atualizarPerfil(aluno)
         .then(() =>{
@@ -72,4 +68,3 @@ export class PerfilComponent implements OnInit {
   }
 
 }
-//
