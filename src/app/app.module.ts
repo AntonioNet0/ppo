@@ -49,7 +49,7 @@ import { TurmasComponent } from './professor/turmas/turmas.component';
 import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
 import { PerfilComponent } from './aluno/perfil/perfil.component';
 import { AlunoComponent } from './aluno/aluno.component';
-
+import { BoletimComponent } from './aluno/boletim/boletim.component'
 
 
 
@@ -95,7 +95,7 @@ import { AlunoComponent } from './aluno/aluno.component';
     TurmasComponent,
     PerfilComponent,
     AlunoComponent,
-  
+    BoletimComponent,
 
   ],
   imports: [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListarDisciplinasComponent } from './listar-disciplinas.component';
 
 @Component({
   selector: 'app-boletim',

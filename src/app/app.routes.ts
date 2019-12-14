@@ -21,12 +21,14 @@ import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/i
 import { TurmasComponent } from './professor/turmas/turmas.component';
 import { PerfilComponent } from './aluno/perfil/perfil.component';
 import { AlunoComponent } from './aluno/aluno.component';
+import { BoletimComponent } from './aluno/boletim/boletim.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
     { path: 'home-aluno', component: AlunoComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAlunoComponent },
         { path: 'aluno/perfil', component: PerfilComponent },
+        { path: 'aluno/boletim', component: BoletimComponent},
     ]},
     { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },
