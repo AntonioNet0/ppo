@@ -21,10 +21,17 @@ import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/i
 import { TurmasComponent } from './professor/turmas/turmas.component';
 import { CadastroCalendarioAcademicoComponent } from './admin/cadastro-calendario-academico/cadastro-calendario-academico.component';
 import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/cadastro-horario-turma.component';
+import { PerfilComponent } from './aluno/perfil/perfil.component';
+import { AlunoComponent } from './aluno/aluno.component';
+import { BoletimComponent } from './aluno/boletim/boletim.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
-    { path: 'home-aluno', component: HomeAlunoComponent, canActivate: [ AutenticacaoGuard ]},
+    { path: 'home-aluno', component: AlunoComponent, canActivate: [ AutenticacaoGuard ], children:[
+        { path: '', component: HomeAlunoComponent },
+        { path: 'aluno/perfil', component: PerfilComponent },
+        { path: 'aluno/boletim', component: BoletimComponent},
+    ]},
     { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },
         { path: 'admin', children:[

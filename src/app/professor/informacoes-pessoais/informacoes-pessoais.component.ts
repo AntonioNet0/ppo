@@ -47,6 +47,7 @@ export class InformacoesPessoaisComponent implements OnInit {
       this.formulario.get('nome').markAsTouched()
       this.formulario.get('cpf').markAsTouched()
       this.formulario.get('email').markAsTouched()
+      
     } else {
 
       let professor: Professor = new Professor(

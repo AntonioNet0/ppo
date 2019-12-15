@@ -16,7 +16,6 @@ import { TopoComponent } from './acesso/topo/topo.component';
 import { HomeAlunoComponent } from './aluno/home-aluno/home-aluno.component';
 import { HomeAdmComponent } from './admin/home-adm/home-adm.component';
 import { TopoAdmComponent } from './admin/topo-adm/topo-adm.component';
-import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
 import { CadastroAlunoComponent } from './admin/cadastro-aluno/cadastro-aluno.component';
 import { AdminComponent } from './admin/admin.component';
 import { CadastroTurmaComponent } from './admin/cadastro-turma/cadastro-turma.component';
@@ -52,6 +51,11 @@ import { CadastroCalendarioAcademicoComponent } from './admin/cadastro-calendari
 import { VisualizarCalendarioAcademicoComponent } from './admin/visualizar-calendario-academico/visualizar-calendario-academico.component';
 import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/cadastro-horario-turma.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
+import { PerfilComponent } from './aluno/perfil/perfil.component';
+import { AlunoComponent } from './aluno/aluno.component';
+import { BoletimComponent } from './aluno/boletim/boletim.component'
+
 
 
 
@@ -95,10 +99,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
     TurmasComponent,
+
     DiarioComponent,
     CadastroCalendarioAcademicoComponent,
     VisualizarCalendarioAcademicoComponent,
     CadastroHorarioTurmaComponent,
+
+
+    PerfilComponent,
+    AlunoComponent,
+    BoletimComponent,
 
 
   ],

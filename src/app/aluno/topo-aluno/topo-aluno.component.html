@@ -1,0 +1,49 @@
+<div class="container" style="margin: 20px 0px;">
+
+        <nav class="navbar navbar-expand-md navbar-dark ">
+      
+            <a class="navbar-brand">
+                
+                <img src="../../../assets/Aeriumbranco.png" class="brand-image" alt="Logo Marca" />
+            </a>
+      
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarSite">
+      
+                <ul class="navbar-nav ml-auto">
+      
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/home-aluno']">Início</a>
+                    </li>
+      
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="dropdownSite" data-toggle="dropdown">
+                            Diário
+                        </a>
+                    </li>
+      
+      
+                    <li class="nav-item ">
+                        <a class="nav-link " routerLink="./aluno/boletim" id="dropdownSite" data-toggle="dropdown">
+                            Boletim
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " routerLink="./aluno/perfil" id="dropdownSite" data-toggle="dropdown">
+                            Perfil
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" style="cursor: pointer;" (click)="logout()">Sair</a>
+                    </li>
+      
+                </ul>
+      
+            </div>
+      
+        </nav>
+      </div>

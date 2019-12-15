@@ -71,8 +71,23 @@ export class Autenticacao {
 
             if (tipoLogin === '6E7968616220') {
 
+                
                 this.token_id = localStorage.getItem('idToken')
-                this.router.navigate(['home-aluno'])
+
+                if (window.location.href !== dominio) {
+
+                    let url = window.location.href
+                    let urlErro = dominio + 'home-aluno'
+
+                    if (url.substring(0, urlErro.length) !== urlErro) {
+
+                        this.router.navigate(['home-aluno'])
+
+                    }
+                } else {
+                    this.router.navigate(['home-aluno'])
+                }
+
 
             } else if (tipoLogin === '63656273726666626520') {
 
