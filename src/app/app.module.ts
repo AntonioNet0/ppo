@@ -47,6 +47,11 @@ import { HomeProfessorComponent } from './professor/home-professor/home-professo
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
+import { DiarioComponent } from './professor/turmas/diario/diario.component';
+import { CadastroCalendarioAcademicoComponent } from './admin/cadastro-calendario-academico/cadastro-calendario-academico.component';
+import { VisualizarCalendarioAcademicoComponent } from './admin/visualizar-calendario-academico/visualizar-calendario-academico.component';
+import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/cadastro-horario-turma.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -90,6 +95,10 @@ import { TurmasComponent } from './professor/turmas/turmas.component';
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
     TurmasComponent,
+    DiarioComponent,
+    CadastroCalendarioAcademicoComponent,
+    VisualizarCalendarioAcademicoComponent,
+    CadastroHorarioTurmaComponent,
 
 
   ],
@@ -98,6 +107,8 @@ import { TurmasComponent } from './professor/turmas/turmas.component';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule,
+   
 
   ],
   providers: [ Autenticacao, AutenticacaoGuard ],

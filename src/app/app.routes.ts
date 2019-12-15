@@ -19,6 +19,8 @@ import { ProfessorComponent } from './professor/professor.component';
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
+import { CadastroCalendarioAcademicoComponent } from './admin/cadastro-calendario-academico/cadastro-calendario-academico.component';
+import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/cadastro-horario-turma.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -43,8 +45,10 @@ export const ROUTES: Routes = [
         ] },
         { path: 'turma', children: [
             { path: '', component: CadastroTurmaComponent },
-            { path: 'listar', component: ListarTurmasComponent }
+            { path: 'listar', component: ListarTurmasComponent },
+            { path: 'cadastro-horario/:id', component: CadastroHorarioTurmaComponent }
         ] },
+        { path: 'periodo-letivo', component: CadastroCalendarioAcademicoComponent }
     ] },
     { path: 'home-professor', component: ProfessorComponent,  canActivate: [ AutenticacaoGuard ], children: [
         { path: '', component: HomeProfessorComponent },

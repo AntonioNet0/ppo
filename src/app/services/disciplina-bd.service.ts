@@ -13,7 +13,7 @@ export class DisciplinaBD {
     ){}
 
     public async cadastroDisciplina(disciplina: Disciplina): Promise<any> {
-        return firebase.database().ref(`disciplinas/${disciplina.nome}`).set(disciplina)
+        return firebase.database().ref(`disciplinas/${disciplina.nome+ " " + disciplina.turma}`).set(disciplina)
             .then(() => {
                 this.router.navigate(['home-admin/disciplina/listar'])
             })
@@ -69,5 +69,31 @@ export class DisciplinaBD {
             return disciplinas
         })
     }
+
+    public async listaDisciplinasProfessor(): Promise<any> {
+        let email = firebase.auth().currentUser.email
+        console.log(email)
+        return firebase.database().ref(`disciplinas`)
+            .orderByChild('nome')
+            .once('value')
+            .then((snapshot: any) => {
+                let disciplinas: any[] = []
+
+                snapshot.forEach((childSnapshot: any) => {
+
+                    let disciplina = childSnapshot.val()
+                    disciplina.key = childSnapshot.key
+
+                    if(email.startsWith(disciplina.professorMatricula)){
+                        disciplinas.push(disciplina)
+                    }
+
+                    
+                })
+
+                return disciplinas
+            })
+    }
+
 
 }

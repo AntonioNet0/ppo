@@ -1,7 +1,31 @@
 <div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
 
-  <div class="">
-    
-  </div>
+  <div class="my-2">
+    <h3 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3">Turmas</h3>
 
+    <div class="row d-flex justify-content-center">
+
+      <div *ngFor="let disciplina of disciplinas" class="col-sm-12 col-md-6 col-lg-6 mb-4 mt-3">
+
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">{{disciplina.turma}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{disciplina.nome}}</h6>
+            <p class="card-text" style="color: black;"><b>Diário da Disciplina.</b> Lançe notas, disponibilize material
+              de estudo e faça a frequência da turma.</p>
+            <div style="float: right;">
+                <a href="#" class="card-link">Acesso ao Diário</a>
+                <a href="#" class="card-link">Frequência</a>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <h3 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3"></h3>
+  </div>
 </div>

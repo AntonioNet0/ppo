@@ -1,0 +1,253 @@
+<div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <h4 style="text-align: center" class="mt-2 mb-5">Cadastrar Horário</h4>
+
+  <div class="row">
+
+    <div class="col">
+      <!--
+        <app-drag-drop-connected></app-drag-drop-connected>
+      -->
+      <div class="col mx-2" style="text-align: center; width: 100%;">
+        <div class="" style="width: auto; ">
+          <form [formGroup]="formulario" (ngSubmit)="cadastro()">
+
+
+            <table class="table table-bordered">
+              <tr class="thead-dark">
+                <th scope="col">Horário</th>
+                <th scope="col">Segunda</th>
+                <th scope="col">Terça</th>
+                <th scope="col">Quarta</th>
+                <th scope="col">Quinta</th>
+                <th scope="col">Sexta</th>
+              </tr>
+
+              <tbody>
+                <tr>
+                  <th>07:00 - 07:50</th>
+                  <th>
+                    <select class="disciplinaSel" formControlName="segunda1">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="disciplinaSel" formControlName="terca1">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="disciplinaSel" formControlName="quarta1">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="disciplinaSel" formControlName="quinta1">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select class="disciplinaSel" formControlName="sexta1">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+
+                <tr>
+
+                  <th>07:50 - 08:40</th>
+                  <th class="Segunda">
+                    <select class="disciplinaSel" formControlName="segunda2">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="terca">
+                    <select class="disciplinaSel" formControlName="terca2">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quarta">
+                    <select class="disciplinaSel" formControlName="quarta2">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quinta">
+                    <select class="disciplinaSel" formControlName="quinta2">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="sexta">
+                    <select class="disciplinaSel" formControlName="sexta2">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+
+                <tr>
+
+                  <th>08:40 - 09:30</th>
+                  <th class="Segunda">
+                    <select class="disciplinaSel" formControlName="segunda3">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="terca">
+                    <select class="disciplinaSel" formControlName="terca3">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quarta">
+                    <select class="disciplinaSel" formControlName="quarta3">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quinta">
+                    <select class="disciplinaSel" formControlName="quinta3">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="sexta">
+                    <select class="disciplinaSel" formControlName="sexta3">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th>09:45 - 10:35</th>
+                  <th class="Segunda">
+                    <select class="disciplinaSel" formControlName="segunda4">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="terca">
+                    <select class="disciplinaSel" formControlName="terca4">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quarta">
+                    <select class="disciplinaSel" formControlName="quarta4">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quinta">
+                    <select class="disciplinaSel" formControlName="quinta4">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="sexta">
+                    <select class="disciplinaSel" formControlName="sexta4">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+
+                <tr>
+
+                  <th>10:35 - 11:25</th>
+                  <th class="Segunda">
+                    <select class="disciplinaSel" formControlName="segunda5">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="terca">
+                    <select class="disciplinaSel" formControlName="terca5">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quarta">
+                    <select class="disciplinaSel" formControlName="quarta5">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quinta">
+                    <select class="disciplinaSel" formControlName="quinta5">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="sexta">
+                    <select class="disciplinaSel" formControlName="sexta5">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+
+                <tr>
+
+                  <th>11:25 - 12:15</th>
+                  <th class="Segunda">
+                    <select class="disciplinaSel" formControlName="segunda6">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="terca">
+                    <select class="disciplinaSel" formControlName="terca6">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quarta">
+                    <select class="disciplinaSel" formControlName="quarta6">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="quinta">
+                    <select class="disciplinaSel" formControlName="quinta6">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                  <th class="sexta">
+                    <select class="disciplinaSel" formControlName="sexta6">
+                      <option></option>
+                      <option *ngFor="let disciplina of disciplinas">{{disciplina}}</option>
+                    </select>
+                  </th>
+                </tr>
+              </tbody>
+
+            </table>
+
+            <div style="float: right;">
+              <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="estadoButton">
+                  Salvar
+              </button>
+          </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

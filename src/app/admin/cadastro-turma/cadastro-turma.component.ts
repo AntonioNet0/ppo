@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
 import { Turma } from 'src/app/shared/turma.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-turma',
@@ -20,7 +21,8 @@ export class CadastroTurmaComponent implements OnInit {
   })
 
   constructor(
-    private turmaBD: TurmaBD
+    private turmaBD: TurmaBD,
+    private router: Router
   ) { }
 
   ngOnInit() {

@@ -7,43 +7,25 @@
         <div class="col">
 
             <form [formGroup]="formulario" (ngSubmit)="cadastro()">
-                <div class="form-group" > 
-                    <input 
-                        type="input" 
-                        class="form-control mb-2 mx-auto col-7" 
-                        placeholder="Nome" 
-                        formControlName="nome"
-                    />
+                <div class="form-group">
+                    <input type="input" class="form-control mb-2 mx-auto col-7" placeholder="Nome"
+                        formControlName="nome" />
                 </div>
                 <div class="form-group">
-                    <input 
-                        type="input" 
-                        class="form-control mb-2 mx-auto col-7" 
-                        placeholder="Login" 
-                        formControlName="login"
-                    />
+                    <input type="input" class="form-control mb-2 mx-auto col-7" placeholder="Login"
+                        formControlName="login" />
                 </div>
                 <div class="form-group">
-                    <input 
-                        type="password" 
-                        class="form-control mb-2 mx-auto col-7" 
-                        placeholder="Senha" 
-                        formControlName="senha"
-                    >
+                    <input type="password" class="form-control mb-2 mx-auto col-7" placeholder="Senha"
+                        formControlName="senha">
                 </div>
                 <div class="form-group">
-                    <input 
-                        type="email" 
-                        class="form-control mb-2 mx-auto col-7" 
-                        placeholder="Email" 
-                        formControlName="email"
-                    >
+                    <input type="email" class="form-control mb-2 mx-auto col-7" placeholder="Email"
+                        formControlName="email">
                 </div>
                 <div style="float: right;">
-                    <button type="submit" 
-                            class="btn btn-primary btn-sm mb-2" 
-                            [disabled]="estadoButton">
-                                Salvar
+                    <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="estadoButton">
+                        Salvar
                     </button>
                 </div>
 

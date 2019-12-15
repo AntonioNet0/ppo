@@ -20,7 +20,7 @@
                     <div class="col col-sm-8 col-md-5 col-lg-4">
                         <h5 class="my-2">Selecione o professor: </h5>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01" formControlName="professor">
+                    <select class="custom-select" formControlName="professor">
                         <option *ngIf="professores.length === 0; else semProfessores">Nenhum professor encontrado
                         </option>
                         <ng-template #semProfessores>
@@ -34,7 +34,7 @@
                         <div class="col col-sm-8 col-md-5 col-lg-4">
                             <h5 class="my-2">Selecione a turma: </h5>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" formControlName="turma">
+                        <select class="custom-select" formControlName="turma">
                             <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro 
                             </option>
                             <ng-template #semTurmas>
@@ -71,7 +71,7 @@
                     <div class="col col-sm-8 col-md-5 col-lg-4">
                         <h5 class="my-2">Selecione o período: </h5>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01" formControlName="periodo">
+                    <select class="custom-select" formControlName="periodo">
                         <option value="1">1º</option>
                         <option value="2">2º</option>
                         <option value="3">3º</option>

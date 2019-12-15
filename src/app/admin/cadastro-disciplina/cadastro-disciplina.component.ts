@@ -67,7 +67,7 @@ export class CadastroDisciplinaComponent implements OnInit {
 
       this.disciplinaBD.cadastroDisciplina(disciplina)
         .then(()=>{
-          this.professorBD.adicionarDisciplina(disciplina)
+          //this.professorBD.adicionarDisciplina(disciplina)
           alert("Sucesso!")
         },
         (error: any) => {

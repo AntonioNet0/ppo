@@ -130,9 +130,16 @@ export class ProfessorBD {
         })
     }
 
+/*    
     public async adicionarDisciplina(disciplina: Disciplina): Promise<any> {
-        return firebase.database().ref(`professores/${disciplina.professorMatricula+this.dominio}/disciplinas/${disciplina.nome}`).set({nome: disciplina.nome, turma: disciplina.turma})
+        let disciplinaCod = {nome: disciplina.nome, turma: disciplina.turma}
+        return firebase.database().ref(`professores/${btoa(disciplina.professorMatricula+this.dominio)}/disciplinas/${disciplinaCod.nome}`).set(disciplinaCod)
     }
 
+    public async removerDisciplina(disciplina: any, matriculaProfessor: string): Promise<any> {
+        let disciplinaCod = {nome: disciplina.nome, turma: disciplina.turma}
+        return firebase.database().ref(`professores/${btoa(matriculaProfessor+this.dominio)}/disciplinas/${disciplinaCod.nome}`).remove()
+    }
+    */
 
 }
