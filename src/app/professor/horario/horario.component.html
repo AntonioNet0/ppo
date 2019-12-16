@@ -1,0 +1,37 @@
+<div class="container mb-2" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <h4 style="text-align: center" class="mt-2 mb-4">Horário Professor</h4>
+
+  <div class="row">
+
+    <div class="col">
+
+      <table class="table table-bordered">
+
+        <tr class="thead-dark">
+          <th scope="col">Horário</th>
+          <th scope="col">Segunda</th>
+          <th scope="col">Terça</th>
+          <th scope="col">Quarta</th>
+          <th scope="col">Quinta</th>
+          <th scope="col">Sexta</th>
+        </tr>
+
+        <tbody>
+          <tr *ngFor="let periodo of hora; let i = index">
+            <th>{{periodo}}</th>
+            <th *ngIf="horario.segunda[i].disciplina !== undefined">{{horario.segunda[i].disciplina}} <br/> <span>{{horario.segunda[i].nomeTurma}}</span> </th>
+            <th *ngIf="horario.terca[i].disciplina !== undefined">{{horario.terca[i].disciplina}} <br/> <span>{{horario.terca[i].nomeTurma}}</span> </th>
+            <th *ngIf="horario.quarta[i].disciplina !== undefined">{{horario.quarta[i].disciplina}} <br/> <span>{{horario.quarta[i].nomeTurma}}</span> </th>
+            <th *ngIf="horario.quinta[i].disciplina !== undefined">{{horario.quinta[i].disciplina}} <br/> <span>{{horario.quinta[i].nomeTurma}}</span> </th>
+            <th *ngIf="horario.sexta[i].disciplina !== undefined">{{horario.sexta[i].disciplina}}  <br/> <span title="Turma Código">{{horario.sexta[i].nomeTurma}}</span> </th>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

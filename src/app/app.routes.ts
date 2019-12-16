@@ -24,6 +24,8 @@ import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/ca
 import { PerfilComponent } from './aluno/perfil/perfil.component';
 import { AlunoComponent } from './aluno/aluno.component';
 import { BoletimComponent } from './aluno/boletim/boletim.component';
+import { EditarHorarioTurmaComponent } from './admin/editar-horario-turma/editar-horario-turma.component';
+import { HorarioComponent } from './professor/horario/horario.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -52,7 +54,10 @@ export const ROUTES: Routes = [
         ] },
         { path: 'turma', children: [
             { path: '', component: CadastroTurmaComponent },
-            { path: 'listar', component: ListarTurmasComponent },
+            { path: 'listar', children: [
+                { path: '', component: ListarTurmasComponent },
+                { path: 'turma-horario/:id', component: EditarHorarioTurmaComponent }
+            ] },
             { path: 'cadastro-horario/:id', component: CadastroHorarioTurmaComponent }
         ] },
         { path: 'periodo-letivo', component: CadastroCalendarioAcademicoComponent }
@@ -62,5 +67,6 @@ export const ROUTES: Routes = [
         { path: 'professor/seguranca', component: AtualizarSenhaProfessorComponent },
         { path: 'professor/dados-pessoais', component: InformacoesPessoaisComponent },
         { path: 'professor/turmas', component: TurmasComponent },
+        { path: 'professor/horario', component: HorarioComponent },
     ]}
 ]

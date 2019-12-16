@@ -8,3 +8,7 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+th {
+    font-weight: 300;
+}

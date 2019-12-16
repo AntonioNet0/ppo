@@ -24,6 +24,7 @@
                         <option *ngIf="professores.length === 0; else semProfessores">Nenhum professor encontrado
                         </option>
                         <ng-template #semProfessores>
+                            <option></option>
                             <option *ngFor="let professor of professores" [value]="professor.matricula">{{professor.nome}}
                             </option>
                         </ng-template>
@@ -38,35 +39,13 @@
                             <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro 
                             </option>
                             <ng-template #semTurmas>
+                                <option></option>
                                 <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}
                                 </option>
                             </ng-template>
                         </select>
                     </div>
-                
-                <!--
-                <div class="form-group" style="display: flex">
 
-                    <div class="col col-sm-8 col-md-5 col-lg-4">
-                        <h5 class="my-2">Hora de início da aula: </h5>
-                    </div>
-                    <div class="col px-0">
-                        <input type="time" id="appt" name="appt" min="07:00" max="18:00" required formControlName="horaInicio">
-                    </div>
-
-                </div>
-
-                <div class="form-group" style="display: flex">
-
-                    <div class="col col-sm-8 col-md-5 col-lg-4">
-                        <h5 class="my-2">Hora do fim da aula: </h5>
-                    </div>
-                    <div class="col px-0">
-                        <input type="time" id="appt" name="appt" min="07:00" max="18:00" required formControlName="horaFim">
-                    </div>
-
-                </div>
-                -->
                 <div class="form-group" style="display: flex">
                     <div class="col col-sm-8 col-md-5 col-lg-4">
                         <h5 class="my-2">Selecione o período: </h5>
