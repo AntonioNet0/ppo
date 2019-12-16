@@ -8,31 +8,29 @@ import { Autenticacao } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  
+
   public formulario: FormGroup = new FormGroup({
     'matricula': new FormControl(null, [Validators.required]),
-    'senha': new FormControl(null, [Validators.required, Validators.minLength(6)]) 
+    'senha': new FormControl(null, [Validators.required, Validators.minLength(6)])
   })
 
   public errorMessage: string
 
   constructor(
     private autenticacao: Autenticacao
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
 
-  public autenticar(): void{
-    if(this.formulario.valid){
-      this.autenticacao.autenticar(
-        this.formulario.value.matricula,
-        this.formulario.value.senha)
-        .then(()=>{
-          this.errorMessage = this.autenticacao.errorMessage
-        })
-    }else{
-      this.errorMessage = "Matrícula ou senha está incorreto. Por favor tente novamente, se não conseguir tente trocar de senha."
+  public autenticar(): void {
+    this.errorMessage = ''
+    if (this.formulario.valid) {
+
+      this.autenticacao.autenticar(this.formulario.value.matricula, this.formulario.value.senha)
+      
+    } else {
+      this.errorMessage = "Matrícula ou senha são inválidas. Por favor tente novamente."
     }
   }
 
