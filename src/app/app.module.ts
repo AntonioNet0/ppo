@@ -46,7 +46,6 @@ import { HomeProfessorComponent } from './professor/home-professor/home-professo
 import { AtualizarSenhaProfessorComponent } from './professor/atualizar-senha-professor/atualizar-senha-professor.component';
 import { InformacoesPessoaisComponent } from './professor/informacoes-pessoais/informacoes-pessoais.component';
 import { TurmasComponent } from './professor/turmas/turmas.component';
-import { DiarioComponent } from './professor/turmas/diario/diario.component';
 import { CadastroCalendarioAcademicoComponent } from './admin/cadastro-calendario-academico/cadastro-calendario-academico.component';
 import { VisualizarCalendarioAcademicoComponent } from './admin/visualizar-calendario-academico/visualizar-calendario-academico.component';
 import { CadastroHorarioTurmaComponent } from './admin/cadastro-horario-turma/cadastro-horario-turma.component';
@@ -56,7 +55,9 @@ import { PerfilComponent } from './aluno/perfil/perfil.component';
 import { AlunoComponent } from './aluno/aluno.component';
 import { BoletimComponent } from './aluno/boletim/boletim.component';
 import { EditarHorarioTurmaComponent } from './admin/editar-horario-turma/editar-horario-turma.component';
-import { HorarioComponent } from './professor/horario/horario.component'
+import { HorarioComponent } from './professor/horario/horario.component';
+import { DiarioComponent } from './professor/diario/diario.component';
+import { FrequenciaComponent } from './professor/frequencia/frequencia.component'
 
 
 
@@ -101,8 +102,6 @@ import { HorarioComponent } from './professor/horario/horario.component'
     AtualizarSenhaProfessorComponent,
     InformacoesPessoaisComponent,
     TurmasComponent,
-
-    DiarioComponent,
     CadastroCalendarioAcademicoComponent,
     VisualizarCalendarioAcademicoComponent,
     CadastroHorarioTurmaComponent,
@@ -113,6 +112,8 @@ import { HorarioComponent } from './professor/horario/horario.component'
     BoletimComponent,
     EditarHorarioTurmaComponent,
     HorarioComponent,
+    DiarioComponent,
+    FrequenciaComponent,
 
 
   ],

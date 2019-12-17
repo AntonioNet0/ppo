@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     if (this.formulario.valid) {
 
       this.autenticacao.autenticar(this.formulario.value.matricula, this.formulario.value.senha)
+        .then(() => this.errorMessage = this.autenticacao.errorMessage)
       
     } else {
       this.errorMessage = "Matrícula ou senha são inválidas. Por favor tente novamente."

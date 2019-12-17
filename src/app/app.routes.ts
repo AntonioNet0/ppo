@@ -26,6 +26,8 @@ import { AlunoComponent } from './aluno/aluno.component';
 import { BoletimComponent } from './aluno/boletim/boletim.component';
 import { EditarHorarioTurmaComponent } from './admin/editar-horario-turma/editar-horario-turma.component';
 import { HorarioComponent } from './professor/horario/horario.component';
+import { DiarioComponent } from './professor/diario/diario.component';
+import { FrequenciaComponent } from './professor/frequencia/frequencia.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -66,7 +68,13 @@ export const ROUTES: Routes = [
         { path: '', component: HomeProfessorComponent },
         { path: 'professor/seguranca', component: AtualizarSenhaProfessorComponent },
         { path: 'professor/dados-pessoais', component: InformacoesPessoaisComponent },
-        { path: 'professor/turmas', component: TurmasComponent },
+        { path: 'professor/turmas', children: [
+            { path: '', component: TurmasComponent },
+            { path: 'diario', children: [
+                { path:':id', component: DiarioComponent },
+                { path: 'frequencia/:id', component: FrequenciaComponent }
+            ] }
+        ] },
         { path: 'professor/horario', component: HorarioComponent },
     ]}
 ]

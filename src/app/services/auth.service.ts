@@ -56,11 +56,10 @@ export class Autenticacao {
                                         this.router.navigate(['/home-admin'])
                                         console.log("autenticou admin")
                                     })
-                            })
-                            .catch(() => {
-                                console.log('asdasd')
+                            }, () => this.errorMessage = "Credenciais Inválidas")
+                            .catch(() => { 
                                 this.errorMessage = 'Credenciais Inválidas'
-                                console.log(this.errorMessage)
+                    
                             })
                     })
             })

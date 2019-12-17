@@ -117,5 +117,20 @@ export class TurmaBD {
             })
     }
 
+    public async getAlunos(codTurma: string): Promise<any> {
+        return firebase.database().ref(`turmas/${codTurma}/alunos`)
+            .once('value')
+            .then((snapshot: any) => {
+                let alunos: any[] = []
+                snapshot.forEach((childSnapshot: any) => {
+                    let aluno = childSnapshot.val()
+                    aluno.key = childSnapshot.key
+
+                    alunos.push(aluno)
+                });
+                return alunos
+            })
+    }
+
 
 }

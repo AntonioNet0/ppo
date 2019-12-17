@@ -110,12 +110,62 @@ export class DisciplinaBD {
         } else if (horarioDisciplina.horario === '11:25 - 12:15') {
             caminho = '5'
         }
-            return firebase.database().ref(`disciplinas/${horarioDisciplina.disciplina}/horario/${horarioDisciplina.diaDaSemana}/${caminho}`)
-                .set({ hora: horarioDisciplina.horario })
+        return firebase.database().ref(`disciplinas/${horarioDisciplina.disciplina}/horario/${horarioDisciplina.diaDaSemana}/${caminho}`)
+            .set({ hora: horarioDisciplina.horario })
     }
 
     public async limparHorario(disciplina: string): Promise<any> {
         return firebase.database().ref(`disciplinas/${disciplina}/horario`).remove()
+    }
+
+    public async getHorario(disciplina: string): Promise<any> {
+        return firebase.database().ref(`disciplinas/${disciplina}/horario`)
+            .once('value')
+            .then((snapshot: any) => {
+                let val: string = ''
+                snapshot.forEach((childSnapshot: any) => {
+
+                    val = childSnapshot.key
+
+                });
+
+                return val
+
+            })
+
+    }
+
+    public async getDisciplina(cod: string): Promise<Disciplina> {
+        return firebase.database().ref(`disciplinas/${cod}`)
+            .once('value')
+            .then((snapshot: any) => {
+                let disciplina: Disciplina = new Disciplina()
+
+                snapshot.forEach((childSnapshot: any) => {
+
+                    if (childSnapshot.key === 'nome') {
+                        disciplina.nome = childSnapshot.val()
+
+                    } else if (childSnapshot.key === 'turma') {
+                        disciplina.turma = childSnapshot.val()
+
+                    } else if (childSnapshot.key === 'codigo') {
+                        disciplina.codigo = childSnapshot.val()
+
+                    } else if (childSnapshot.key === 'periodo') {
+                        disciplina.periodo = childSnapshot.val()
+                    
+                    } else if (childSnapshot.key === 'professorMatricula') {
+                        disciplina.professorMatricula = childSnapshot.val()
+
+                    } else if (childSnapshot.key === 'cargaHoraria') {
+                        disciplina.cargaHoraria = childSnapshot.val()   
+                    }
+
+                });
+
+                return disciplina
+            })
     }
 
 

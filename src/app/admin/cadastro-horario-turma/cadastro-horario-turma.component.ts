@@ -81,44 +81,44 @@ export class CadastroHorarioTurmaComponent implements OnInit {
   public cadastro(): void {
 
     //Horario Segunda-feira
-    this.horario.segunda.push({ periodo: this.horas[0], disciplina: this.formulario.value.segunda1 === null ? '-' : this.formulario.value.segunda1 })
-    this.horario.segunda.push({ periodo: this.horas[1], disciplina: this.formulario.value.segunda2 === null ? '-' : this.formulario.value.segunda2 })
-    this.horario.segunda.push({ periodo: this.horas[2], disciplina: this.formulario.value.segunda3 === null ? '-' : this.formulario.value.segunda3 })
-    this.horario.segunda.push({ periodo: this.horas[3], disciplina: this.formulario.value.segunda4 === null ? '-' : this.formulario.value.segunda4 })
-    this.horario.segunda.push({ periodo: this.horas[4], disciplina: this.formulario.value.segunda5 === null ? '-' : this.formulario.value.segunda5 })
-    this.horario.segunda.push({ periodo: this.horas[5], disciplina: this.formulario.value.segunda6 === null ? '-' : this.formulario.value.segunda6 })
+    this.horario.segunda.push({ periodo: this.horas[0], disciplina: this.formulario.value.segunda1 === null ? '' : this.formulario.value.segunda1 })
+    this.horario.segunda.push({ periodo: this.horas[1], disciplina: this.formulario.value.segunda2 === null ? '' : this.formulario.value.segunda2 })
+    this.horario.segunda.push({ periodo: this.horas[2], disciplina: this.formulario.value.segunda3 === null ? '' : this.formulario.value.segunda3 })
+    this.horario.segunda.push({ periodo: this.horas[3], disciplina: this.formulario.value.segunda4 === null ? '' : this.formulario.value.segunda4 })
+    this.horario.segunda.push({ periodo: this.horas[4], disciplina: this.formulario.value.segunda5 === null ? '' : this.formulario.value.segunda5 })
+    this.horario.segunda.push({ periodo: this.horas[5], disciplina: this.formulario.value.segunda6 === null ? '' : this.formulario.value.segunda6 })
 
     //Horario Terca-feira
-    this.horario.terca.push({ periodo: this.horas[0], disciplina: this.formulario.value.terca1 === null ? '-' : this.formulario.value.terca1 })
-    this.horario.terca.push({ periodo: this.horas[1], disciplina: this.formulario.value.terca2 === null ? '-' : this.formulario.value.terca2 })
-    this.horario.terca.push({ periodo: this.horas[2], disciplina: this.formulario.value.terca3 === null ? '-' : this.formulario.value.terca3 })
-    this.horario.terca.push({ periodo: this.horas[3], disciplina: this.formulario.value.terca4 === null ? '-' : this.formulario.value.terca4 })
-    this.horario.terca.push({ periodo: this.horas[4], disciplina: this.formulario.value.terca5 === null ? '-' : this.formulario.value.terca5 })
-    this.horario.terca.push({ periodo: this.horas[5], disciplina: this.formulario.value.terca6 === null ? '-' : this.formulario.value.terca6 })
+    this.horario.terca.push({ periodo: this.horas[0], disciplina: this.formulario.value.terca1 === null ? '' : this.formulario.value.terca1 })
+    this.horario.terca.push({ periodo: this.horas[1], disciplina: this.formulario.value.terca2 === null ? '' : this.formulario.value.terca2 })
+    this.horario.terca.push({ periodo: this.horas[2], disciplina: this.formulario.value.terca3 === null ? '' : this.formulario.value.terca3 })
+    this.horario.terca.push({ periodo: this.horas[3], disciplina: this.formulario.value.terca4 === null ? '' : this.formulario.value.terca4 })
+    this.horario.terca.push({ periodo: this.horas[4], disciplina: this.formulario.value.terca5 === null ? '' : this.formulario.value.terca5 })
+    this.horario.terca.push({ periodo: this.horas[5], disciplina: this.formulario.value.terca6 === null ? '' : this.formulario.value.terca6 })
 
     //Horario Quarta-feria
-    this.horario.quarta.push({ periodo: this.horas[0], disciplina: this.formulario.value.quarta1 === null ? '-' : this.formulario.value.quarta1 })
-    this.horario.quarta.push({ periodo: this.horas[1], disciplina: this.formulario.value.quarta2 === null ? '-' : this.formulario.value.quarta2 })
-    this.horario.quarta.push({ periodo: this.horas[2], disciplina: this.formulario.value.quarta3 === null ? '-' : this.formulario.value.quarta3 })
-    this.horario.quarta.push({ periodo: this.horas[3], disciplina: this.formulario.value.quarta4 === null ? '-' : this.formulario.value.quarta4 })
-    this.horario.quarta.push({ periodo: this.horas[4], disciplina: this.formulario.value.quarta5 === null ? '-' : this.formulario.value.quarta5 })
-    this.horario.quarta.push({ periodo: this.horas[5], disciplina: this.formulario.value.quarta6 === null ? '-' : this.formulario.value.quarta6 })
+    this.horario.quarta.push({ periodo: this.horas[0], disciplina: this.formulario.value.quarta1 === null ? '' : this.formulario.value.quarta1 })
+    this.horario.quarta.push({ periodo: this.horas[1], disciplina: this.formulario.value.quarta2 === null ? '' : this.formulario.value.quarta2 })
+    this.horario.quarta.push({ periodo: this.horas[2], disciplina: this.formulario.value.quarta3 === null ? '' : this.formulario.value.quarta3 })
+    this.horario.quarta.push({ periodo: this.horas[3], disciplina: this.formulario.value.quarta4 === null ? '' : this.formulario.value.quarta4 })
+    this.horario.quarta.push({ periodo: this.horas[4], disciplina: this.formulario.value.quarta5 === null ? '' : this.formulario.value.quarta5 })
+    this.horario.quarta.push({ periodo: this.horas[5], disciplina: this.formulario.value.quarta6 === null ? '' : this.formulario.value.quarta6 })
 
     //Horario Quinta-feira
-    this.horario.quinta.push({ periodo: this.horas[0], disciplina: this.formulario.value.quinta1 === null ? '-' : this.formulario.value.quinta1 })
-    this.horario.quinta.push({ periodo: this.horas[1], disciplina: this.formulario.value.quinta2 === null ? '-' : this.formulario.value.quinta2 })
-    this.horario.quinta.push({ periodo: this.horas[2], disciplina: this.formulario.value.quinta3 === null ? '-' : this.formulario.value.quinta3 })
-    this.horario.quinta.push({ periodo: this.horas[3], disciplina: this.formulario.value.quinta4 === null ? '-' : this.formulario.value.quinta4 })
-    this.horario.quinta.push({ periodo: this.horas[4], disciplina: this.formulario.value.quinta5 === null ? '-' : this.formulario.value.quinta5 })
-    this.horario.quinta.push({ periodo: this.horas[5], disciplina: this.formulario.value.quinta6 === null ? '-' : this.formulario.value.quinta6 })
+    this.horario.quinta.push({ periodo: this.horas[0], disciplina: this.formulario.value.quinta1 === null ? '' : this.formulario.value.quinta1 })
+    this.horario.quinta.push({ periodo: this.horas[1], disciplina: this.formulario.value.quinta2 === null ? '' : this.formulario.value.quinta2 })
+    this.horario.quinta.push({ periodo: this.horas[2], disciplina: this.formulario.value.quinta3 === null ? '' : this.formulario.value.quinta3 })
+    this.horario.quinta.push({ periodo: this.horas[3], disciplina: this.formulario.value.quinta4 === null ? '' : this.formulario.value.quinta4 })
+    this.horario.quinta.push({ periodo: this.horas[4], disciplina: this.formulario.value.quinta5 === null ? '' : this.formulario.value.quinta5 })
+    this.horario.quinta.push({ periodo: this.horas[5], disciplina: this.formulario.value.quinta6 === null ? '' : this.formulario.value.quinta6 })
 
     //Horario Sexta-feira
-    this.horario.sexta.push({ periodo: this.horas[0], disciplina: this.formulario.value.sexta1 === null ? '-' : this.formulario.value.sexta1 })
-    this.horario.sexta.push({ periodo: this.horas[1], disciplina: this.formulario.value.sexta2 === null ? '-' : this.formulario.value.sexta2 })
-    this.horario.sexta.push({ periodo: this.horas[2], disciplina: this.formulario.value.sexta3 === null ? '-' : this.formulario.value.sexta3 })
-    this.horario.sexta.push({ periodo: this.horas[3], disciplina: this.formulario.value.sexta4 === null ? '-' : this.formulario.value.sexta4 })
-    this.horario.sexta.push({ periodo: this.horas[4], disciplina: this.formulario.value.sexta5 === null ? '-' : this.formulario.value.sexta5 })
-    this.horario.sexta.push({ periodo: this.horas[5], disciplina: this.formulario.value.sexta6 === null ? '-' : this.formulario.value.sexta6 })
+    this.horario.sexta.push({ periodo: this.horas[0], disciplina: this.formulario.value.sexta1 === null ? '' : this.formulario.value.sexta1 })
+    this.horario.sexta.push({ periodo: this.horas[1], disciplina: this.formulario.value.sexta2 === null ? '' : this.formulario.value.sexta2 })
+    this.horario.sexta.push({ periodo: this.horas[2], disciplina: this.formulario.value.sexta3 === null ? '' : this.formulario.value.sexta3 })
+    this.horario.sexta.push({ periodo: this.horas[3], disciplina: this.formulario.value.sexta4 === null ? '' : this.formulario.value.sexta4 })
+    this.horario.sexta.push({ periodo: this.horas[4], disciplina: this.formulario.value.sexta5 === null ? '' : this.formulario.value.sexta5 })
+    this.horario.sexta.push({ periodo: this.horas[5], disciplina: this.formulario.value.sexta6 === null ? '' : this.formulario.value.sexta6 })
 
     this.turmaBD.cadastroHorario(this.turma.codigo, this.horario)
       .then(() => alert("Sucesso!"))
@@ -127,7 +127,7 @@ export class CadastroHorarioTurmaComponent implements OnInit {
     for (let i = 0; i < 5; i++) {
       if (i === 0) {
         this.horario.segunda.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'Segunda'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -136,7 +136,7 @@ export class CadastroHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 1) {
         this.horario.terca.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'terca'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -145,7 +145,7 @@ export class CadastroHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 2) {
         this.horario.quarta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'quarta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -154,7 +154,7 @@ export class CadastroHorarioTurmaComponent implements OnInit {
         })
       } else if(i === 3) {
         this.horario.quinta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'quinta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -164,7 +164,7 @@ export class CadastroHorarioTurmaComponent implements OnInit {
       } else if(i === 4) {
 
         this.horario.sexta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'sexta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina

@@ -44,13 +44,13 @@ export class HorarioComponent implements OnInit {
   }
 
   private horarioBuilder(disciplina: any): void {
-    if (disciplina.horario === undefined) {
+    if (disciplina.horario !== undefined) {
       this.horario.segunda = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horario.terca = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horario.quarta = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horario.quinta = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horario.sexta = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
-    } else {
+    
 
       if (disciplina.horario.segunda === undefined) {
 
@@ -221,7 +221,7 @@ export class HorarioComponent implements OnInit {
       if (disciplina.horario.sexta === undefined) {
         this.horario.sexta = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       } else {
-      
+        console.log(disciplina.horario.sexta)
         if (disciplina.horario.sexta[0] !== undefined) {
 
           this.horario.sexta[0] = {disciplina: disciplina.nome, nomeTurma: disciplina.turma}
@@ -239,11 +239,11 @@ export class HorarioComponent implements OnInit {
           this.horario.sexta[2] = {disciplina: disciplina.nome, nomeTurma: disciplina.turma}
 
         } 
-        
+        console.log(disciplina.horario.sexta[3] !== undefined)
         if (disciplina.horario.sexta[3] !== undefined) {
 
           this.horario.sexta[3] = {disciplina: disciplina.nome, nomeTurma: disciplina.turma}
-          
+          console.log(this.horario.sexta[3])
         } 
         
         if (disciplina.horario.sexta[4] !== undefined) {

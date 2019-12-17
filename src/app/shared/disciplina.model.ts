@@ -1,4 +1,3 @@
-import { Turma } from './turma.model'
 import { NotasDisciplina } from './nota.model'
 
 export class Disciplina{

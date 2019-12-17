@@ -137,7 +137,7 @@ export class EditarHorarioTurmaComponent implements OnInit {
     for (let i = 0; i < 5; i++) {
       if (i === 0) {
         this.horario.segunda.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'Segunda'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -146,7 +146,7 @@ export class EditarHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 1) {
         this.horario.terca.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'terca'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -155,7 +155,7 @@ export class EditarHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 2) {
         this.horario.quarta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'quarta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -164,7 +164,7 @@ export class EditarHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 3) {
         this.horario.quinta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'quinta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina
@@ -173,7 +173,7 @@ export class EditarHorarioTurmaComponent implements OnInit {
         })
       } else if (i === 4) {
         this.horario.sexta.forEach(elemento => {
-          if (elemento.disciplina !== '-') {
+          if (elemento.disciplina !== '') {
             disciplinasHorario.diaDaSemana = 'sexta'
             disciplinasHorario.horario = elemento.periodo
             disciplinasHorario.disciplina = elemento.disciplina

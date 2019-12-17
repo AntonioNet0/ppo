@@ -1,0 +1,33 @@
+<div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <div class="my-2">
+    <h2 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; " class=" pb-2 mb-3">
+      Frequência</h2>
+
+    <table class="table table-bordered table-striped mr-3">
+      <thead class="thead">
+        <tr>
+          <th scope="col" style="text-align: center;">Nº</th>
+          <th scope="col">Matrícula</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Frequência</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let aluno of alunos; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{aluno.matricula}}</td>
+          <td>{{aluno.nome}}</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
