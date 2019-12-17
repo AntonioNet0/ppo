@@ -57,7 +57,11 @@ export class Autenticacao {
                                         console.log("autenticou admin")
                                     })
                             })
-                            .catch((error: any) => this.errorMessage = error)
+                            .catch(() => {
+                                console.log('asdasd')
+                                this.errorMessage = 'Credenciais Inválidas'
+                                console.log(this.errorMessage)
+                            })
                     })
             })
     }

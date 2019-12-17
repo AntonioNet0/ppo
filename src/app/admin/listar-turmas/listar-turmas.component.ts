@@ -102,7 +102,7 @@ export class ListarTurmasComponent implements OnInit {
 
   }
 
-  public turmaTemp: Turma = {codigo: '', nome: '', alunos: [], disciplinas: '', sala: '', turno: '' }
+  public turmaTemp: Turma = {codigo: '', nome: '', alunos: [], disciplinas: '', sala: '', turno: '', horario: null }
 
   public modalUsuario(turma: Turma): void {
     let elemento = document.getElementById('body-modal') as HTMLInputElement

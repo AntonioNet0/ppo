@@ -18,7 +18,7 @@ export class TurmaBD {
     public async cadastroTurma(turma: Turma): Promise<any> {
         return firebase.database().ref(`turmas/${turma.codigo}`).set(turma)
             .then(() => {
-                //this.router.navigate(['home-admin/turma/listar'])
+                
                 this.router.navigate([`home-admin/turma/cadastro-horario/${turma.codigo}`])
             })
     }
@@ -73,7 +73,7 @@ export class TurmaBD {
                     }
                 })
                 if (turmas.length === 0) {
-                    turmas.push({ nome: '', alunos: null, disciplinas: null, codigo: 'Nenhuma informação encontrada', sala: null, turno: null })
+                    turmas.push({ nome: '', alunos: null, disciplinas: null, codigo: 'Nenhuma informação encontrada', sala: null, turno: null, horario: null })
                 }
 
                 return turmas
@@ -84,7 +84,7 @@ export class TurmaBD {
         return firebase.database().ref(`turmas/${id}`)
             .once('value')
             .then((snapshot: any) => {
-                let turma: Turma = {codigo: '', alunos:null, disciplinas:'', nome:'', sala:'', turno:''}
+                let turma: Turma = {codigo: '', alunos:null, disciplinas:'', nome:'', sala:'', turno:'', horario: null}
 
                 snapshot.forEach((childSnapshot: any) => {
                     if (childSnapshot.key === 'codigo') {
@@ -97,6 +97,8 @@ export class TurmaBD {
                         turma.sala = childSnapshot.val()
                     } else if (childSnapshot.key === 'turno') {
                         turma.turno = childSnapshot.val()
+                    } else if (childSnapshot.key === 'Horario') {
+                        turma.horario = childSnapshot.val()
                     }
             })
 
@@ -106,7 +108,13 @@ export class TurmaBD {
     }
 
     public async cadastroHorario(codTurma: string, horario: HorarioAluno): Promise<any> {
-        return firebase.database().ref(`turmas/${codTurma}/Horario`).set(horario)
+        return firebase.database().ref(`turmas/${codTurma}/Horario`).remove()
+            .then(()=> {
+                firebase.database().ref(`turmas/${codTurma}/Horario`).set(horario)
+                    .then(() => {
+                        this.router.navigate(['home-admin/turma/listar'])
+                    })
+            })
     }
 
 

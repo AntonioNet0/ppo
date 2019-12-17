@@ -21,6 +21,7 @@
         <th scope="col">Disciplinas</th>
         <th scope="col">Sala</th>
         <th scope="col">Turno</th>
+        <th scope="col">Horário</th>
       </tr>
     </thead>
     <tbody *ngIf="turmasPagina !== null && turmasPagina.length !== 0 && pesquisado; else tabelaInicial">
@@ -54,6 +55,9 @@
         </ng-template>
         <td>{{ turma.sala }}</td>
         <td>{{ turma.turno }}</td>
+        <td class="horario">
+          Horário
+        </td>
       </tr>
     </tbody>
 
@@ -74,11 +78,14 @@
         </td>
         <td>{{ turma.codigo }}</td>
         <td>{{ turma.nome }}</td>
-        <td class="disciplinas" data-toggle="modal" data-target="#disciplinaModal" (click)=" setTurmaTemp(turma)">
+        <td class="disciplinas" data-toggle="modal" data-target="#disciplinaModal" (click)="setTurmaTemp(turma)">
           Disciplinas
         </td>
         <td>{{ turma.sala }}</td>
         <td>{{ turma.turno }}</td>
+      <td class="disciplinas" [routerLink]="'./turma-horario/'+turma.codigo">
+          Horário
+        </td>
       </tr>
     </ng-template>
 

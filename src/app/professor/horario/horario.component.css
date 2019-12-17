@@ -1,0 +1,11 @@
+th {
+    font-weight: 300;
+    height: 33.3%; 
+    display: table-cell;       
+    vertical-align: middle;
+    text-align: center;
+}
+
+span {
+    font-size: 9pt;
+}

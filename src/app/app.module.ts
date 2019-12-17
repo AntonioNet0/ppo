@@ -54,7 +54,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopoAlunoComponent } from './aluno/topo-aluno/topo-aluno.component';
 import { PerfilComponent } from './aluno/perfil/perfil.component';
 import { AlunoComponent } from './aluno/aluno.component';
-import { BoletimComponent } from './aluno/boletim/boletim.component'
+import { BoletimComponent } from './aluno/boletim/boletim.component';
+import { EditarHorarioTurmaComponent } from './admin/editar-horario-turma/editar-horario-turma.component';
+import { HorarioComponent } from './professor/horario/horario.component'
 
 
 
@@ -109,6 +111,8 @@ import { BoletimComponent } from './aluno/boletim/boletim.component'
     PerfilComponent,
     AlunoComponent,
     BoletimComponent,
+    EditarHorarioTurmaComponent,
+    HorarioComponent,
 
 
   ],
