@@ -3,12 +3,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
 import { Turma } from 'src/app/shared/turma.model';
 import { Router } from '@angular/router';
+import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 
 @Component({
   selector: 'app-cadastro-turma',
   templateUrl: './cadastro-turma.component.html',
   styleUrls: ['./cadastro-turma.component.css'],
-  providers: [TurmaBD]
+  providers: [TurmaBD, DisciplinaBD]
 })
 export class CadastroTurmaComponent implements OnInit {
 
@@ -22,7 +23,7 @@ export class CadastroTurmaComponent implements OnInit {
 
   constructor(
     private turmaBD: TurmaBD,
-    private router: Router
+    private disciplinaBD: DisciplinaBD
   ) { }
 
   ngOnInit() {
@@ -54,6 +55,8 @@ export class CadastroTurmaComponent implements OnInit {
       this.turmaBD.cadastroTurma(turma)
         .then(() => {
           alert("Sucesso!")
+          let disciplinas: string[] = turma.disciplinas.split('_')
+          this.disciplinaBD.adicionarTurma(turma.codigo, disciplinas)
         },
           (error: any) => {
             alert("Erro!")

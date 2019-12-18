@@ -106,7 +106,7 @@ export class ListarTurmasComponent implements OnInit {
 
   public modalUsuario(turma: Turma): void {
     let elemento = document.getElementById('body-modal') as HTMLInputElement
-    elemento.innerHTML = "Você tem certeza que deseja excluir o Professor: " + turma.nome
+    elemento.innerHTML = "Você tem certeza que deseja excluir a Turma: " + turma.nome
     this.setTurmaTemp(turma)
   }
 

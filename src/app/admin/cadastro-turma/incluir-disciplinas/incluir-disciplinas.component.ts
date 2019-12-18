@@ -29,6 +29,8 @@ export class IncluirDisciplinasComponent implements OnInit {
     this.discplinaBD.listaDisciplinas()
       .then((disciplinas: any) => {
         this.disciplinas = disciplinas
+        this.disciplinas.forEach(d => {
+        })
       })
   }
 

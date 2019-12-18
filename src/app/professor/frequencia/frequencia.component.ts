@@ -4,41 +4,93 @@ import { Disciplina } from 'src/app/shared/disciplina.model';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { Aluno } from 'src/app/shared/aluno.model';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
+import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { PeriodoLetivoBD } from 'src/app/services/periodo-letivo-db.service';
 
 @Component({
   selector: 'app-frequencia',
   templateUrl: './frequencia.component.html',
   styleUrls: ['./frequencia.component.css'],
-  providers: [DisciplinaBD, TurmaBD]
+  providers: [DisciplinaBD, TurmaBD, PeriodoLetivoBD]
 })
 export class FrequenciaComponent implements OnInit {
+
+  public formulario: FormGroup = new FormGroup({
+    data: new FormControl(null, [Validators.required])
+  })
 
   public diaAula: string = ''
   public alunos: any[] = []
   public disciplina: Disciplina = new Disciplina()
 
+  public disciplinaFrequencia: any[] = []
+  public bimestresDias: any[] = []
+  public bimestre: number = 0
+
+  public estadoForm: boolean = true
+
   constructor(
     private route: ActivatedRoute,
     private disciplinaBD: DisciplinaBD,
-    private turmaBD: TurmaBD
+    private turmaBD: TurmaBD,
+    private periodoBD: PeriodoLetivoBD,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe((parametros: Params) => {
-      this.disciplinaBD.getHorario(parametros.id)
+      this.disciplinaBD.getHorario(parametros.idDisciplina)
         .then((resp: any) => {
           this.diaAula = resp
-        })
-        this.disciplinaBD.getDisciplina(parametros.id)
-            .then((disciplina: Disciplina) => {
-              this.disciplina = disciplina
-              this.turmaBD.getAlunos(disciplina.turma)
-                .then((alunos: any) => {
-                  this.alunos = alunos
-                })
+          this.periodoBD.getBimestresPorDia(this.diaAula)
+            .then((resp: any) => {
+              this.bimestresDias = resp
             })
+        })
+
+      this.disciplinaBD.getDisciplina(parametros.idDisciplina)
+        .then((disciplina: Disciplina) => {
+          this.disciplina = disciplina
+          console.log(disciplina)
+          this.turmaBD.getAlunos(disciplina.turma)
+            .then((alunos: any) => {
+              this.alunos = alunos
+            })
+        })
+
     })
 
   }
+
+  public adicionarVal(valor: any): void {
+
+    if (valor.value <= 4 && valor.value >= 0) {
+      document.getElementById(valor.id).className += " valido"
+      this.disciplinaFrequencia[valor.id] = { nome: this.alunos[valor.id].nome, matricula: this.alunos[valor.id].matricula, faltas: valor.value, data: '' }
+    } else {
+      document.getElementById(valor.id).className.replace('valido', '')
+      document.getElementById(valor.id).className += " invalido"
+    }
+
+
+    console.log(this.disciplinaFrequencia)
+  }
+
+  public finalizarFrequencia(): void {
+    if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid) {
+      this.disciplinaFrequencia.forEach(d => {
+        d.data = this.formulario.value.data
+      })
+    } else if(this.formulario.invalid){
+      alert("Defina a data referente a frequência")
+    } else {
+      alert("Preencha todos os campos corretamente")
+    }
+    console.log(this.disciplinaFrequencia)
+  }
+
+  public mudaBimestre(val: number): void {
+    this.bimestre = val
+  }
+
 
 }

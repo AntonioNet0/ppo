@@ -2,8 +2,6 @@ import * as firebase from 'firebase';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { PeriodoLetivo } from '../shared/periodo-letivo.model';
-import { promise } from 'protractor';
-
 
 @Injectable()
 export class PeriodoLetivoBD {
@@ -26,5 +24,29 @@ export class PeriodoLetivoBD {
         return firebase.database().ref('dias-letivos/sexta').set(sextas)
     }
 
+    public async cadastroBimestres(dias: any, diaSemana: string): Promise<any> {
+
+        return firebase.database().ref(`bimestres/${diaSemana}`).set(dias)
+        
+    }
+
+    public async limpaBimestre(): Promise<any> {
+        return firebase.database().ref('bimestres').remove()
+    }
+
+    public async getBimestresPorDia(dia: string): Promise<any> {
+        return firebase.database().ref(`bimestres/${dia}s`)
+            .once('value')
+            .then((snapshot: any) => {
+                let bimestresDia: any[] = []
+
+                snapshot.forEach((childsnapshot: any) => {
+                    
+                    bimestresDia.push(childsnapshot.val())
+
+                });
+                return bimestresDia
+            })
+    }
 
 }

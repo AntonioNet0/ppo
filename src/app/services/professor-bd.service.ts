@@ -130,7 +130,34 @@ export class ProfessorBD {
         })
     }
 
-/*    
+    public async getProfessorPorMatricula(matricula: string): Promise<any> {
+        return firebase.database().ref(`professores/${btoa(matricula+"@dominioprof.com")}`)
+        .once('value')
+        .then((snapshot: any) => {
+            let professor: any = {cpf: '', email: '', matricula: '', nome: ''}
+
+            snapshot.forEach((childSnapshot: any) => {
+
+                let prof = childSnapshot.val()
+                
+                if(childSnapshot.key === 'cpf'){
+                   professor.cpf = prof
+                }else if(childSnapshot.key === 'email'){
+                    professor.email = prof
+                }else if(childSnapshot.key === 'matricula'){
+                    professor.matricula = prof
+                } else if(childSnapshot.key === 'nome'){
+                    professor.nome = prof
+                }
+                
+               
+            })
+            //console.log(professor)
+            return professor
+        })
+    }
+
+
     public async adicionarDisciplina(disciplina: Disciplina): Promise<any> {
         let disciplinaCod = {nome: disciplina.nome, turma: disciplina.turma}
         return firebase.database().ref(`professores/${btoa(disciplina.professorMatricula+this.dominio)}/disciplinas/${disciplinaCod.nome}`).set(disciplinaCod)
@@ -140,6 +167,6 @@ export class ProfessorBD {
         let disciplinaCod = {nome: disciplina.nome, turma: disciplina.turma}
         return firebase.database().ref(`professores/${btoa(matriculaProfessor+this.dominio)}/disciplinas/${disciplinaCod.nome}`).remove()
     }
-    */
+
 
 }

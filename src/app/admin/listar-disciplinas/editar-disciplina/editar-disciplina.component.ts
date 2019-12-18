@@ -25,11 +25,11 @@ export class EditarDisciplinaComponent implements OnInit {
     'professor': new FormControl(null, [Validators.required]),
     'cargaHoraria': new FormControl(null, [Validators.required]),
     'periodo': new FormControl(null, [Validators.required]),
-    'turma': new FormControl(null, [ Validators.required ])
+    //'turma': new FormControl(null, [ Validators.required ])
   })
 
   public professores: Professor[] = []
-  public turmas: Turma[] = []
+  //public turmas: Turma[] = []
 
   constructor(
     private disciplinaBD: DisciplinaBD,
@@ -44,10 +44,10 @@ export class EditarDisciplinaComponent implements OnInit {
       .then((professores: any) => {
         this.professores = professores
       })
-    this.turmaBD.listarTurmas()
-      .then((turmas: any) => {
-        this.turmas = turmas
-      })
+    // this.turmaBD.listarTurmas()
+    //   .then((turmas: any) => {
+    //     this.turmas = turmas
+    //   })
   }
 
   public formValido(): void{
@@ -67,7 +67,7 @@ export class EditarDisciplinaComponent implements OnInit {
       //this.formulario.get('horaInicio').markAsTouched()
      // this.formulario.get('horaFim').markAsTouched()
       this.formulario.get('periodo').markAsTouched()
-      this.formulario.get('turma').markAsTouched()
+      //this.formulario.get('turma').markAsTouched()
 
     } else {
 
@@ -79,7 +79,7 @@ export class EditarDisciplinaComponent implements OnInit {
       //disciplina.horaInicio = this.formulario.get('horaInicio').value
      // disciplina.horaFim = this.formulario.get('horaFim').value
       disciplina.periodo = this.formulario.get('periodo').value
-      disciplina.turma = this.formulario.value.turma      
+      //disciplina.turma = this.formulario.value.turma      
 
       this.disciplinaBD.editarDisciplina(disciplina, this.disciplina.nome)
         .then(() => {
