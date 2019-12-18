@@ -6,7 +6,6 @@
         Boletim
       </h3>
     </div>
-
 <table class="table">
   <thead class="thead-dark" >
     <tr >
@@ -20,53 +19,12 @@
     </tr>
   </thead>
   <tbody >
-    <tr>
-      <th scope="row" class="th" >Cálculo I</th>
+    <tr *ngFor="let disciplina of disciplinas">
+      <th scope="row" class="th" >{{disciplina}}</th>
       <td>6.0</td>
       <td>6.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td></td>
-      <td>Aprovado</td>
-    </tr>
-    <tr>
-      <th scope="row" class="th">Física I</th>
-      <td>10.0</td>
-      <td>10.0</td>
-      <td>10.0</td>
-      <td>10.0</td>
-      <td></td>
-      <td>Aprovado</td>
-
-    </tr>
-    <tr>
-      <th scope="row" class="th">Inglês I</th>
-      <td>10.0</td>
-      <td>8.0</td>
-      <td>7.5</td>
-      <td>5.5</td>
-      <td></td>
-      <td>Aprovado</td>
-
-
-    </tr>
-    <tr>
-      <th scope="row" class="th">Matemática I</th>
-      <td>9.0</td>
-      <td>10.0</td>
-      <td>7.0</td>
-      <td>5.0</td>
-      <td></td>
-      <td>Aprovado</td>
-
-
-    </tr>
-     <tr>
-      <th scope="row" class="th">Matemática II</th>
-      <td>10.0</td>
-      <td>9.0</td>
-      <td>8.0</td>
-      <td>7.0</td>
       <td></td>
       <td>Aprovado</td>
     </tr>
