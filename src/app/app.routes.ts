@@ -73,8 +73,8 @@ export const ROUTES: Routes = [
         { path: 'professor/turmas', children: [
             { path: '', component: TurmasComponent },
             { path: 'diario', children: [
-                { path:':id', component: DiarioComponent },
-                { path: 'frequencia/:id', component: FrequenciaComponent }
+                { path:':idDisciplina', component: DiarioComponent },
+                { path: 'frequencia/:idDisciplina', component: FrequenciaComponent }
             ] }
         ] },
         { path: 'professor/horario', component: HorarioComponent },

@@ -15,7 +15,7 @@
             <p class="card-text" style="color: black;"><b>Diário da Disciplina.</b> Lançe notas, disponibilize material
               de estudo e faça a frequência da turma.</p>
             <div style="float: right;">
-                <a [routerLink]="'diario/'+disciplina.turma" class="card-link">Acesso ao Diário</a>
+                <a [routerLink]="'diario/'+disciplina.nome" class="card-link">Acesso ao Diário</a>
                 <a [routerLink]="['diario/frequencia', disciplina.nome]" class="card-link">Frequência</a>
             </div>
 

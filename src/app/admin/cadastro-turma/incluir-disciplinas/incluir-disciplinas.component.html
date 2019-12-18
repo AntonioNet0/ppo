@@ -34,7 +34,7 @@
                 <tbody>
                   <tr *ngFor="let disciplina of disciplinas">
 
-                    <td (click)="adicionarDisciplina(disciplina.nome)">{{disciplina.nome}}</td>
+                    <td (click)="adicionarDisciplina(disciplina.nome)" *ngIf="disciplina.nome !== undefined">{{disciplina.nome}}</td>
 
                   </tr>
                 </tbody>

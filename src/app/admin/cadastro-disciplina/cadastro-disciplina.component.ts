@@ -20,12 +20,12 @@ export class CadastroDisciplinaComponent implements OnInit {
     'codigo': new FormControl(null, [Validators.required]),
     'professor': new FormControl(null, [Validators.required]),
     'cargaHoraria': new FormControl(null, [Validators.required]),
-    'turma': new FormControl(null, [ Validators.required ]),
+    //'turma': new FormControl(null, [ Validators.required ]),
     'periodo': new FormControl(null, [Validators.required])
   })
 
   public professores: Professor[] = []
-  public turmas: Turma[] = []
+  //public turmas: Turma[] = []
 
   constructor(
     private professorBD: ProfessorBD,
@@ -38,10 +38,10 @@ export class CadastroDisciplinaComponent implements OnInit {
       .then((professores: any) => {
         this.professores = professores
       })
-    this.turmaBD.listarTurmas()
-      .then((turmas: any) => {
-        this.turmas = turmas
-      })
+    // this.turmaBD.listarTurmas()
+    //   .then((turmas: any) => {
+    //     this.turmas = turmas
+    //   })
   }
 
   public cadastro(): void {
@@ -53,7 +53,7 @@ export class CadastroDisciplinaComponent implements OnInit {
       this.formulario.get('professor').markAsTouched()
       this.formulario.get('cargaHoraria').markAsTouched()
       this.formulario.get('periodo').markAsTouched()
-      this.formulario.get('turma').markAsTouched()
+      //this.formulario.get('turma').markAsTouched()
 
     } else {
 
@@ -63,7 +63,7 @@ export class CadastroDisciplinaComponent implements OnInit {
       disciplina.professorMatricula = this.formulario.get('professor').value
       disciplina.cargaHoraria = this.formulario.get('cargaHoraria').value
       disciplina.periodo = this.formulario.get('periodo').value
-      disciplina.turma= this.formulario.value.turma
+      //disciplina.turma= this.formulario.value.turma
 
       this.disciplinaBD.cadastroDisciplina(disciplina)
         .then(()=>{

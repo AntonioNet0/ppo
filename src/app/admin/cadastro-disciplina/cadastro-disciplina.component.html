@@ -25,26 +25,27 @@
                         </option>
                         <ng-template #semProfessores>
                             <option></option>
-                            <option *ngFor="let professor of professores" [value]="professor.matricula">{{professor.nome}}
+                            <option *ngFor="let professor of professores" [value]="professor.matricula">
+                                {{professor.nome}}
                             </option>
                         </ng-template>
                     </select>
                 </div>
-
+<!-- 
                 <div class="form-group" style="display: flex">
-                        <div class="col col-sm-8 col-md-5 col-lg-4">
-                            <h5 class="my-2">Selecione a turma: </h5>
-                        </div>
-                        <select class="custom-select" formControlName="turma">
-                            <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro 
-                            </option>
-                            <ng-template #semTurmas>
-                                <option></option>
-                                <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}
-                                </option>
-                            </ng-template>
-                        </select>
+                    <div class="col col-sm-8 col-md-5 col-lg-4">
+                        <h5 class="my-2">Selecione a turma: </h5>
                     </div>
+                    <select class="custom-select" formControlName="turma">
+                        <option *ngIf="turmas.length === 0; else semTurmas">É necessário cadastrar um Turma, primeiro
+                        </option>
+                        <ng-template #semTurmas>
+                            <option></option>
+                            <option *ngFor="let turma of turmas" [value]="turma.codigo">{{turma.nome}}
+                            </option>
+                        </ng-template>
+                    </select>
+                </div> -->
 
                 <div class="form-group" style="display: flex">
                     <div class="col col-sm-8 col-md-5 col-lg-4">
@@ -65,7 +66,8 @@
                 </div>
 
                 <div style="float: right;">
-                    <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="estadoButton" (click)="cadastro()">
+                    <button type="submit" class="btn btn-primary btn-sm mb-2" [disabled]="estadoButton"
+                        (click)="cadastro()">
                         Salvar
                     </button>
                 </div>
