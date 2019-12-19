@@ -29,7 +29,7 @@
                   <div class=" col col-sm-8 col-md-8 col-lg-6">
                     <h5 class="my-2">Selecione a data referente a frequência: </h5>
                   </div>
-                  <select class="custom-select" formControlName="data">
+                  <select class="custom-select" formControlName="data" (change)="mostrarFrequencia(data)" #data>
                     <option></option>
                     <option *ngFor="let dia of bimestresDias[bimestre]">{{dia}}</option>
                   </select>
@@ -44,13 +44,7 @@
     </div>
 
 
-
-
-
-
-
-
-    <table class="table table-bordered table-striped mr-3 mb-0">
+    <table class="table table-bordered table-striped mr-3 mb-0" *ngIf="dataSelecionada">
       <thead class="thead">
         <tr>
           <th scope="col" style="text-align: center;">Nº</th>
@@ -59,16 +53,25 @@
           <th scope="col">Faltas</th>
         </tr>
       </thead>
-      <tbody *ngIf="estadoForm">
+      <tbody *ngIf="estadoForm && freqCadastradas.length === 0">
         <tr *ngFor="let aluno of alunos; let i = index">
-          <td>{{i+1}}</td>
+          <td>{{i+1}} </td>
           <td>{{aluno.matricula}}</td>
           <td>{{aluno.nome}}</td>
           <td>
             <input type="number" #val [id]="i" min="0" max="4" (change)="adicionarVal(val)">
           </td>
         </tr>
-
+      </tbody>
+      <tbody *ngIf="estadoForm && freqCadastradas.length !== 0">
+        <tr *ngFor="let aluno of freqCadastradas; let i = index">
+          <td>{{i+1}} </td>
+          <td>{{aluno.matricula}}</td>
+          <td>{{aluno.nome}}</td>
+          <td>
+            <input type="number" #val [id]="i" min="0" max="4" [value]="aluno.faltas" (change)="adicionarVal(val)">
+          </td>
+        </tr>
       </tbody>
     </table>
     <small class="form-text text-muted mb-2">O número de faltas corresponde ao número de aulas ministradas.</small>

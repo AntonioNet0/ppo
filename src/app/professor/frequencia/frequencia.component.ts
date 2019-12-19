@@ -6,12 +6,13 @@ import { Aluno } from 'src/app/shared/aluno.model';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { PeriodoLetivoBD } from 'src/app/services/periodo-letivo-db.service';
+import { FrequenciaBD } from 'src/app/services/frequencia.service';
 
 @Component({
   selector: 'app-frequencia',
   templateUrl: './frequencia.component.html',
   styleUrls: ['./frequencia.component.css'],
-  providers: [DisciplinaBD, TurmaBD, PeriodoLetivoBD]
+  providers: [DisciplinaBD, TurmaBD, PeriodoLetivoBD, FrequenciaBD]
 })
 export class FrequenciaComponent implements OnInit {
 
@@ -19,11 +20,14 @@ export class FrequenciaComponent implements OnInit {
     data: new FormControl(null, [Validators.required])
   })
 
+  public dataSelecionada: boolean = false
+
   public diaAula: string = ''
   public alunos: any[] = []
   public disciplina: Disciplina = new Disciplina()
 
   public disciplinaFrequencia: any[] = []
+  public freqCadastradas: any[] = []
   public bimestresDias: any[] = []
   public bimestre: number = 0
 
@@ -34,6 +38,7 @@ export class FrequenciaComponent implements OnInit {
     private disciplinaBD: DisciplinaBD,
     private turmaBD: TurmaBD,
     private periodoBD: PeriodoLetivoBD,
+    private frequenciaBD: FrequenciaBD
   ) { }
 
   ngOnInit() {
@@ -77,9 +82,15 @@ export class FrequenciaComponent implements OnInit {
 
   public finalizarFrequencia(): void {
     if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid) {
+      let frequencias: any[] = []
+      let data = ''
       this.disciplinaFrequencia.forEach(d => {
-        d.data = this.formulario.value.data
+        d.data = this.formulario.value.data.replace('/', '-')
+        data = d.data
+        frequencias.push(d)
       })
+      this.frequenciaBD.adicionarFrequencia(frequencias, this.disciplina.nome, data)
+
     } else if(this.formulario.invalid){
       alert("Defina a data referente a frequência")
     } else {
@@ -92,5 +103,17 @@ export class FrequenciaComponent implements OnInit {
     this.bimestre = val
   }
 
+
+  public mostrarFrequencia(val: any): void{
+    if(val.value !== '' && val.value !== undefined){
+       this.frequenciaBD.getFrequenciaPorDisciplina(val.value, this.disciplina.nome)
+         .then((resp) => {
+          console.log(resp)
+          this.freqCadastradas = resp
+          this.disciplinaFrequencia = resp
+        })
+      this.dataSelecionada = true
+    }
+  }
 
 }

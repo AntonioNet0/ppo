@@ -1,11 +1,12 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { Aluno } from '../shared/aluno.model';
+import { Disciplina } from '../shared/disciplina.model';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export class AtaAlunoPDF {
 
-    public ataPResença(alunos: Aluno[]) {
+    public ataPresenca(alunos: Aluno[], disciplina: Disciplina) {
         let linha = this.construirTabela(alunos)
         const documentoDefinicoes = {
             content: [
@@ -54,10 +55,8 @@ export class AtaAlunoPDF {
                         widths: ['*'],
                         body: [
 
-
-
                             [{
-                                text:  `Professor: {aluno.nome}\nDisciplina: {{disciplina.cod}}  {{disciplina.nome}}`,
+                                text:  `Professor: {aluno.nome}\nDisciplina: ${disciplina.nome} - ${disciplina.codigo}`,
 
                                 fontSize: 12,
 
@@ -75,7 +74,7 @@ export class AtaAlunoPDF {
                     table: {
                         headerRows: 1,
                         margin: [0, 0, 0, 0],
-                        widths: [15, 65, 195, 205],
+                        widths: [15, 75, 185, 205],
                         body: [
                             ['Nº', 'Matrícula', 'Nome', 'Assinatura'],
                             ...linha

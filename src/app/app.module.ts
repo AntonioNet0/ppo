@@ -57,8 +57,8 @@ import { BoletimComponent } from './aluno/boletim/boletim.component';
 import { EditarHorarioTurmaComponent } from './admin/editar-horario-turma/editar-horario-turma.component';
 import { HorarioComponent } from './professor/horario/horario.component';
 import { DiarioComponent } from './professor/diario/diario.component';
-import { FrequenciaComponent } from './professor/frequencia/frequencia.component'
-
+import { FrequenciaComponent } from './professor/frequencia/frequencia.component';
+import { PostarMaterialComponent } from './professor/diario/postar-material/postar-material.component';
 
 
 
@@ -105,8 +105,6 @@ import { FrequenciaComponent } from './professor/frequencia/frequencia.component
     CadastroCalendarioAcademicoComponent,
     VisualizarCalendarioAcademicoComponent,
     CadastroHorarioTurmaComponent,
-
-
     PerfilComponent,
     AlunoComponent,
     BoletimComponent,
@@ -114,6 +112,7 @@ import { FrequenciaComponent } from './professor/frequencia/frequencia.component
     HorarioComponent,
     DiarioComponent,
     FrequenciaComponent,
+    PostarMaterialComponent,
 
 
   ],

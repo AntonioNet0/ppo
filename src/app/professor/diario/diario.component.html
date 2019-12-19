@@ -14,10 +14,13 @@
           Operações
         </h3>
 
-        <h5>Frequência</h5>
+        <h5 [routerLink]="['./frequencia/', disciplina.nome]">Frequência</h5>
+        <h5 (click)="gerar()">Ata</h5>
+        <h5 data-toggle="modal" data-target="#exampleModal"> Disponibilazar Material </h5>
         
     </div>
 
   </div>
 
 </div>
+<app-postar-material></app-postar-material>

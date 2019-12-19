@@ -72,7 +72,7 @@ export const ROUTES: Routes = [
             { path: '', component: TurmasComponent },
             { path: 'diario', children: [
                 { path:':idDisciplina', component: DiarioComponent },
-                { path: 'frequencia/:idDisciplina', component: FrequenciaComponent }
+                { path: 'frequencia/:idDisciplina', component: FrequenciaComponent },
             ] }
         ] },
         { path: 'professor/horario', component: HorarioComponent },

@@ -3,12 +3,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { ProfessorBD } from 'src/app/services/professor-bd.service';
+import { AtaAlunoPDF } from 'src/app/services/atas-aluno.service';
+import { TurmaBD } from 'src/app/services/turma-bd.service';
 
 @Component({
   selector: 'app-diario',
   templateUrl: './diario.component.html',
   styleUrls: ['./diario.component.css'],
-  providers: [DisciplinaBD, ProfessorBD]
+  providers: [DisciplinaBD, ProfessorBD, AtaAlunoPDF, TurmaBD]
 })
 export class DiarioComponent implements OnInit {
 
@@ -18,7 +20,9 @@ export class DiarioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private disciplinaBD: DisciplinaBD,
-    private professorBD: ProfessorBD
+    private professorBD: ProfessorBD,
+    private ataPDF: AtaAlunoPDF,
+    private turmaBD: TurmaBD
   ) { }
 
   ngOnInit() {
@@ -33,5 +37,14 @@ export class DiarioComponent implements OnInit {
         })
     })
   }
+
+  public gerar(): void{
+    this.turmaBD.getAlunos(this.disciplina.turma)
+      .then(alunos => {
+        this.ataPDF.ataPresenca(alunos, this.disciplina)
+      })
+    
+  }
+
 
 }

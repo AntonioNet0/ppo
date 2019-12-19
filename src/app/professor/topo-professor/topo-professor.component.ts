@@ -17,7 +17,7 @@ export class TopoProfessorComponent implements OnInit {
 
   public logout(): void{
     this.autenticacao.logout()
-      .then(()=> alert("sadas"))
+      
   }
 
 }
