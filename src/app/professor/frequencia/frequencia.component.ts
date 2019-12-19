@@ -108,7 +108,6 @@ export class FrequenciaComponent implements OnInit {
     if(val.value !== '' && val.value !== undefined){
        this.frequenciaBD.getFrequenciaPorDisciplina(val.value, this.disciplina.nome)
          .then((resp) => {
-          console.log(resp)
           this.freqCadastradas = resp
           this.disciplinaFrequencia = resp
         })

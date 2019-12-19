@@ -59,6 +59,7 @@ import { HorarioComponent } from './professor/horario/horario.component';
 import { DiarioComponent } from './professor/diario/diario.component';
 import { FrequenciaComponent } from './professor/frequencia/frequencia.component';
 import { PostarMaterialComponent } from './professor/diario/postar-material/postar-material.component';
+import { TrocarSenhaComponent} from './acesso/trocar-senha/trocar-senha.component'
 
 
 
@@ -105,6 +106,7 @@ import { PostarMaterialComponent } from './professor/diario/postar-material/post
     CadastroCalendarioAcademicoComponent,
     VisualizarCalendarioAcademicoComponent,
     CadastroHorarioTurmaComponent,
+    TrocarSenhaComponent,
     PerfilComponent,
     AlunoComponent,
     BoletimComponent,
@@ -129,6 +131,3 @@ import { PostarMaterialComponent } from './professor/diario/postar-material/post
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-

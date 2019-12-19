@@ -1,0 +1,32 @@
+label {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #00507C; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+}
+.btn:hover{
+    background-color: #DA0044; 
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+    box-shadow: none;
+}
+
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+p{
+    align-items: center;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

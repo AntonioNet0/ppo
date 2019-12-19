@@ -16,7 +16,6 @@ export class FrequenciaBD {
                 let frequencias: any[] = []
                 snapshot.forEach(childSnapshot => {
                     let frequencia = childSnapshot.val()
-                        console.log(frequencia)
                         frequencias.push(frequencia)
                 });
 

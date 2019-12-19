@@ -9,7 +9,7 @@
       </div>
       <div class="form-group">
         <input type="password" class="form-control" placeholder="Senha" formControlName="senha" style=" font-family: Georgia, Times, Times New Roman, serif;">
-        <a href="#"><small class="form-text d-flex justify-content-end">Esqueceu a senha?</small></a>
+        <a [routerLink]="['trocar-senha']"><small class="form-text d-flex justify-content-end">Esqueceu a senha?</small></a>
       </div>
       <p class="small text-danger text-center" style="font-size: 9pt;">{{ errorMessage }}</p>
       <button type="submit" class="btn btn-primary btn-sm btn-block">Entrar</button>
