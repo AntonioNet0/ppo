@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Disciplina } from 'src/app/shared/disciplina.model';
 import { AlunoBD } from 'src/app/services/aluno-bd.service';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { TurmaBD } from 'src/app/services/turma-bd.service';
 import { Aluno } from 'src/app/shared/aluno.model';
-import { Turma } from 'src/app/shared/turma.model';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-boletim',
@@ -17,7 +13,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class BoletimComponent implements OnInit {
 
   public aluno: Aluno = new Aluno()
-  public estadoForm: boolean = false
   public disciplinas: string[] = []
  
   constructor(
@@ -36,4 +31,5 @@ export class BoletimComponent implements OnInit {
               })
           })
       })
-}}
+}
+}

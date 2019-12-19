@@ -29,6 +29,7 @@ import { HorarioComponent } from './professor/horario/horario.component';
 import { DiarioComponent } from './professor/diario/diario.component';
 import { FrequenciaComponent } from './professor/frequencia/frequencia.component';
 import { TrocarSenhaComponent } from './acesso/trocar-senha/trocar-senha.component';
+import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -37,6 +38,7 @@ export const ROUTES: Routes = [
         { path: '', component: HomeAlunoComponent },
         { path: 'aluno/perfil', component: PerfilComponent },
         { path: 'aluno/boletim', component: BoletimComponent},
+        { path: 'aluno/horarioaluno', component: HorarioAlunoComponent},
     ]},
     { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },

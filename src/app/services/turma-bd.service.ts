@@ -116,7 +116,21 @@ export class TurmaBD {
                     })
             })
     }
-
+    public async getHorario(codTurma: string): Promise<any> {
+        return firebase.database().ref(`turmas/${codTurma}/Horario`)
+            .once('value')
+            .then((snapshot: any) => {
+                let horario: any[] = []
+                snapshot.forEach((childSnapshot: any) => {
+                    let horario = childSnapshot.val()
+                    horario.key = childSnapshot.key
+                    console.log();
+                    horario.push(horario)
+                });
+                console.log();
+                return horario
+            })
+    }
     public async getAlunos(codTurma: string): Promise<any> {
         return firebase.database().ref(`turmas/${codTurma}/alunos`)
             .once('value')

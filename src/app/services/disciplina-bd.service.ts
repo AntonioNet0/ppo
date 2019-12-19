@@ -37,6 +37,7 @@ export class DisciplinaBD {
                 return disciplinas
             })
     }
+    
 
     public async removeDisciplina(disciplina: Disciplina): Promise<any> {
         return firebase.database().ref(`disciplinas/${disciplina.nome}`).remove()
@@ -94,6 +95,31 @@ export class DisciplinaBD {
                 return disciplinas
             })
     }
+    public async listaDisciplinasAluno(): Promise<any> {
+        let email = firebase.auth().currentUser.email
+        return firebase.database().ref(`disciplinas`)
+            .orderByChild('nome')
+            .once('value')
+            .then((snapshot: any) => {
+                let disciplinas: any[] = []
+
+                snapshot.forEach((childSnapshot: any) => {
+
+                    let disciplina = childSnapshot.val()
+                    disciplina.key = childSnapshot.key
+
+                    if (email===(disciplina.turma+"@dominioaluno.com")) {
+                        disciplinas.push(disciplina)
+                    }
+
+
+                })
+
+                return disciplinas
+            })
+    }
+
+
 
     public async adicionarHorario(horarioDisciplina: any): Promise<any> {
         let caminho = ''
