@@ -1,13 +1,3 @@
-th {
-    font-weight: 300;
-    padding: 6px;
-    
-}
-
-td {
-    padding: 8px;
-}
-
 .estilo{
     background-color: #00507C; 
     border: rgba(0, 0, 0, 0.5) 1px solid;
@@ -38,15 +28,4 @@ input.ng-valid.ng-touched {
 
 select.ng-valid.ng-touched {
     border: 1px solid green;
-}
-
-td.td-link {
-    color: #00507C;
-}
-
-td.td-link:hover {
-    color: rgba(0, 80, 124, 1);
-    font-weight: bolder;
-    text-decoration: underline;
-    cursor: pointer;
 }

@@ -61,7 +61,11 @@ import { FrequenciaComponent } from './professor/frequencia/frequencia.component
 import { PostarMaterialComponent } from './professor/diario/postar-material/postar-material.component';
 import { TrocarSenhaComponent} from './acesso/trocar-senha/trocar-senha.component';
 import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.component';
-import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component'
+import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component';
+import { EditarAvaliacaoComponent } from './professor/avaliacoes/editar-avaliacao/editar-avaliacao.component';
+import { RemoverAvaliacaoComponent } from './professor/avaliacoes/remover-avaliacao/remover-avaliacao.component';
+import { CriarAvaliacaoComponent } from './professor/avaliacoes/criar-avaliacao/criar-avaliacao.component';
+import { LancarNotasComponent } from './professor/lancar-notas/lancar-notas.component'
 
 
 
@@ -119,6 +123,10 @@ import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component
     PostarMaterialComponent,
     HorarioAlunoComponent,
     AvaliacoesComponent,
+    EditarAvaliacaoComponent,
+    RemoverAvaliacaoComponent,
+    CriarAvaliacaoComponent,
+    LancarNotasComponent,
 
 
   ],

@@ -14,15 +14,6 @@ import { AvaliacaoBD } from 'src/app/services/avaliacao-bd.service';
 })
 export class AvaliacoesComponent implements OnInit {
 
-  public formulario: FormGroup = new FormGroup({
-    'data': new FormControl({ value: '' }, [Validators.required, Validators.minLength(1)]),
-    'peso': new FormControl({ value: '' }, [Validators.required]),
-    'tipo': new FormControl(null, [Validators.required]),
-    'descricao': new FormControl(null, [Validators.required])
-  })
-
-  public estadoBotao: boolean = true
-
   public bimestresDias: any[] = []
   public bimestre: number = 0
   public titulo: string = ''
@@ -72,40 +63,18 @@ export class AvaliacoesComponent implements OnInit {
     this.bimestre = val
   }
 
+  
+  public avaliacaoTemp: any = { data: '', tipo: '', peso: null, descricao: '' }
+  public rota: any = { disciplina: '', bimestre: null}
 
-  //Modal Metodos
-
-  public formValido(): void {
-    if (this.formulario.valid) {
-
-      this.estadoBotao = false
-    } else {
-      this.estadoBotao = true
-    }
-  }
-
-  public criarAvaliacao(): void {
-    let avaliacao: any = {}
-    avaliacao.data = this.formulario.value.data
-    avaliacao.tipo = this.formulario.value.tipo
-    avaliacao.peso = this.formulario.value.peso
-    avaliacao.descricao = this.formulario.value.descricao
-    if (this.avaliacoesBimestre === undefined) {
-      avaliacao.id = 0
-    } else {
-      avaliacao.id = this.avaliacoesBimestre.length
-    }
-
-    this.formulario.reset()
-    this.avaliacaoBD.cadastroAvaliacao(avaliacao, this.disciplina.nome, this.bimestre)
-      .then(() => {
-        this.atualizarTabela()
-      })
-
+  public modalUsuario(avaliacao: any): void{
+  
+    this.rota = {disciplina: this.disciplina.nome, bimestre: this.bimestre}
+    this.avaliacaoTemp = avaliacao
 
   }
 
-  private atualizarTabela(): void {
+  public atualizarTabela(): void {
     this.avaliacaoBD.getAvaliacoes(this.disciplina.nome)
       .then((resp: any) => {
         this.avaliacoes = resp

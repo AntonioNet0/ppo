@@ -40,4 +40,8 @@ export class AvaliacaoBD {
             })
     }
 
+    public async removerAvaliacao(avaliacao: any, rota: any): Promise<any> {
+        return firebase.database().ref(`avaliacoes/${rota.disciplina}/${rota.bimestre}/${avaliacao.id}`).set(null)
+    }
+
 }

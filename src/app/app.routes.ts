@@ -31,6 +31,7 @@ import { FrequenciaComponent } from './professor/frequencia/frequencia.component
 import { TrocarSenhaComponent } from './acesso/trocar-senha/trocar-senha.component';
 import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.component';
 import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component';
+import { LancarNotasComponent } from './professor/lancar-notas/lancar-notas.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -79,8 +80,10 @@ export const ROUTES: Routes = [
                 { path:':idDisciplina', component: DiarioComponent },
                 { path: 'frequencia/:idDisciplina', component: FrequenciaComponent },
                 { path: 'avaliacoes/:idDisciplina', component: AvaliacoesComponent },
+                { path: 'lancar-notas/:idAvaliacao', component: LancarNotasComponent}
             ] }
         ] },
         { path: 'professor/horario', component: HorarioComponent },
+        
     ]}
 ]

@@ -42,12 +42,12 @@
       <tbody *ngFor="let avaliacao of avaliacoesBimestre">
         <tr *ngIf="avaliacao != undefined">
           <td scope="row" style="text-align: center; vertical-align: middle; width: 15%; padding: 6px;">
-            <button type="button" [value]="disciplina.codigo" (click)=" setDisciplinaTemp(disciplina)"
+            <button type="button" (click)=" modalUsuario(avaliacao)"
               class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
               <i class="fas fa-edit"></i>
             </button>
 
-            <button type="button" [value]="disciplina.matricula" (click)=" modalUsuario(disciplina)"
+            <button type="button" (click)=" modalUsuario(avaliacao)"
               class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
               <i class="fas fa-trash-alt"></i>
             </button>
@@ -58,6 +58,7 @@
           <td>{{avaliacao.tipo}}</td>
           <td>{{avaliacao.peso}}</td>
           <td>{{avaliacao.descricao}}</td>
+          <td class="td-link" [routerLink]="['../../lancar-notas/', avaliacao.id+avaliacao.data.replace('/','-')]">Lançar Notas</td>
         </tr>
       </tbody>
 
@@ -67,76 +68,6 @@
 
 </div>
 
-<!--Modal-->
-<div class="modal fade bd-example-modal-lg" id="modalCriar" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Criar Avaliação</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="form.reset()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="body-modal">
-
-        <div class="col">
-
-          <form #form="ngForm" [formGroup]="formulario" (change)="formValido()">
-
-            <div class="form-group" style="display: flex;">
-              <div class=" col col-sm-8 col-md-6 col-lg-4">
-                <h5>Data: </h5>
-              </div>
-              <select class="custom-select" formControlName="data">
-                <option></option>
-                <option *ngFor="let dia of bimestresDias[bimestre]; let i = index">{{dia}}</option>
-              </select>
-            </div>
-
-            <div class="fomr-group my-2" style="display: flex;">
-              <div class=" col col-sm-8 col-md-6 col-lg-4">
-                <h5>Peso: </h5>
-              </div>
-              <select class="custom-select" formControlName="peso">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-              </select>
-            </div>
-
-            <div class="form-group my-2" style="display: flex;">
-              <div class=" col col-sm-8 col-md-6 col-lg-4">
-                <h5>Tipo: </h5>
-              </div>
-              <select class="custom-select" formControlName="tipo">
-                <option value="avaliacao">Avaliação</option>
-                <option value="recuperacao">Recuperação</option>
-              </select>
-            </div>
-
-            <div class="form-group my-2" style="display: flex;">
-              <div class=" col col-sm-8 col-md-6 col-lg-4">
-                <h5>Descrição: </h5>
-              </div>
-              <textarea class="form-control" formControlName="descricao" rows="3"></textarea>
-            </div>
-
-          </form>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-              (click)="form.reset()">Cancelar</button>
-            <button type="submit" class="btn btn-primary estilo" data-dismiss="modal" (click)="criarAvaliacao()"
-              [disabled]="estadoBotao">Confirmar</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-remover-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota"></app-remover-avaliacao>
+    <app-criar-avaliacao [avaliacao]="avaliacaoTemp" [avaliacoesBimestre]= "avaliacoesBimestre" [bimestre]="bimestre" [bimestresDias]="bimestresDias"></app-criar-avaliacao>
+    <app-editar-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota" [bimestre]="bimestre" [bimestresDias]="bimestresDias"></app-editar-avaliacao>
