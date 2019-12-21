@@ -57,7 +57,7 @@ export class HorarioAlunoComponent implements OnInit {
       )}
   
   private horarioBuilder(disciplina: any): void {
-    if (disciplina.horario !== undefined) {
+    if (disciplina.horarioaluno !== undefined) {
       this.horarioaluno.segunda = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horarioaluno.terca = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
       this.horarioaluno.quarta = [{ disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }, { disciplina: '' }]
