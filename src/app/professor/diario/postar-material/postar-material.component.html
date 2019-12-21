@@ -12,9 +12,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="file" class="form-control" accept="image/*" (change)="prepararImagemUpload($event)" />
+                    <!-- <input type="file" class="form-control" accept="image/*" (change)="prepararImagemUpload($event)" />
                     <input type="text" placeholder="Título da Publicação" class="form-control"
-                        formControlName="titulo" />
+                        formControlName="titulo" /> -->
+                    <!-- <form> -->
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                    <!-- </form> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -35,27 +40,27 @@
             </div>
 
             <div class="modal-body">
-                       {{ porcentagemUpload }}%
+                {{ porcentagemUpload }}%
             </div>
 
         </div>
 
         <div class="modal-content" *ngIf="progressoPublicacao === 'concluido'">
 
-                <div class="modal-header">
-    
-                    <h5 class="modal-title" id="exampleModalLabel">Publicação realizada com sucesso</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-    
-                </div>
-    
-                <div class="modal-body">
-                    Sua publicacão foi realizada com sucesso 
-                </div>
-    
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel">Publicação realizada com sucesso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
             </div>
+
+            <div class="modal-body">
+                Sua publicacão foi realizada com sucesso
+            </div>
+
+        </div>
 
     </div>
 </div>

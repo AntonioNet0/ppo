@@ -120,14 +120,22 @@ export class TurmaBD {
         return firebase.database().ref(`turmas/${codTurma}/Horario`)
             .once('value')
             .then((snapshot: any) => {
-                let horario: any[] = []
+                let horario: any = {segunda: [], terca: [], quarta: [], quinta: [], sexta: []}
                 snapshot.forEach((childSnapshot: any) => {
-                    let horario = childSnapshot.val()
-                    horario.key = childSnapshot.key
-                    console.log();
-                    horario.push(horario)
+                    let hor = childSnapshot.val()
+                    if (childSnapshot.key === 'segunda') {
+                        horario.segunda = hor
+                    } else if (childSnapshot.key === 'terca') {
+                        horario.terca = hor
+                    } else if (childSnapshot.key === 'quarta') {
+                        horario.quarta = hor
+                    } else if (childSnapshot.key === 'quinta') {
+                        horario.quinta = hor
+                    } else if (childSnapshot.key === 'sexta') {
+                        horario.sexta = hor
+                    }
+
                 });
-                console.log();
                 return horario
             })
     }

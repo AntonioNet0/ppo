@@ -55,7 +55,6 @@ export class FrequenciaComponent implements OnInit {
       this.disciplinaBD.getDisciplina(parametros.idDisciplina)
         .then((disciplina: Disciplina) => {
           this.disciplina = disciplina
-          console.log(disciplina)
           this.turmaBD.getAlunos(disciplina.turma)
             .then((alunos: any) => {
               this.alunos = alunos
@@ -77,7 +76,6 @@ export class FrequenciaComponent implements OnInit {
     }
 
 
-    console.log(this.disciplinaFrequencia)
   }
 
   public finalizarFrequencia(): void {

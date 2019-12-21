@@ -60,7 +60,8 @@ import { DiarioComponent } from './professor/diario/diario.component';
 import { FrequenciaComponent } from './professor/frequencia/frequencia.component';
 import { PostarMaterialComponent } from './professor/diario/postar-material/postar-material.component';
 import { TrocarSenhaComponent} from './acesso/trocar-senha/trocar-senha.component';
-import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.component'
+import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.component';
+import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component'
 
 
 
@@ -117,6 +118,7 @@ import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.compo
     FrequenciaComponent,
     PostarMaterialComponent,
     HorarioAlunoComponent,
+    AvaliacoesComponent,
 
 
   ],

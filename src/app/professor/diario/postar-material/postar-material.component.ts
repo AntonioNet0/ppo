@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostarMaterialComponent implements OnInit {
 
+  public email: string
+  public imagem: any
+
+  public progressoPublicacao: string = 'pendente'
+  public porcentagemUpload: number
+
   constructor() { }
 
   ngOnInit() {

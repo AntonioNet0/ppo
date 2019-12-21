@@ -19,11 +19,11 @@
         <tbody>
           <tr *ngFor="let periodo of hora; let i = index">
             <th>{{periodo}}</th>
-            <th *ngIf="horarioaluno.segunda[i].disciplina !== undefined">{{horarioaluno.segunda.disciplina}} <br/> <span>{{horarioaluno.segunda[i].nomeTurma}}</span> </th>
-            <th *ngIf="horarioaluno.terca[i].disciplina !== undefined">{{horarioaluno.terca.disciplina}} <br/> <span>{{horarioaluno.terca[i].nomeTurma}}</span> </th>
-            <th *ngIf="horarioaluno.quarta[i].disciplina !== undefined">{{horarioaluno.quarta.disciplina}} <br/> <span>{{horarioaluno.quarta[i].nomeTurma}}</span> </th>
-            <th *ngIf="horarioaluno.quinta[i].disciplina !== undefined">{{horarioaluno.quinta.disciplina}} <br/> <span>{{horarioaluno.quinta[i].nomeTurma}}</span> </th>
-            <th *ngIf="horarioaluno.sexta[i].disciplina !== undefined">{{horarioaluno.sexta.disciplina}}  <br/> <span title="Turma Código">{{horarioaluno.sexta[i].nomeTurma}}</span> </th>
+            <td *ngIf="horarioAluno.segunda[i].disciplina !== undefined">{{horarioAluno.segunda[i].disciplina}}  </td>
+            <td *ngIf="horarioAluno.terca[i].disciplina !== undefined">{{horarioAluno.terca[i].disciplina}} </td>
+            <td *ngIf="horarioAluno.quarta[i].disciplina !== undefined">{{horarioAluno.quarta[i].disciplina}} </td>
+            <td *ngIf="horarioAluno.quinta[i].disciplina !== undefined">{{horarioAluno.quinta[i].disciplina}}   </td>
+            <td *ngIf="horarioAluno.sexta[i].disciplina !== undefined">{{horarioAluno.sexta[i].disciplina}}   </td>
           </tr>
         </tbody>
 
