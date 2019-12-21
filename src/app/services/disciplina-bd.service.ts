@@ -155,7 +155,6 @@ export class DisciplinaBD {
                     val = childSnapshot.key
 
                 });
-                console.log(val)
                 return val
 
             })
