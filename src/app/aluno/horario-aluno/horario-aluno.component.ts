@@ -71,7 +71,7 @@ export class HorarioAlunoComponent implements OnInit {
       
       } else {
 
-        if (disciplina.horario.segunda[0] !== undefined) {
+        if (disciplina.horarioaluno.segunda[0] !== undefined) {
 
           this.horarioaluno.segunda[0] = {disciplina: disciplina.nome, nomeTurma: disciplina.turma}
         }  
@@ -97,7 +97,7 @@ export class HorarioAlunoComponent implements OnInit {
         
         }   
         
-        if (disciplina.horario.segunda[5] !== undefined) {
+        if (disciplina.horarioaluno.segunda[5] !== undefined) {
 
           this.horarioaluno.segunda[5] = {disciplina: disciplina.nome, nomeTurma: disciplina.turma}
 
