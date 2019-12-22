@@ -48,6 +48,7 @@ export class CriarAvaliacaoComponent implements OnInit {
     avaliacao.tipo = this.formulario.value.tipo
     avaliacao.peso = this.formulario.value.peso
     avaliacao.descricao = this.formulario.value.descricao
+    avaliacao.bimestre = this.bimestre
     if (this.avaliacoesBimestre === undefined) {
       avaliacao.id = 0
     } else {

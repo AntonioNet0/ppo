@@ -16,7 +16,7 @@
               de estudo e faça a frequência da turma.</p>
             <div style="float: right;">
                 <a [routerLink]="'diario/'+disciplina.nome" class="card-link">Acesso ao Diário</a>
-                <a [routerLink]="['diario/frequencia', disciplina.nome]" class="card-link">Frequência</a>
+                <a [routerLink]="'diario/'+disciplina.nome+'/frequencia'" class="card-link">Frequência</a>
             </div>
 
 

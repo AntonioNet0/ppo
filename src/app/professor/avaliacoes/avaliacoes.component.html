@@ -58,7 +58,7 @@
           <td>{{avaliacao.tipo}}</td>
           <td>{{avaliacao.peso}}</td>
           <td>{{avaliacao.descricao}}</td>
-          <td class="td-link" [routerLink]="['../../lancar-notas/', avaliacao.id+avaliacao.data.replace('/','-')]">Lançar Notas</td>
+          <td class="td-link" [routerLink]="['./lancar-notas/', avaliacao.bimestre+'-'+avaliacao.id]">Lançar Notas</td>
         </tr>
       </tbody>
 

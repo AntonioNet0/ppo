@@ -48,6 +48,7 @@ export class EditarAvaliacaoComponent implements OnInit {
     avaliacao.peso = this.formulario.value.peso
     avaliacao.descricao = this.formulario.value.descricao
     avaliacao.id = this.avaliacao.id
+    avaliacao.bimestre = this.bimestre
 
     this.formulario.reset()
     this.avaliacaoBD.cadastroAvaliacao(avaliacao, this.avalComp.disciplina.nome, this.bimestre)

@@ -76,11 +76,14 @@ export const ROUTES: Routes = [
         { path: 'professor/dados-pessoais', component: InformacoesPessoaisComponent },
         { path: 'professor/turmas', children: [
             { path: '', component: TurmasComponent },
-            { path: 'diario', children: [
-                { path:':idDisciplina', component: DiarioComponent },
-                { path: 'frequencia/:idDisciplina', component: FrequenciaComponent },
-                { path: 'avaliacoes/:idDisciplina', component: AvaliacoesComponent },
-                { path: 'lancar-notas/:idAvaliacao', component: LancarNotasComponent}
+            { path: 'diario/:idDisciplina', children: [
+                { path:'', component: DiarioComponent },
+                { path: 'frequencia', component: FrequenciaComponent },
+                { path: 'avaliacoes', children: [
+                    { path: '', component: AvaliacoesComponent },
+                    { path: 'lancar-notas/:idAvaliacao', component: LancarNotasComponent}
+                ] },
+                
             ] }
         ] },
         { path: 'professor/horario', component: HorarioComponent },

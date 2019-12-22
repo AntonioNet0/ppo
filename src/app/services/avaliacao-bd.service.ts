@@ -1,7 +1,5 @@
 import * as firebase from 'firebase';
 import { Injectable } from '@angular/core';
-import { Administrador } from '../shared/admin.model';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class AvaliacaoBD {
@@ -32,16 +30,34 @@ export class AvaliacaoBD {
                 snapshot.forEach((childSnapshot: any) => {
                     let item = childSnapshot.val()
                     //item.key = childSnapshot.key
-                    console.log(item)
                     avaliacoes[childSnapshot.key] = item
                 });
-                console.log(avaliacoes)
                 return avaliacoes
             })
     }
 
     public async removerAvaliacao(avaliacao: any, rota: any): Promise<any> {
         return firebase.database().ref(`avaliacoes/${rota.disciplina}/${rota.bimestre}/${avaliacao.id}`).set(null)
+    }
+
+    public async adicionarNotas(notas: any, rota: any): Promise<any> {
+        return firebase.database().ref(`avaliacoes/${rota.disciplina}/${rota.bimestre}/${rota.avaliacao}/notas`).set(notas)
+    }
+
+    public async getNotasAvaliacao(rota: any): Promise<any> {
+        return firebase.database().ref(`avaliacoes/${rota.disciplina}/${rota.bimestre}/${rota.avaliacao}/notas`)
+            .once('value')
+            .then((snapshot: any) => {
+                let notas: any[] = []
+
+                snapshot.forEach((childSnapshot: any) => {
+                    let nota = childSnapshot.val()
+                    nota.key = childSnapshot.key
+
+                    notas.push(nota)
+                });
+                return notas
+            })
     }
 
 }

@@ -25,6 +25,7 @@ export class FrequenciaComponent implements OnInit {
   public diaAula: string = ''
   public alunos: any[] = []
   public disciplina: Disciplina = new Disciplina()
+  public contadorDeFrequencia: number = 0
 
   public disciplinaFrequencia: any[] = []
   public freqCadastradas: any[] = []
@@ -66,10 +67,10 @@ export class FrequenciaComponent implements OnInit {
   }
 
   public adicionarVal(valor: any): void {
-
     if (valor.value <= 4 && valor.value >= 0) {
       document.getElementById(valor.id).className += " valido"
-      this.disciplinaFrequencia[valor.id] = { nome: this.alunos[valor.id].nome, matricula: this.alunos[valor.id].matricula, faltas: valor.value, data: '' }
+      this.contadorDeFrequencia ++
+      this.disciplinaFrequencia[valor.id] = { nome: this.alunos[valor.id].nome, faltas: valor.value, data: '', matricula: this.alunos[valor.id].matricula }
     } else {
       document.getElementById(valor.id).className.replace('valido', '')
       document.getElementById(valor.id).className += " invalido"
@@ -79,7 +80,7 @@ export class FrequenciaComponent implements OnInit {
   }
 
   public finalizarFrequencia(): void {
-    if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid) {
+    if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid && this.alunos.length === this.contadorDeFrequencia) {
       let frequencias: any[] = []
       let data = ''
       this.disciplinaFrequencia.forEach(d => {
@@ -107,7 +108,7 @@ export class FrequenciaComponent implements OnInit {
        this.frequenciaBD.getFrequenciaPorDisciplina(val.value, this.disciplina.nome)
          .then((resp) => {
           this.freqCadastradas = resp
-          this.disciplinaFrequencia = resp
+          //this.disciplinaFrequencia = resp
         })
       this.dataSelecionada = true
     }

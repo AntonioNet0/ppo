@@ -1,3 +1,50 @@
-<p>
-  lancar-notas works!
-</p>
+<div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <div class="my-2">
+    <h2 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3">
+      Lançar Notas</h2>
+
+
+    <table class="table table-bordered table-striped mr-3 mb-0">
+      <thead class="thead">
+        <tr>
+          <th scope="col" style="text-align: center;">Nº</th>
+          <th scope="col">Matrícula</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Nota</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="notasCadastradas.length === 0">
+        <tr *ngFor="let aluno of alunos; let i = index">
+          <td>{{i+1}} </td>
+          <td>{{aluno.matricula}}</td>
+          <td>{{aluno.nome}}</td>
+          <td>
+            <input type="number" #val [id]="i" min="0" max="10" step="any" (change)="adicionarVal(val)">
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="notasCadastradas.length !== 0">
+        <tr *ngFor="let aluno of alunos; let i = index">
+          <td>{{i+1}} </td>
+          <td>{{aluno.matricula}}</td>
+          <td>{{aluno.nome}}</td>
+          <td>
+            <input type="number" #val [id]="i" min="0" max="10" step="any" [value]="notasCadastradas[i].nota" (change)="adicionarVal(val)">
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+    <div class="mt-2">
+      <button type="button" class="btn btn-secondary btn-sm mb-2  mr-2" routerLink="../../">
+        Voltar
+      </button>
+      <button type="button" class="btn btn-primary btn-sm mb-2 estilo" (click)="lancarNotas()">
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>

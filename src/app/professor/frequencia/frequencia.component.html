@@ -55,7 +55,7 @@
       </thead>
       <tbody *ngIf="estadoForm && freqCadastradas.length === 0">
         <tr *ngFor="let aluno of alunos; let i = index">
-          <td>{{i+1}} </td>
+          <td>{{i+1}}</td>
           <td>{{aluno.matricula}}</td>
           <td>{{aluno.nome}}</td>
           <td>
@@ -65,7 +65,7 @@
       </tbody>
       <tbody *ngIf="estadoForm && freqCadastradas.length !== 0">
         <tr *ngFor="let aluno of freqCadastradas; let i = index">
-          <td>{{i+1}} </td>
+          <td>{{i+1}}</td>
           <td>{{aluno.matricula}}</td>
           <td>{{aluno.nome}}</td>
           <td>
