@@ -1,0 +1,72 @@
+<div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <div class="my-2">
+    <h2 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3">
+      Calcular Média da Etapa</h2>
+    <form [formGroup]="formulario">
+       <div class="form-group" style="display: flex;">
+      <div class=" col col-sm-8 col-md-6 col-lg-4" style="float: right;">
+        <h5>Tipo de Média: </h5>
+      </div>
+      <select class="custom-select" formControlName="media">
+        <option value="aritmetica">Aritmética</option>
+        <option value="ponderada">Ponderada</option>
+      </select>
+    </div>
+    </form>
+   
+
+    <table class="table table-bordered table-striped mr-3 mb-0">
+      <thead class="thead">
+        <tr>
+          <th scope="col" style="text-align: center;">Nº</th>
+          <th scope="col">Matrícula</th>
+          <th scope="col">Nome</th>
+          <th scope="col">
+            <div class="row">
+              <div class="col">
+                Aval. 1
+              </div>
+              <div class="col" *ngFor="let aval of numAval; let j = index">
+                Aval. {{j+2}}
+              </div>
+              <div class="col" *ngIf="notasRecu.length !== 0">
+                Recu.
+              </div>
+            </div>
+          </th>
+          <th scope="col">Média</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let avaliacao of notas[0]; let i = index;">
+          <td>{{i+1}}</td>
+          <td>{{avaliacao.matricula}}</td>
+          <td>{{avaliacao.nome}}</td>
+          <td>
+            <div class="row">
+              <div class="col">
+                {{avaliacao.nota}}
+              </div>
+              <div class="col" *ngFor="let aval of numAval; let j = index">
+                {{notas[j+1][i].nota}}
+              </div>
+              <div class="col" *ngIf="notasRecu.length !== 0">
+                {{notasRecu[0][i].nota}}
+              </div>
+            </div>
+          </td>
+          <td *ngIf="formulario.value.media!==null" [id]="i" #nota>
+            {{calculaMedia(avaliacao.matricula, nota)}}
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <button class="btn btn-primary estilo py-0 mt-2" (click)="salvarNotas()">Salvar Notas</button>
+
+
+  </div>
+</div>
