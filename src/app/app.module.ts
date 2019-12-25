@@ -66,7 +66,9 @@ import { EditarAvaliacaoComponent } from './professor/avaliacoes/editar-avaliaca
 import { RemoverAvaliacaoComponent } from './professor/avaliacoes/remover-avaliacao/remover-avaliacao.component';
 import { CriarAvaliacaoComponent } from './professor/avaliacoes/criar-avaliacao/criar-avaliacao.component';
 import { LancarNotasComponent } from './professor/lancar-notas/lancar-notas.component';
-import { MediaEtapaComponent } from './professor/media-etapa/media-etapa.component'
+import { MediaEtapaComponent } from './professor/media-etapa/media-etapa.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { DisciplinasComponent } from './aluno/disciplinas/disciplinas.component'
 
 
 
@@ -129,6 +131,8 @@ import { MediaEtapaComponent } from './professor/media-etapa/media-etapa.compone
     CriarAvaliacaoComponent,
     LancarNotasComponent,
     MediaEtapaComponent,
+    PaginaNaoEncontradaComponent,
+    DisciplinasComponent,
 
 
   ],

@@ -33,6 +33,8 @@ import { HorarioAlunoComponent } from './aluno/horario-aluno/horario-aluno.compo
 import { AvaliacoesComponent } from './professor/avaliacoes/avaliacoes.component';
 import { LancarNotasComponent } from './professor/lancar-notas/lancar-notas.component';
 import { MediaEtapaComponent } from './professor/media-etapa/media-etapa.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { DisciplinasComponent } from './aluno/disciplinas/disciplinas.component';
 
 export const ROUTES: Routes = [
     { path: '', component: AcessoComponent },
@@ -42,6 +44,7 @@ export const ROUTES: Routes = [
         { path: 'aluno/perfil', component: PerfilComponent },
         { path: 'aluno/boletim', component: BoletimComponent},
         { path: 'aluno/horarioaluno', component: HorarioAlunoComponent},
+        { path: 'aluno/disciplinas', component: DisciplinasComponent}
     ]},
     { path: 'home-admin', component: AdminComponent, canActivate: [ AutenticacaoGuard ], children:[
         { path: '', component: HomeAdmComponent },
@@ -90,5 +93,6 @@ export const ROUTES: Routes = [
         ] },
         { path: 'professor/horario', component: HorarioComponent },
         
-    ]}
+    ]},
+    { path: '**', component: PaginaNaoEncontradaComponent}
 ]

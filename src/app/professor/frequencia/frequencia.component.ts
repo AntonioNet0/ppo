@@ -70,7 +70,6 @@ export class FrequenciaComponent implements OnInit {
   public adicionarVal(valor: any): void {
     if (valor.value <= 4 && valor.value >= 0) {
       document.getElementById(valor.id).className += " valido"
-      this.contadorDeFrequencia ++
       this.disciplinaFrequencia[valor.id] = { nome: this.alunos[valor.id].nome, faltas: valor.value, data: '', matricula: this.alunos[valor.id].matricula }
     } else {
       document.getElementById(valor.id).className.replace('valido', '')
@@ -81,7 +80,7 @@ export class FrequenciaComponent implements OnInit {
   }
 
   public finalizarFrequencia(): void {
-    if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid && this.alunos.length === this.contadorDeFrequencia) {
+    if (this.alunos.length === this.disciplinaFrequencia.length && this.formulario.valid) {
       let frequencias: any[] = []
       let data = ''
       this.disciplinaFrequencia.forEach(d => {

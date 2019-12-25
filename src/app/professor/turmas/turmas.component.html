@@ -12,11 +12,11 @@
           <div class="card-body">
             <h5 class="card-title">{{disciplina.turma}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{disciplina.nome}}</h6>
-            <p class="card-text" style="color: black;"><b>Diário da Disciplina.</b> Lançe notas, disponibilize material
-              de estudo e faça a frequência da turma.</p>
+            <p class="card-text" style="color: black;"><b>Diário da Disciplina.</b> Lançe notas,
+              e faça a frequência da turma.</p>
             <div style="float: right;">
-                <a [routerLink]="'diario/'+disciplina.nome" class="card-link">Acesso ao Diário</a>
-                <a [routerLink]="'diario/'+disciplina.nome+'/frequencia'" class="card-link">Frequência</a>
+              <a [routerLink]="'diario/'+disciplina.nome" class="card-link">Acesso ao Diário</a>
+              <a [routerLink]="'diario/'+disciplina.nome+'/frequencia'" class="card-link">Frequência</a>
             </div>
 
 

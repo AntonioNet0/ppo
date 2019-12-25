@@ -1,0 +1,39 @@
+<div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
+
+  <div class="my-2">
+    <h3 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3">Disciplinas</h3>
+
+    <div class="row d-flex justify-content-center">
+
+      <div *ngFor="let disciplina of disciplinas" class="col-sm-12 col-md-12 col-lg-6 mb-4 mt-3">
+
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">{{disciplina.disciplina}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{disciplina.professor}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{aluno.turma}}</h6>
+            <br />
+
+            <div style="float: right;">
+              <p style="color: black;">Número de Faltas: {{disciplina.faltas}}</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card my-1 py-1" *ngFor="let aval of disciplina.avals; let i = index" style="text-align: center;">
+          <h5 >{{i+1}}º Bimestre </h5>
+          <div *ngFor="let biAval of aval">
+            <div *ngIf="biAval !== undefined; let j = index">
+              {{biAval.data+'/2020'}}; Avaliação: {{biAval.tipo}}; Peso: {{biAval.peso}}; Nota: <span *ngIf="biAval.notas !== undefined">{{biAval.notas[disciplina.pos].nota}}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <h3 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
+      class=" pb-2 mb-3"></h3>
+  </div>
+</div>
