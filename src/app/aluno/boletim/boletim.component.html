@@ -7,26 +7,27 @@
       </h3>
     </div>
 <table class="table">
-  <thead class="thead-dark" >
-    <tr >
-      <th scope="col">Disciplinas</th>
-      <th scope="col">1º UNIDADE</th>
-      <th scope="col">2º UNIDADE</th>
-      <th scope="col">3º UNIDADE</th>
-      <th scope="col">4º UNIDADE</th>
-      <th scope="col" >Final</th>
-      <th scope="col" >Estado</th>
+  <thead class="thead-dark table-borderless" >
+    <tr>
+      <th scope="col">Dsiciplina</th>
+      <th scope="col" class="th tabela">1º Unidade</th>
+      <th scope="col" class="th tabela">2º Unidade</th>
+      <th scope="col" class="th tabela">3º Unidade</th>
+      <th scope="col" class="th tabela">4º Unidade</th>
+      <!-- <th scope="col" class="th tabela">Final</th> -->
+      <th scope="col" class="th tabela">Estado</th>
     </tr>
+
   </thead>
   <tbody >
-    <tr *ngFor="let disciplina of disciplinas">
-      <th scope="row" class="th" >{{disciplina}}</th>
-      <td>6.0</td>
-      <td>6.0</td>
-      <td>6.0</td>
-      <td>6.0</td>
-      <td></td>
-      <td>Aprovado</td>
+    <tr *ngFor="let disciplina of disciplinas; let i = index">
+      <th scope="row" class="tabela">{{disciplina}}</th>
+      <td class="tabela"> <span *ngIf="notas[i][0] !== undefined">{{notas[i][0].mediaBimestre}}</span> </td>
+      <td class="tabela"> <span *ngIf="notas[i][1] !== undefined">{{notas[i][1].mediaBimestre}}</span> </td>
+      <td class="tabela"> <span *ngIf="notas[i][2] !== undefined">{{notas[i][2].mediaBimestre}}</span> </td>
+      <td class="tabela"> <span *ngIf="notas[i][3] !== undefined">{{notas[i][3].mediaBimestre}}</span> </td>
+      <!-- <td class="tabela"></td> -->
+      <td class="tabela">{{estado(notas[i])}}</td>
     </tr>
   </tbody>
 </table>

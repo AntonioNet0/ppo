@@ -1,9 +1,23 @@
 <div class="container" style="border: rgba(0, 0, 0, 0.2) 1px solid; background-color: #ffffff;">
 
   <div class="my-2">
-    <h2 style=" border-bottom: rgba(0, 0, 0, 0.2) solid 1px; margin-bottom: 0; font-weight: 100; text-align: center;"
-      class=" pb-2 mb-3">
-      Avaliações</h2>
+
+    <div class="row">
+      <div class="col-5">
+        <button class="btn btn-primary-outline py-0" (click)="voltar()">
+           <i  class="fas fa-arrow-left"></i>
+        </button>
+       
+      </div>
+      <div class="col">
+        <h2 style="text-align: left;"> Avaliações</h2>
+      </div>
+    </div>
+
+
+    
+
+
   </div>
 
   <div class="mx-auto">
@@ -23,7 +37,8 @@
       </div>
 
       <div style="float: right; margin-right: 15px;">
-        <button class="mb-2 btn btn-primary estilo py-0 mx-2" [routerLink]="'./media-etapa/'+bimestre">Média da Etapa</button>
+        <button class="mb-2 btn btn-primary estilo py-0 mx-2" [routerLink]="'./media-etapa/'+bimestre">Média da
+          Etapa</button>
         <button class="mb-2 btn btn-primary estilo py-0" data-toggle="modal" data-target="#modalCriar">Criar</button>
       </div>
     </div>
@@ -43,13 +58,13 @@
       <tbody *ngFor="let avaliacao of avaliacoesBimestre">
         <tr *ngIf="avaliacao != undefined">
           <td scope="row" style="text-align: center; vertical-align: middle; width: 15%; padding: 6px;">
-            <button type="button" (click)=" modalUsuario(avaliacao)"
-              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#modalEditar">
+            <button type="button" (click)=" modalUsuario(avaliacao)" class="btn btn-primary-outline py-0"
+              data-toggle="modal" data-target="#modalEditar">
               <i class="fas fa-edit"></i>
             </button>
 
-            <button type="button" (click)=" modalUsuario(avaliacao)"
-              class="btn btn-primary-outline py-0" data-toggle="modal" data-target="#confirmaExclusao">
+            <button type="button" (click)=" modalUsuario(avaliacao)" class="btn btn-primary-outline py-0"
+              data-toggle="modal" data-target="#confirmaExclusao">
               <i class="fas fa-trash-alt"></i>
             </button>
           </td>
@@ -69,6 +84,8 @@
 
 </div>
 
-    <app-remover-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota"></app-remover-avaliacao>
-    <app-criar-avaliacao [avaliacao]="avaliacaoTemp" [avaliacoesBimestre]= "avaliacoesBimestre" [bimestre]="bimestre" [bimestresDias]="bimestresDias"></app-criar-avaliacao>
-    <app-editar-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota" [bimestre]="bimestre" [bimestresDias]="bimestresDias"></app-editar-avaliacao>
+<app-remover-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota"></app-remover-avaliacao>
+<app-criar-avaliacao [avaliacao]="avaliacaoTemp" [avaliacoesBimestre]="avaliacoesBimestre" [bimestre]="bimestre"
+  [bimestresDias]="bimestresDias"></app-criar-avaliacao>
+<app-editar-avaliacao [avaliacao]="avaliacaoTemp" [rota]="rota" [bimestre]="bimestre" [bimestresDias]="bimestresDias">
+</app-editar-avaliacao>

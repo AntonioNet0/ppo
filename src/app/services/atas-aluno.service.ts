@@ -6,7 +6,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export class AtaAlunoPDF {
 
-    public ataPresenca(alunos: Aluno[], disciplina: Disciplina) {
+    public ataPresenca(alunos: Aluno[], disciplina: Disciplina, professorNome: string) {
         let linha = this.construirTabela(alunos)
         const documentoDefinicoes = {
             content: [
@@ -56,7 +56,7 @@ export class AtaAlunoPDF {
                         body: [
 
                             [{
-                                text:  `Professor: {aluno.nome}\nDisciplina: ${disciplina.nome} - ${disciplina.codigo}`,
+                                text:  `Professor: ${professorNome}\nDisciplina: ${disciplina.nome} - ${disciplina.codigo}\nData:___/___/____`,
 
                                 fontSize: 12,
 

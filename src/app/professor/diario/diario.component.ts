@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { ProfessorBD } from 'src/app/services/professor-bd.service';
@@ -18,6 +18,7 @@ export class DiarioComponent implements OnInit {
   public professorNome: string = ''
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private disciplinaBD: DisciplinaBD,
     private professorBD: ProfessorBD,
@@ -41,10 +42,13 @@ export class DiarioComponent implements OnInit {
   public gerar(): void{
     this.turmaBD.getAlunos(this.disciplina.turma)
       .then(alunos => {
-        this.ataPDF.ataPresenca(alunos, this.disciplina)
+        this.ataPDF.ataPresenca(alunos, this.disciplina, this.professorNome)
       })
     
   }
 
+  public voltar(): void {
+    this.router.navigate(['home-professor/professor/turmas/'])
+  }
 
 }

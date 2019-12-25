@@ -26,6 +26,8 @@ export class MediaEtapaComponent implements OnInit {
   public disciplinaNome: string = ''
   public bimestre: any = 0
 
+  public mediaCadastradas: any = []
+
   public notasDisciplinaBimestre: any = []
 
   constructor(
@@ -40,6 +42,11 @@ export class MediaEtapaComponent implements OnInit {
     this.route.params.subscribe((parametros: Params) => {
       this.disciplinaNome = parametros.idDisciplina
       this.bimestre = parametros.bimestre
+      this.notasBD.getNotasDiscipilinaBimestre(parametros.idDisciplina, parametros.bimestre)
+        .then((resp: any) => {
+          this.mediaCadastradas = resp
+          this.notasDisciplinaBimestre= resp
+        })
       this.avaliacaoBD.getAvaliacoesBimestre(parametros.idDisciplina, parametros.bimestre)
         .then((resp) => {
           let i = 0
@@ -69,7 +76,7 @@ export class MediaEtapaComponent implements OnInit {
   public calculaMedia(matricula: string, comp: any): any {
     if (this.notasRecu.length !== 0) {
       let media = 0
-      let nota = { nome: '', matricula: '', mediaBimestre: 0}
+      let nota = { nome: '', matricula: '', mediaBimestre: 0 }
       this.notasRecu.forEach((item) => {
         item.forEach(aluno => {
           if (aluno.matricula === matricula && aluno.nota != 0) {
@@ -118,7 +125,7 @@ export class MediaEtapaComponent implements OnInit {
         }
       })
     })
-    nota.mediaBimestre = media/cont
+    nota.mediaBimestre = media / cont
     this.notasDisciplinaBimestre[comp.id] = nota
     return media / cont
   }
@@ -137,17 +144,19 @@ export class MediaEtapaComponent implements OnInit {
         }
       })
     })
-    nota.mediaBimestre = media/cont
+    nota.mediaBimestre = media / cont
     this.notasDisciplinaBimestre[comp.id] = nota
     return media / cont
   }
 
-  public salvarNotas(): void{
-    this.notasDisciplinaBimestre.disciplina = this.disciplinaNome
-    this.notasDisciplinaBimestre.bimestre = this.bimestre
-    console.log(this.notasDisciplinaBimestre);
-    this.notasBD.cadastrarNotas(this.notasDisciplinaBimestre)
-      .then(()=> console.log("Sucesso"))
+  public salvarNotas(): void {
+    if (this.notasDisciplinaBimestre.length === this.notas[0].length) {
+      this.notasDisciplinaBimestre.disciplina = this.disciplinaNome
+      this.notasDisciplinaBimestre.bimestre = this.bimestre
+      this.notasBD.cadastrarNotas(this.notasDisciplinaBimestre)
+        .then(() => alert("Sucesso"))
+    }
+
   }
 
 }

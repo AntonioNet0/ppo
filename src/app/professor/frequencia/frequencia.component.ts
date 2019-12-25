@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { Aluno } from 'src/app/shared/aluno.model';
@@ -36,6 +36,7 @@ export class FrequenciaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private disciplinaBD: DisciplinaBD,
     private turmaBD: TurmaBD,
     private periodoBD: PeriodoLetivoBD,
@@ -112,6 +113,10 @@ export class FrequenciaComponent implements OnInit {
         })
       this.dataSelecionada = true
     }
+  }
+
+  public voltar(): void {
+    this.router.navigate(['home-professor/professor/turmas/diario/', this.disciplina.nome])
   }
 
 }

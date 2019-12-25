@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Disciplina } from 'src/app/shared/disciplina.model';
 import { DisciplinaBD } from 'src/app/services/disciplina-bd.service';
 import { PeriodoLetivoBD } from 'src/app/services/periodo-letivo-db.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AvaliacaoBD } from 'src/app/services/avaliacao-bd.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class AvaliacoesComponent implements OnInit {
   public avaliacoesBimestre: any = []
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private disciplinaBD: DisciplinaBD,
     private periodoBD: PeriodoLetivoBD,
@@ -80,6 +81,10 @@ export class AvaliacoesComponent implements OnInit {
         this.avaliacoes = resp
         this.avaliacoesBimestre = this.avaliacoes[this.bimestre]
       })
+  }
+
+  public voltar(): void {
+    this.router.navigate(['home-professor/professor/turmas/diario/', this.disciplina.nome])
   }
 
 }

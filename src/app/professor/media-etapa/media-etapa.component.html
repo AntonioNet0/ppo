@@ -57,15 +57,20 @@
               </div>
             </div>
           </td>
+          <td *ngIf="formulario.value.media===null && mediaCadastradas.length !== 0" [id]="i" #nota>
+            {{mediaCadastradas[i].mediaBimestre}}
+          </td>
           <td *ngIf="formulario.value.media!==null" [id]="i" #nota>
             {{calculaMedia(avaliacao.matricula, nota)}}
           </td>
+
         </tr>
       </tbody>
 
     </table>
 
-    <button class="btn btn-primary estilo py-0 mt-2" (click)="salvarNotas()">Salvar Notas</button>
+    <button class="btn btn-secondary py-0 mt-2 mr-2" routerLink="../..">Voltar</button>
+    <button class="btn btn-primary estilo py-0 mt-2" (click)="salvarNotas()">Salvar notas</button>
 
 
   </div>

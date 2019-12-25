@@ -1,6 +1,14 @@
 td{
     background-color: #ffffff;
+    text-align: center;
 }
 .th{
     background-color: #ffffff;
+    text-align: center;
+    font-weight: 300;
+
+}
+
+.tabela {
+    border: 1px solid #dee2e6;
 }

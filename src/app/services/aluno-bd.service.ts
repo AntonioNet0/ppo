@@ -27,8 +27,6 @@ export class AlunoBD {
 
             })
             .catch((erro: Error) => {
-                console.log("Aqui deu merda")
-                console.log(erro)
                 this.errorMessage = erro.message
             }
             )
@@ -63,6 +61,7 @@ export class AlunoBD {
     }
 
     public async getAluno(): Promise<any> {
+       
         let email = firebase.auth().currentUser.email
         return firebase.database().ref(`alunos/${btoa(email)}`)
             .once('value')
@@ -71,23 +70,22 @@ export class AlunoBD {
 
                 snapshot.forEach((childSnapshot: any) => {
 
-                    let prof = childSnapshot.val()
+                    let alu = childSnapshot.val()
                     
                     if(childSnapshot.key === 'cpf'){
-                       aluno.cpf = prof
+                       aluno.cpf = alu
                     }else if(childSnapshot.key === 'email'){
-                        aluno.email = prof
+                        aluno.email = alu
                     }else if(childSnapshot.key === 'matricula'){
-                        aluno.matricula = prof
+                        aluno.matricula = alu
                     } else if(childSnapshot.key === 'nome'){
-                        aluno.nome = prof
+                        aluno.nome = alu
                     } else if(childSnapshot.key === 'turma'){
-                        aluno.turma = prof
+                        aluno.turma = alu
                     }
-                    
+
                    
                 })
-                //console.log(aluno)
                 return aluno
             })
     }
@@ -111,7 +109,6 @@ export class AlunoBD {
 
                     if ((aluno.nome + '').toLowerCase().startsWith(termo.toLowerCase())) {
                         alunos.push(aluno)
-                        console.log(aluno.nome)
                     }
                 })
                 if (alunos.length === 0) {

@@ -15,4 +15,37 @@ export class NotasBD {
         return firebase.database().ref(`notas/${disciplina}/${bimestre}`).set(notas)
     }
 
+    public async getNotasDiscipilinaBimestre(disciplina: string, bimestre: string): Promise<any> {
+        return firebase.database().ref(`notas/${disciplina}/${bimestre}`)
+            .once('value')
+            .then((snapshot: any) => {
+                let notas: any = []
+                snapshot.forEach((childSnapshot: any) => {
+                    let nota = childSnapshot.val()
+                    nota.key = childSnapshot.key
+                    notas.push(nota)
+                });
+                return notas
+            })
+    }
+
+    public async getNotasAluno(disciplina: string, alunoMatricula: string): Promise<any> {
+        return firebase.database().ref(`notas/${disciplina}`)
+            .once('value')
+            .then((snapshot: any) => {
+                let notasAluno: any = []
+                snapshot.forEach((childSnapshot: any) => {
+
+                    childSnapshot.val().forEach((n: any) => {
+                        if (n.matricula === alunoMatricula) {
+                            n.bimestre = childSnapshot.key
+                            notasAluno.push(n)
+                        }
+                    })
+
+                })
+                return notasAluno
+            })
+    }
+
 }

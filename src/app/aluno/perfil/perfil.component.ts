@@ -37,6 +37,7 @@ export class PerfilComponent implements OnInit {
       .then((alunos: any) => {
         this.alunoBD.getAluno()
           .then((aluno: any) => {
+            console.log(aluno)
             this.aluno = aluno
             this.turmaBD.getTurmaPorCodigo(aluno.turma)
               .then((resp: any) => {

@@ -36,7 +36,10 @@ export class AtualizarSenhaProfessorComponent implements OnInit {
           if (b) {
             this.professorBD.mudarSenha(this.formulario.value.novaSenha)
               .then(() => alert("Sucesso!"))
+          } else {
+            alert("Senha Antiga Incorreta!")
           }
+         
         })
       } else {
         alert('As senhas não batem.')

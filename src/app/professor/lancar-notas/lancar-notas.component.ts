@@ -67,6 +67,7 @@ export class LancarNotasComponent implements OnInit {
     if (this.alunos.length === this.notasAvaliacao.length) {
 
       this.avaliacaoBD.adicionarNotas(this.notasAvaliacao, this.rota)
+        .then(()=> alert("Sucesso!"))
     } else {
       alert("Preencha todos os campos corretamente!")
     }
