@@ -24,10 +24,28 @@
           Operações
         </h3>
 
-        <h5 [routerLink]="['./frequencia/']">Frequência</h5>
+        <!-- <h5 [routerLink]="['./frequencia/']">Frequência</h5>
         <h5 (click)="gerar()">Ata</h5>
-        <!-- <h5 data-toggle="modal" data-target="#exampleModal"> Disponibilazar Material </h5> -->
-        <h5 [routerLink]="['./avaliacoes']">Avaliações</h5>
+        <h5 data-toggle="modal" data-target="#exampleModal"> Disponibilazar Material </h5>
+        <h5 [routerLink]="['./avaliacoes']">Avaliações</h5> -->
+
+
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" >
+              <a class="list-group-item  op"  [routerLink]="['./frequencia/']"  >Frequência</a>
+              <a class="list-group-item op"   (click)="gerar()" [routerLink]="">Ata de Frequência</a>
+              <a class="list-group-item op"   [routerLink]="['./avaliacoes']">Avaliações</a>
+            </div>
+          </div>
+          <!-- <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="list-frequencia" role="tabpanel" aria-labelledby="list-home-list">Realize a frequência de turma</div>
+              <div class="tab-pane fade" id="list-ata" role="tabpanel" aria-labelledby="list-profile-list">Impriima atas de frequência da Turma</div>
+              <div class="tab-pane fade" id="list-avaliacoes" role="tabpanel" aria-labelledby="list-messages-list">Cria avaliações, lança notas e faça as médias das etapas.</div>
+            </div>
+          </div> -->
+        </div>
         
     </div>
 

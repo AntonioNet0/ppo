@@ -1,0 +1,10 @@
+.op{
+    color: #00507C;
+}
+
+.op:hover{
+    color: rgba(0, 80, 124, 1);
+    font-weight: bolder;
+    text-decoration: underline;
+    cursor: pointer;
+}

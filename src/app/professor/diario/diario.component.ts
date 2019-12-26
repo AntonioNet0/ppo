@@ -39,16 +39,20 @@ export class DiarioComponent implements OnInit {
     })
   }
 
-  public gerar(): void{
+  public gerar(): void {
     this.turmaBD.getAlunos(this.disciplina.turma)
       .then(alunos => {
         this.ataPDF.ataPresenca(alunos, this.disciplina, this.professorNome)
       })
-    
+
   }
 
   public voltar(): void {
+
     this.router.navigate(['home-professor/professor/turmas/'])
+
   }
+
+
 
 }

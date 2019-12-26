@@ -35,13 +35,11 @@ export class PeriodoLetivoBD {
     }
 
     public async getBimestresPorDia(dia: string): Promise<any> {
-        return firebase.database().ref(`bimestres/${dia}s`)
+        return firebase.database().ref(`bimestres/${dia.toLowerCase()}s`)
             .once('value')
             .then((snapshot: any) => {
                 let bimestresDia: any[] = []
-
                 snapshot.forEach((childsnapshot: any) => {
-                    
                     bimestresDia.push(childsnapshot.val())
 
                 });

@@ -140,7 +140,7 @@ export class TurmaBD {
             })
     }
     public async getAlunos(codTurma: string): Promise<any> {
-        return firebase.database().ref(`turmas/${codTurma}/alunos`)
+        return firebase.database().ref(`turmas/${codTurma}/alunos`).orderByChild('nome')
             .once('value')
             .then((snapshot: any) => {
                 let alunos: any[] = []

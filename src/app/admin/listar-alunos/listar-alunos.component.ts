@@ -61,12 +61,12 @@ export class ListarAlunosComponent implements OnInit {
 
   private criarPaginacao(): any {
     let paginacao: any[] = []
-    let numPaginacao = this.alunos.length / 5
+    let numPaginacao = this.alunos.length / 10
     paginacao.push({ val: 1 })
     if (numPaginacao !== 0) {
       numPaginacao++
     }
-    for (let i = 2; i <= numPaginacao; i++) {
+    for (let i = 2; i < numPaginacao; i++) {
       paginacao.push({ val: i })
     }
     return paginacao
@@ -76,12 +76,12 @@ export class ListarAlunosComponent implements OnInit {
     if (pagina <= this.paginacao.length && pagina !== 0) {
 
       let num = this.alunos.length
-      let max = pagina * 5
+      let max = pagina * 10
       let alunos: Aluno[] = []
       if (num < max) {
         max = num
       }
-      for (let i = (pagina - 1) * 5; i < max; i++) {
+      for (let i = (pagina - 1) * 10; i < max; i++) {
         alunos.push(this.alunos[i])
       }
 
